@@ -4,21 +4,18 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>seminar.xcscheme_^#shared#^_</key>
+		<key>Pods-seminar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<true/>
-			<key>orderHint</key>
-			<integer>0</integer>
+			<false/>
+		</dict>
+		<key>SmileLock.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>B6680F6A27619EAD00F94D90</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>
