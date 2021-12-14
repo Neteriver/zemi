@@ -7,8 +7,12 @@
 
 import CoreLocation
 import Foundation
+import MapKit
 
 class LocationAuth:NSObject,ObservableObject,CLLocationManagerDelegate {
+    
+    var hcsCoordinate : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 43.05605231592795, longitude: 141.37971392475367)
+    
     let reason = "位置情報が取得できません"
     var coordinate: CLLocationCoordinate2D? {
         lastSeenLocation?.coordinate
@@ -59,10 +63,19 @@ class LocationAuth:NSObject,ObservableObject,CLLocationManagerDelegate {
         case .authorizedAlways, .authorizedWhenInUse:
             print("緯度：" + String(coordinate?.latitude ?? 0))
             print("経度：" + String(coordinate?.longitude ?? 0))
+            var result = contains(coordinate: coordinate!)
             complation("位置情報を取得しました")
             break
         default:
             break
         }
+    }
+    
+    func contains(coordinate:CLLocationCoordinate2D) -> Bool {
+        let point1:MKMapPoint = MKMapPoint(coordinate);
+        let point2:MKMapPoint = MKMapPoint(hcsCoordinate);
+        let distance:CLLocationDistance = point1.distance(to: point2);
+        print(distance)
+        return true
     }
 }
