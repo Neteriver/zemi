@@ -23,7 +23,10 @@ struct ContentView: View {
         Text("\(message)")
             .padding()
             .onAppear {
-                //passwordAuth.viewDidLoad()
+                PasswordView { otp, completionHandler in
+                            // check if the otp is correct here
+                            print(otp)
+                        }
                 // 認証の実行
                 exec()
             }

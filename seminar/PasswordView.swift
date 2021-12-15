@@ -6,63 +6,151 @@
 //
 
 import SwiftUI
-import SmileLock
-import Foundation
-
-struct PasswordView : View{
-    class PasswordAuth : PasswordInputCompleteProtocol{
-        func validation(_ input:String) -> Bool{
-            // パスワードの照合をおこなっている
-            // 返り値はBoolean型
-            // 現状は正解パスワードを直書きしている
-            return input == "0000"
-        }
-        func validationSuccess(){
-            // パスワードが正しかった時の処理
-        }
-        func validationFail(){
-            // パスワードが間違っていた時の処理
-            passwordContainerView.wrongPassword()
-        }
-        func passwordInputComplete(_ contentView: PasswordContainerView, input: String) {
-            if validation(input) {
-                validationSuccess()
-            } else {
-                validationFail()
+// import Introspect
+public struct PasswordView: View {
+    
+    var maxDigits: Int = 4
+    var label = "Enter One Time Password"
+    
+    @State var pin: String = ""
+    @State var showPin = false
+    @State var isDisabled = false
+    
+    
+    var handler: (String, (Bool) -> Void) -> Void
+    
+    public var body: some View {
+        VStack {
+            Text(label).font(.title)
+            ZStack {
+                pinDots
+                backgroundField
             }
-        }
-        // 指紋認証のやつ
-        func touchAuthenticationComplete(_ contentView: PasswordContainerView, success: Bool, error: Error?) {
-            if success {
-                self.validationSuccess()
-            } else {
-                contentView.clearInput()
-            }
-        }
-        //パスワード画面を生成
-        var passwordContainerView: PasswordContainerView!
-        //パスワードの桁数
-        let kPasswordDigit = 4
-        
-        func viewDidLoad() {
-            //create PasswordContainerView
-            passwordContainerView = PasswordContainerView.create(withDigit: kPasswordDigit)
-            passwordContainerView.delegate = self
-            passwordContainerView.deleteButtonLocalizedTitle = "削除"
+            showPinStack
         }
         
-        func didReceiveMemoryWarning() {
-            didReceiveMemoryWarning()
-            // Dispose of any resources that can be recreated.
+    }
+    
+    private var pinDots: some View {
+        HStack {
+            Spacer()
+            ForEach(0..<maxDigits) { index in
+                Image(systemName: self.getImageName(at: index))
+                Spacer()
+            }
         }
     }
-    var body: some View {
-        Text("Hello, World!")
+    
+    private var backgroundField: some View {
+        let boundPin = Binding<String>(get: { self.pin }, set: { newValue in
+            self.pin = newValue
+            self.submitPin()
+        })
+        
+        return TextField("", text: boundPin, onCommit: submitPin)
+      
+      // Introspect library can used to make the textField become first resonder on appearing
+      // if you decide to add the pod 'Introspect' and import it, comment #50 to #53 and uncomment #55 to #61
+      
+           .accentColor(.clear)
+           .foregroundColor(.clear)
+           .keyboardType(.numberPad)
+           .disabled(isDisabled)
+      
+//             .introspectTextField { textField in
+//                 textField.tintColor = .clear
+//                 textField.textColor = .clear
+//                 textField.keyboardType = .numberPad
+//                 textField.becomeFirstResponder()
+//                 textField.isEnabled = !self.isDisabled
+//         }
+    }
+    
+    private var showPinStack: some View {
+        HStack {
+            Spacer()
+            if !pin.isEmpty {
+                showPinButton
+            }
+        }
+        .frame(height: 100)
+        .padding([.trailing])
+    }
+    
+    private var showPinButton: some View {
+        Button(action: {
+            self.showPin.toggle()
+        }, label: {
+            self.showPin ?
+                Image(systemName: "eye.slash.fill").foregroundColor(.primary) :
+                Image(systemName: "eye.fill").foregroundColor(.primary)
+        })
+    }
+    
+    private func submitPin() {
+        guard !pin.isEmpty else {
+            showPin = false
+            return
+        }
+        
+        if pin.count == maxDigits {
+            isDisabled = true
+            
+            handler(pin) { isSuccess in
+                if isSuccess {
+                    print("pin matched, go to next page, no action to perfrom here")
+                } else {
+                    pin = ""
+                    isDisabled = false
+                    print("this has to called after showing toast why is the failure")
+                }
+            }
+        }
+        
+        // this code is never reached under  normal circumstances. If the user pastes a text with count higher than the
+        // max digits, we remove the additional characters and make a recursive call.
+        if pin.count > maxDigits {
+            pin = String(pin.prefix(maxDigits))
+            submitPin()
+        }
+    }
+    
+    private func getImageName(at index: Int) -> String {
+        if index >= self.pin.count {
+            return "circle"
+        }
+        
+        if self.showPin {
+            return self.pin.digits[index].numberString + ".circle"
+        }
+        
+        return "circle.fill"
     }
 }
 
-struct PasswordView_Previews: PreviewProvider {
-    static var previews: some View {
-        PasswordView()
+extension String {
+    
+    var digits: [Int] {
+        var result = [Int]()
+        
+        for char in self {
+            if let number = Int(String(char)) {
+                result.append(number)
+            }
+        }
+        
+        return result
+    }
+    
+}
+
+extension Int {
+    
+    var numberString: String {
+        
+        guard self < 10 else { return "0" }
+        
+        return String(self)
     }
 }
+

@@ -16,21 +16,21 @@ class PasswordAuth {
         contentView.delegate = self
         contentView.deleteButtonLocalizedTitle = "削除"
     }
-    //    func passwordInputComplete(_ contentView: PasswordContainerView, input: String) {
-    //        if validation(input) {
-    //            validationSuccess()
-    //        } else {
-    //            validationFail()
-    //        }
-    //    }
-    //
-    //    func touchAuthenticationComplete(_ contentView: PasswordContainerView, success: Bool, error: Error?) {
-    //        if success {
-    //            self.validationSuccess()
-    //        } else {
-    //            contentView.clearInput()
-    //        }
-    //    }
+//        func passwordInputComplete(_ contentView: PasswordContainerView, input: String) {
+//            if validation(input) {
+//                validationSuccess()
+//            } else {
+//                validationFail()
+//            }
+//        }
+//
+//        func touchAuthenticationComplete(_ contentView: PasswordContainerView, success: Bool, error: Error?) {
+//            if success {
+//                self.validationSuccess()
+//            } else {
+//                contentView.clearInput()
+//            }
+//        }
 }
 extension PasswordAuth : PasswordInputCompleteProtocol{
     func passwordInputComplete(_ contentView: PasswordContainerView, input: String) {
