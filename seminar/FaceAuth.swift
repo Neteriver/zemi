@@ -15,49 +15,74 @@ class FaceAuth {
     let reason = "パスワードを入力してください"
 
     // 顔認証処理
-    func auth(complation:@escaping(String) -> Void) {
+    func auth(complation:@escaping(FaceAuthData) -> Void) {
+        let data = FaceAuthData()
         // 顔認証が利用できるかチェック
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
             // 認証処理の実行
             context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, error in
                 if success {
                     DispatchQueue.main.async {
-                        complation("認証が成功しました")
+                        data.message = "FaceID認証が成功しました"
+                        data.result = true
+                        complation(data)
                     }
                 } else if let laError = error as? LAError {
                     switch laError.code {
                     case .authenticationFailed:
-                        complation("認証に失敗しました")
+                        data.message = "認証に失敗しました"
+                        data.result = false
+                        complation(data)
                         break
                     case .userCancel:
-                        complation("認証がキャンセルされました")
+                        data.message = "認証がキャンセルされました"
+                        data.result = false
+                        complation(data)
                         break
                     case .userFallback:
-                        complation("認証に失敗しました")
+                        data.message = "認証に失敗しました"
+                        data.result = false
+                        complation(data)
                         break
                     case .systemCancel:
-                        complation("認証が自動キャンセルされました")
+                        data.message = "認証が自動キャンセルされました"
+                        data.result = false
+                        complation(data)
                         break
                     case .passcodeNotSet:
-                        complation("パスコードが入力されませんでした")
+                        data.message = "パスコードが入力されませんでした"
+                        data.result = false
+                        complation(data)
                         break
                     case .touchIDNotAvailable:
-                        complation("指紋認証の失敗上限に達しました")
+                        data.message = "指紋認証の失敗上限に達しました"
+                        data.result = false
+                        complation(data)
                         break
                     case .touchIDNotEnrolled:
-                        complation("指紋認証が許可されていません")
+                        data.message = "指紋認証が許可されていません"
+                        data.result = false
+                        complation(data)
                         break
                     case .touchIDLockout:
-                        complation("指紋が登録されていません")
+                        data.message = "指紋が登録されていません"
+                        data.result = false
+                        complation(data)
                         break
                     case .appCancel:
-                        complation("アプリ側でキャンセルされました")
+                        data.message = "アプリ側でキャンセルされました"
+                        data.result = false
+                        complation(data)
                         break
                     case .invalidContext:
-                        complation("不明なエラー")
+                        data.message = "不明なエラー"
+                        data.result = false
+                        complation(data)
                         break
                     case .notInteractive:
-                        complation("システムエラーが発生しました")
+                        data.message = "システムエラーが発生しました"
+                        data.result = false
+                        complation(data)
                         break
                     @unknown default:
                         // 何もしない

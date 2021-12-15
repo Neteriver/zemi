@@ -13,53 +13,59 @@ import LocalAuthentication
 struct ContentView: View {
     
     @State var message = "AuthenticationApp"
+    @State var authResult:Bool = false
+    @State var pass = ""
     
     let faceAuth:FaceAuth = FaceAuth()
     let locationAuth:LocationAuth = LocationAuth()
     let passwordAuth:PasswordLoginController = PasswordLoginController()
     
     var body: some View {
+        PasswordView { otp, completionHandler in
+            // check if the otp is correct here
+            print(otp)
+        }
         
         Text("\(message)")
             .padding()
             .onAppear {
-                //passwordAuth.viewDidLoad()
+                //                PasswordView { otp, completionHandler in
+                //                    // check if the otp is correct here
+                //                    print(otp)
+                //                }
                 // 認証の実行
-                exec()
+                //exec()
             }
     }
     func exec() {
-        // 顔認証
-        faceAuth.auth {
-            result in message = result
-        }
+        
         // GPS認証
-        locationAuth.auth {
-            result in message = result
+        locationAuth.auth { locationData in
+            message = locationData.message
+            authResult = locationData.result
+            
+            if !authResult {
+                return
+            }
+            // 顔認証
+            faceAuth.auth { faceData in
+                message = faceData.message
+                authResult = faceData.result
+                
+                if !authResult {
+                    return
+                }
+            }
         }
         // パスワード認証？
         //        passwordAuth.setupPassword()
     }
 }
-class PasswordLoginController: UIViewController {
+class PasswordLoginController {
     //パスワード画面を生成
     var passwordContainerView: PasswordContainerView!
     //パスワードの桁数
     let kPasswordDigit = 4
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //create PasswordContainerView
-        passwordContainerView = PasswordContainerView.create(withDigit:kPasswordDigit)
-        passwordContainerView.delegate = self
-        passwordContainerView.deleteButtonLocalizedTitle = "削除"
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
 
 extension PasswordLoginController: PasswordInputCompleteProtocol {

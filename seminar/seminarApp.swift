@@ -11,7 +11,11 @@ import SwiftUI
 struct seminarApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PasswordView { otp, completionHandler in
+                // check if the otp is correct here
+                // otp = 入力したパスコード
+                //print(otp)
+            }
         }
     }
 }

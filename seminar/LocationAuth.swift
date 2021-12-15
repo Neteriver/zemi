@@ -11,7 +11,9 @@ import MapKit
 
 class LocationAuth:NSObject,ObservableObject,CLLocationManagerDelegate {
     
-    var hcsCoordinate : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 43.05605231592795, longitude: 141.37971392475367)
+    // 認証可能な座標定義
+    var authenticationCoordinate : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 43.061092, longitude: 141.356433)
+    var result : Bool = false
     
     let reason = "位置情報が取得できません"
     var coordinate: CLLocationCoordinate2D? {
@@ -49,33 +51,58 @@ class LocationAuth:NSObject,ObservableObject,CLLocationManagerDelegate {
     }
     
     // GPS認証
-    func auth(complation:@escaping(String) -> Void) {        
+    func auth(complation : @escaping(LocationAuthData) -> Void) {
+        let data = LocationAuthData()
         switch authorizationStatus {
         case .notDetermined:
             requestPermission()
             break
         case .restricted:
-            complation("位置情報の使用が制限されています")
+            data.message = "位置情報の使用が制限されています"
+            data.result = false
+            complation(data)
             break
         case .denied:
-            complation("位置情報を使用できません。")
+            data.message = "位置情報を使用できません。"
+            data.result = false
+            complation(data)
             break
         case .authorizedAlways, .authorizedWhenInUse:
             print("緯度：" + String(coordinate?.latitude ?? 0))
             print("経度：" + String(coordinate?.longitude ?? 0))
-            var result = contains(coordinate: coordinate!)
-            complation("位置情報を取得しました")
+            result = contains(coordinate: coordinate!)
+            if result {
+                print("GPS認証が完了しました")
+                DispatchQueue.main.async {
+                    data.message = "GPS認証が成功しました"
+                    data.result = true
+                    complation(data)
+
+                }
+            } else {
+                print("GPS認証が失敗しました")
+                DispatchQueue.main.async {
+                    data.message = "GPS認証が失敗しました"
+                    data.result = false
+                    complation(data)
+                }
+            }
             break
         default:
             break
         }
     }
     
+    // 現在の位置情報と承認可能なポイントの座標感の距離を測定
+    // 座標間の距離が30m以内であれば認証可能
     func contains(coordinate:CLLocationCoordinate2D) -> Bool {
-        let point1:MKMapPoint = MKMapPoint(coordinate);
-        let point2:MKMapPoint = MKMapPoint(hcsCoordinate);
-        let distance:CLLocationDistance = point1.distance(to: point2);
+        let currentPoint:MKMapPoint = MKMapPoint(coordinate);
+        let authenticaitonPoint:MKMapPoint = MKMapPoint(authenticationCoordinate);
+        let distance:CLLocationDistance = currentPoint.distance(to: authenticaitonPoint);
         print(distance)
-        return true
+        if distance <= 3000 {
+            return true
+        }
+        return false
     }
 }
