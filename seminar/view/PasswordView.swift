@@ -11,12 +11,11 @@ import Introspect
 public struct PasswordView: View {
     
     var maxDigits: Int = 4
-    var label = "パスコードを入力してください"
+    @State var label = "パスコードを入力してください"
     
     @State var pin: String = ""
     @State var showPin = false
     @State var isDisabled = false
-    
     
     var handler: (String, (Bool) -> Void) -> Void
     
@@ -27,7 +26,7 @@ public struct PasswordView: View {
                 pinDots
                 backgroundField
             }
-            //showPinStack
+            showPinStack
         }
         
     }
@@ -100,12 +99,12 @@ public struct PasswordView: View {
             handler(pin) { isSuccess in
                 if isSuccess {
                     // パスコードの照合が成功した時の処理
-                    print("pin matched, go to next page, no action to perfrom here")
+                    print("パスワード照合成功")
                 } else {
                     // パスコードの処理が失敗した時の処理
                     pin = ""
                     isDisabled = false
-                    print("this has to called after showing toast why is the failure")
+                    label = "パスワードが違います"
                 }
             }
         }

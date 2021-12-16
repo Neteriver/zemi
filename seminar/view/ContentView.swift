@@ -15,27 +15,24 @@ struct ContentView: View {
     @State var message = "AuthenticationApp"
     @State var authResult:Bool = false
     @State var pass = ""
+    @State var show = false
     
     let faceAuth:FaceAuth = FaceAuth()
     let locationAuth:LocationAuth = LocationAuth()
-    let passwordAuth:PasswordLoginController = PasswordLoginController()
     
     var body: some View {
-        PasswordView { otp, completionHandler in
-            // check if the otp is correct here
-            print(otp)
-        }
-        
-        Text("\(message)")
-            .padding()
-            .onAppear {
-                //                PasswordView { otp, completionHandler in
-                //                    // check if the otp is correct here
-                //                    print(otp)
-                //                }
-                // 認証の実行
-                //exec()
+        if(show) {
+            GpsView()
+        } else {
+            PasswordView { otp, completionHandler in
+                if(otp == "1111") {
+                    completionHandler(true)
+                    show = true
+                } else {
+                    completionHandler(false)
+                }
             }
+        }
     }
     func exec() {
         
@@ -61,47 +58,7 @@ struct ContentView: View {
         //        passwordAuth.setupPassword()
     }
 }
-class PasswordLoginController {
-    //パスワード画面を生成
-    var passwordContainerView: PasswordContainerView!
-    //パスワードの桁数
-    let kPasswordDigit = 4
-}
 
-extension PasswordLoginController: PasswordInputCompleteProtocol {
-    func passwordInputComplete(_ passwordContainerView: PasswordContainerView, input: String) {
-        if validation(input) {
-            validationSuccess()
-        } else {
-            validationFail()
-        }
-    }
-    
-    func touchAuthenticationComplete(_ passwordContainerView: PasswordContainerView, success: Bool, error: Error?) {
-        if success {
-            self.validationSuccess()
-        } else {
-            passwordContainerView.clearInput()
-        }
-    }
-}
-
-private extension PasswordLoginController{
-    
-    func validation(_ input:String) -> Bool{
-        // ここでパスワードの照合を行う。
-        return input == "1111"
-    }
-    
-    func validationSuccess(){
-        // パスワードが正しかった時の処理
-    }
-    
-    func validationFail(){
-        // パスワードが間違っていた時の処理（画面がブルブルっと震える）
-        passwordContainerView.wrongPassword()
-    }
-}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

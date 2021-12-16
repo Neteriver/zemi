@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2485F471276B04F700BF1B6A /* GpsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F470276B04F700BF1B6A /* GpsView.swift */; };
 		33E053BB98A20D59402F4817 /* Pods_seminar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B29C2F60DF150C7796A90C /* Pods_seminar.framework */; };
 		B643C5B32761AEFB003F2D11 /* PasswordAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643C5B22761AEFB003F2D11 /* PasswordAuth.swift */; };
 		B643C5B52761C2F5003F2D11 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B643C5B42761C2F5003F2D11 /* CoreLocation.framework */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		0644E0DA643CB49DA13C54BF /* Pods-seminar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-seminar.release.xcconfig"; path = "Target Support Files/Pods-seminar/Pods-seminar.release.xcconfig"; sourceTree = "<group>"; };
+		2485F470276B04F700BF1B6A /* GpsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpsView.swift; sourceTree = "<group>"; };
 		91B29C2F60DF150C7796A90C /* Pods_seminar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_seminar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B643C5B22761AEFB003F2D11 /* PasswordAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordAuth.swift; sourceTree = "<group>"; };
 		B643C5B42761C2F5003F2D11 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -65,6 +67,7 @@
 			children = (
 				B643C5B727682A5C003F2D11 /* PasswordView.swift */,
 				B6680F7027619EAD00F94D90 /* ContentView.swift */,
+				2485F470276B04F700BF1B6A /* GpsView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				B6680F7F27619FB300F94D90 /* LocationAuth.swift in Sources */,
 				B643C5BA27685CDD003F2D11 /* AuthData.swift in Sources */,
 				B643C5B32761AEFB003F2D11 /* PasswordAuth.swift in Sources */,
+				2485F471276B04F700BF1B6A /* GpsView.swift in Sources */,
 				B6680F7127619EAD00F94D90 /* ContentView.swift in Sources */,
 				B6680F6F27619EAD00F94D90 /* seminarApp.swift in Sources */,
 			);
