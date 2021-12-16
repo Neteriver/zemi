@@ -51,6 +51,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2485F46D276AFFE000BF1B6A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				B6680F7C27619EF600F94D90 /* FaceAuth.swift */,
+				B643C5B927685CDD003F2D11 /* AuthData.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		2485F46E276AFFE400BF1B6A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				B643C5B727682A5C003F2D11 /* PasswordView.swift */,
+				B6680F7027619EAD00F94D90 /* ContentView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		2485F46F276AFFEA00BF1B6A /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				B6680F7E27619FB300F94D90 /* LocationAuth.swift */,
+				B643C5B22761AEFB003F2D11 /* PasswordAuth.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		439F20EA5BF5184302DB5846 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,13 +108,10 @@
 		B6680F6D27619EAD00F94D90 /* seminar */ = {
 			isa = PBXGroup;
 			children = (
+				2485F46F276AFFEA00BF1B6A /* controller */,
+				2485F46E276AFFE400BF1B6A /* view */,
+				2485F46D276AFFE000BF1B6A /* model */,
 				B643C5B62761C8CD003F2D11 /* Info.plist */,
-				B643C5B927685CDD003F2D11 /* AuthData.swift */,
-				B6680F7027619EAD00F94D90 /* ContentView.swift */,
-				B6680F7C27619EF600F94D90 /* FaceAuth.swift */,
-				B6680F7E27619FB300F94D90 /* LocationAuth.swift */,
-				B643C5B22761AEFB003F2D11 /* PasswordAuth.swift */,
-				B643C5B727682A5C003F2D11 /* PasswordView.swift */,
 				B6680F6E27619EAD00F94D90 /* seminarApp.swift */,
 				B6680F7227619EAF00F94D90 /* Assets.xcassets */,
 				B6680F7427619EAF00F94D90 /* Preview Content */,
