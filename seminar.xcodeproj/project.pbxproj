@@ -19,6 +19,8 @@
 		B6680F7627619EAF00F94D90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6680F7527619EAF00F94D90 /* Preview Assets.xcassets */; };
 		B6680F7D27619EF600F94D90 /* FaceAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6680F7C27619EF600F94D90 /* FaceAuth.swift */; };
 		B6680F7F27619FB300F94D90 /* LocationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6680F7E27619FB300F94D90 /* LocationAuth.swift */; };
+		B6784456276C103400634C4F /* FlickAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6784455276C103400634C4F /* FlickAuth.swift */; };
+		B6784458276C12C500634C4F /* FlickData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6784457276C12C500634C4F /* FlickData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		B6680F7527619EAF00F94D90 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B6680F7C27619EF600F94D90 /* FaceAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceAuth.swift; sourceTree = "<group>"; };
 		B6680F7E27619FB300F94D90 /* LocationAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuth.swift; sourceTree = "<group>"; };
+		B6784455276C103400634C4F /* FlickAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickAuth.swift; sourceTree = "<group>"; };
+		B6784457276C12C500634C4F /* FlickData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickData.swift; sourceTree = "<group>"; };
 		EF78EA56CA2CAD4B8D2D789F /* Pods-seminar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-seminar.debug.xcconfig"; path = "Target Support Files/Pods-seminar/Pods-seminar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +62,7 @@
 			children = (
 				B6680F7C27619EF600F94D90 /* FaceAuth.swift */,
 				B643C5B927685CDD003F2D11 /* AuthData.swift */,
+				B6784457276C12C500634C4F /* FlickData.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -77,6 +82,7 @@
 			children = (
 				B6680F7E27619FB300F94D90 /* LocationAuth.swift */,
 				B643C5B22761AEFB003F2D11 /* PasswordAuth.swift */,
+				B6784455276C103400634C4F /* FlickAuth.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -256,11 +262,13 @@
 				B6680F7D27619EF600F94D90 /* FaceAuth.swift in Sources */,
 				B643C5B827682A5C003F2D11 /* PasswordView.swift in Sources */,
 				B6680F7F27619FB300F94D90 /* LocationAuth.swift in Sources */,
+				B6784456276C103400634C4F /* FlickAuth.swift in Sources */,
 				B643C5BA27685CDD003F2D11 /* AuthData.swift in Sources */,
 				B643C5B32761AEFB003F2D11 /* PasswordAuth.swift in Sources */,
 				2485F471276B04F700BF1B6A /* GpsView.swift in Sources */,
 				B6680F7127619EAD00F94D90 /* ContentView.swift in Sources */,
 				B6680F6F27619EAD00F94D90 /* seminarApp.swift in Sources */,
+				B6784458276C12C500634C4F /* FlickData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
