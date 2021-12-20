@@ -16,6 +16,7 @@ public struct PasswordView: View {
     @State var pin: String = ""
     @State var showPin = false
     @State var isDisabled = false
+    let isHidden = true
     
     var handler: (String, (Bool) -> Void) -> Void
     
@@ -63,7 +64,7 @@ public struct PasswordView: View {
                  textField.keyboardType = .numberPad
                  textField.becomeFirstResponder()
                  textField.isEnabled = !self.isDisabled
-                 textField.isHidden = true
+                 textField.isHidden = isHidden
          }
     }
     

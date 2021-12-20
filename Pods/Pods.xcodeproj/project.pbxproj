@@ -7,95 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		154EF2EF9BEDD19893CDB00FA4900CE9 /* SmileLock-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FB3BEFCAF1905D083920F733A4CF1682 /* SmileLock-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21DA33DFCA378D9EC9E313F0EDD4B9BD /* SmileLock-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB6E31B80E5ED1E964DDD2FA416B5A3 /* SmileLock-dummy.m */; };
-		31CE5537B61B77CD1C8BD72925AB549A /* PasswordUIValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEB62A550C2D3660EA5281E06C48CC /* PasswordUIValidation.swift */; };
-		39E31147CCE48CBEABBF65DB0434F013 /* PasswordContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A578C318AAD46B482410D75B482D80AE /* PasswordContainerView.swift */; };
-		4EE7628346FD5F5F172C1E74E2310C28 /* Pods-seminar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 322DE7681E19C198BA62AD28B01AFAB0 /* Pods-seminar-dummy.m */; };
-		548387A15133D9C63B42DC43FB5E6E1D /* UIKitIntrospectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFB1FBDEC77F5BAF05E667D011EC084 /* UIKitIntrospectionView.swift */; };
-		570CC90B331AF79D04F17BEC10D4B403 /* Introspect-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2823BD9FCA094DD4DB75BABB1123164 /* Introspect-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DFDDF6BC35A9F212CCEEA7D3597819C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		6A10452C7C1949F05ECA4C7AC8B4936E /* UIKitIntrospectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B3D7BDE250439F6F13DFFF7FFFB67D /* UIKitIntrospectionViewController.swift */; };
-		76B3648900CCBD35599E0D6C131E8FED /* Introspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6735B4D5037F1A96EEFFA1AF9C14C82 /* Introspect.swift */; };
-		7EBB7B8790D97A7F1D036A0058E4F56A /* Introspect-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CB271008A26BA796B62AC7A7EF75C237 /* Introspect-dummy.m */; };
-		864F9DEB1F1B8C92F62917A3B1884561 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1290BC46BC81F15A2A8F97F42E3D177 /* ViewExtensions.swift */; };
-		87C07137C95E1AED8732CB5E72FA3BBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
-		8AAEC7F99C4B8C762F4F6CC39EBBF86B /* Pods-seminar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 61B8EC731E64AABE86344C3375237738 /* Pods-seminar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9547E086BC86B27A9E2775219AF22DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 598E5E345BFBF974E8FB2724A872CF5A /* Assets.xcassets */; };
-		B6EC25D3E6866D14C89210088C87C8D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		B72D3EA4F0D04B935A5C878EB96158E4 /* PasswordContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5C7EC99566A3E59F02C7DCD2D02D634 /* PasswordContainerView.xib */; };
-		BAD238BD38D1A33800F067F9B7DB6BB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		E7F4D02997FB23558D4EB355A9468399 /* AppKitIntrospectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CBD25FF06A9BA612C2C8E0771C57AB /* AppKitIntrospectionView.swift */; };
-		F13C755204F66D48FDCAE679EEA3767D /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA04B8A3CECFAD7C14343483BC039BC /* PasswordInputView.swift */; };
-		F804F4D0DBEB625CEC9439321C838847 /* PasswordDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBCE588A105B91DAD2D583ED199E972 /* PasswordDotView.swift */; };
+		548387A15133D9C63B42DC43FB5E6E1D /* UIKitIntrospectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD39E502C826E5A7C5BAF30974FAEBB /* UIKitIntrospectionView.swift */; };
+		570CC90B331AF79D04F17BEC10D4B403 /* Introspect-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B6C185AFAF683A8F8152324DD89EEDF /* Introspect-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DFDDF6BC35A9F212CCEEA7D3597819C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		60AE75F4BD193A32270E0F7ACE289FD5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		6A10452C7C1949F05ECA4C7AC8B4936E /* UIKitIntrospectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8642AA28CFA4B0B137E3325D9FC24B36 /* UIKitIntrospectionViewController.swift */; };
+		6FF1C69934E2EB3CF408BA0E1BE5CA13 /* Pods-seminar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 322DE7681E19C198BA62AD28B01AFAB0 /* Pods-seminar-dummy.m */; };
+		76B3648900CCBD35599E0D6C131E8FED /* Introspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F97B7DBE7B5E51378241115EFD843 /* Introspect.swift */; };
+		7EBB7B8790D97A7F1D036A0058E4F56A /* Introspect-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7133B45DB27B49E3F6A06E50B650D08 /* Introspect-dummy.m */; };
+		864F9DEB1F1B8C92F62917A3B1884561 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6519D1DDA6EB4B5EE3D38A3A0A7649DC /* ViewExtensions.swift */; };
+		C7D80D995D9D32AFA15593CA9144138B /* Pods-seminar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 61B8EC731E64AABE86344C3375237738 /* Pods-seminar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7F4D02997FB23558D4EB355A9468399 /* AppKitIntrospectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB0B7659B3CBF3514D1FC9567D4F80 /* AppKitIntrospectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		72414E732951D47EEBAF1145B142575C /* PBXContainerItemProxy */ = {
+		EE8D7CC956B9973AC0401E2E6DA95DC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 97E3685499568DCCBA6C15905F707BDC;
 			remoteInfo = Introspect;
 		};
-		8EF05537762D865E4294A40434C5EC05 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BF5B8FB50103E88F1B31C07164555C80;
-			remoteInfo = SmileLock;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		145E69AC9340AB2295389195FC476F01 /* Introspect-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Introspect-Info.plist"; sourceTree = "<group>"; };
 		18070B59D74B1AD6EB093BEB8C4F16CA /* Pods-seminar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-seminar.release.xcconfig"; sourceTree = "<group>"; };
-		22CBD25FF06A9BA612C2C8E0771C57AB /* AppKitIntrospectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppKitIntrospectionView.swift; path = Introspect/AppKitIntrospectionView.swift; sourceTree = "<group>"; };
+		1B6C185AFAF683A8F8152324DD89EEDF /* Introspect-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Introspect-umbrella.h"; sourceTree = "<group>"; };
+		1FEB0B7659B3CBF3514D1FC9567D4F80 /* AppKitIntrospectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppKitIntrospectionView.swift; path = Introspect/AppKitIntrospectionView.swift; sourceTree = "<group>"; };
 		2FC7639643AD39809FE48975C4EAF3A3 /* Pods-seminar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-seminar.debug.xcconfig"; sourceTree = "<group>"; };
+		2FD39E502C826E5A7C5BAF30974FAEBB /* UIKitIntrospectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIKitIntrospectionView.swift; path = Introspect/UIKitIntrospectionView.swift; sourceTree = "<group>"; };
 		322DE7681E19C198BA62AD28B01AFAB0 /* Pods-seminar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-seminar-dummy.m"; sourceTree = "<group>"; };
-		3B2EA94F54150756564CADAF3B7B7190 /* SmileLock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SmileLock.release.xcconfig; sourceTree = "<group>"; };
+		3DF18865B218BCE5D62D0C436F575AFE /* Introspect-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Introspect-prefix.pch"; sourceTree = "<group>"; };
 		40C8FE7014415A8E78105ECB818AB076 /* Pods-seminar-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-seminar-acknowledgements.plist"; sourceTree = "<group>"; };
-		4ADF45548B7498B29E3C9CA1D36C03D6 /* SmileLock.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SmileLock.modulemap; sourceTree = "<group>"; };
-		516BBBB29224D265D7D333938F7E78CA /* SmileLock */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SmileLock; path = SmileLock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		57B3D7BDE250439F6F13DFFF7FFFB67D /* UIKitIntrospectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIKitIntrospectionViewController.swift; path = Introspect/UIKitIntrospectionViewController.swift; sourceTree = "<group>"; };
 		58C522A75F2DD324E12888EB4BABF3BD /* Pods-seminar */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-seminar"; path = Pods_seminar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		598E5E345BFBF974E8FB2724A872CF5A /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SmileLock/Assets/Assets.xcassets; sourceTree = "<group>"; };
 		61B8EC731E64AABE86344C3375237738 /* Pods-seminar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-seminar-umbrella.h"; sourceTree = "<group>"; };
-		62D4E17A5E97DA8100904D93DCBCE1C1 /* Introspect.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Introspect.modulemap; sourceTree = "<group>"; };
+		6519D1DDA6EB4B5EE3D38A3A0A7649DC /* ViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewExtensions.swift; path = Introspect/ViewExtensions.swift; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		745E37B3CE5A5E3841D760CF51CF5D87 /* Pods-seminar-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-seminar-frameworks.sh"; sourceTree = "<group>"; };
-		7B2376CF78AA3451F43BCFD42583EF47 /* Introspect-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Introspect-prefix.pch"; sourceTree = "<group>"; };
-		83E1144ACDAB99546C35D12DF90FE3DE /* Introspect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Introspect.release.xcconfig; sourceTree = "<group>"; };
+		7FA8350B21394CC67B4C811628A647AB /* Introspect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Introspect.release.xcconfig; sourceTree = "<group>"; };
+		8642AA28CFA4B0B137E3325D9FC24B36 /* UIKitIntrospectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIKitIntrospectionViewController.swift; path = Introspect/UIKitIntrospectionViewController.swift; sourceTree = "<group>"; };
 		8AD843A6C03BCB065B506E37B2389C20 /* Pods-seminar-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-seminar-Info.plist"; sourceTree = "<group>"; };
-		8CA04B8A3CECFAD7C14343483BC039BC /* PasswordInputView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PasswordInputView.swift; path = SmileLock/Classes/PasswordInputView.swift; sourceTree = "<group>"; };
 		95E281F6A061042619F0E6FA96ED2BE9 /* Pods-seminar-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-seminar-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9C8AC3EACF71BE3DD8C0F6091C03C6A9 /* SmileLock-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SmileLock-Info.plist"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A578C318AAD46B482410D75B482D80AE /* PasswordContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PasswordContainerView.swift; path = SmileLock/Classes/PasswordContainerView.swift; sourceTree = "<group>"; };
-		ABFB1FBDEC77F5BAF05E667D011EC084 /* UIKitIntrospectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIKitIntrospectionView.swift; path = Introspect/UIKitIntrospectionView.swift; sourceTree = "<group>"; };
-		AEBCE588A105B91DAD2D583ED199E972 /* PasswordDotView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PasswordDotView.swift; path = SmileLock/Classes/PasswordDotView.swift; sourceTree = "<group>"; };
-		AFA8A7C93BDFEACE824AA68B9AF0A087 /* SmileLock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SmileLock.debug.xcconfig; sourceTree = "<group>"; };
+		A7133B45DB27B49E3F6A06E50B650D08 /* Introspect-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Introspect-dummy.m"; sourceTree = "<group>"; };
 		BB1F4C4A755FD4F7D52E0AEC6F3EEE7A /* Pods-seminar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-seminar.modulemap"; sourceTree = "<group>"; };
-		C3BEB62A550C2D3660EA5281E06C48CC /* PasswordUIValidation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PasswordUIValidation.swift; path = SmileLock/Classes/PasswordUIValidation.swift; sourceTree = "<group>"; };
-		C6735B4D5037F1A96EEFFA1AF9C14C82 /* Introspect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Introspect.swift; path = Introspect/Introspect.swift; sourceTree = "<group>"; };
-		CB271008A26BA796B62AC7A7EF75C237 /* Introspect-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Introspect-dummy.m"; sourceTree = "<group>"; };
-		CE40E2C8AF0A86B872901530CD013048 /* SmileLock-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SmileLock-prefix.pch"; sourceTree = "<group>"; };
+		C16A57B7BAC12B839B47B64EA86CB745 /* Introspect-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Introspect-Info.plist"; sourceTree = "<group>"; };
+		C6935A6B76A1F3ACA7781AE41385A149 /* Introspect.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Introspect.modulemap; sourceTree = "<group>"; };
 		D0A70003FD5E49B30CA83DAAFE03116B /* Introspect */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Introspect; path = Introspect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		D5C7EC99566A3E59F02C7DCD2D02D634 /* PasswordContainerView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = PasswordContainerView.xib; path = SmileLock/Assets/PasswordContainerView.xib; sourceTree = "<group>"; };
-		DAB6E31B80E5ED1E964DDD2FA416B5A3 /* SmileLock-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SmileLock-dummy.m"; sourceTree = "<group>"; };
-		E034A50C6ABDD29F1E1F76A485FD22F4 /* Introspect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Introspect.debug.xcconfig; sourceTree = "<group>"; };
-		EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		F1290BC46BC81F15A2A8F97F42E3D177 /* ViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewExtensions.swift; path = Introspect/ViewExtensions.swift; sourceTree = "<group>"; };
-		F2823BD9FCA094DD4DB75BABB1123164 /* Introspect-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Introspect-umbrella.h"; sourceTree = "<group>"; };
-		FB3BEFCAF1905D083920F733A4CF1682 /* SmileLock-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SmileLock-umbrella.h"; sourceTree = "<group>"; };
+		D1119A951EC43052081C7A9A0544F754 /* Introspect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Introspect.debug.xcconfig; sourceTree = "<group>"; };
+		EE9F97B7DBE7B5E51378241115EFD843 /* Introspect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Introspect.swift; path = Introspect/Introspect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		37C4A1B3BFC8FFD7DBD4868C18DB39CA /* Frameworks */ = {
+		54EC8914809FE4F819FB4C76FC1ABB51 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6EC25D3E6866D14C89210088C87C8D4 /* Foundation.framework in Frameworks */,
+				60AE75F4BD193A32270E0F7ACE289FD5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,45 +75,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8072437EC796E3DB7C169D8AA77DDEC7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BAD238BD38D1A33800F067F9B7DB6BB9 /* Foundation.framework in Frameworks */,
-				87C07137C95E1AED8732CB5E72FA3BBA /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+		20C24BE28A8BC1948F8DA34D666339A7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */,
+				51CA0CEB90A680AD71900D5AB951F5AE /* Introspect */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		4CFA47E8E6F74F343FECC2025E57C365 /* Introspect */ = {
+		51CA0CEB90A680AD71900D5AB951F5AE /* Introspect */ = {
 			isa = PBXGroup;
 			children = (
-				22CBD25FF06A9BA612C2C8E0771C57AB /* AppKitIntrospectionView.swift */,
-				C6735B4D5037F1A96EEFFA1AF9C14C82 /* Introspect.swift */,
-				ABFB1FBDEC77F5BAF05E667D011EC084 /* UIKitIntrospectionView.swift */,
-				57B3D7BDE250439F6F13DFFF7FFFB67D /* UIKitIntrospectionViewController.swift */,
-				F1290BC46BC81F15A2A8F97F42E3D177 /* ViewExtensions.swift */,
-				D87466C5502E5F79350C63B8BD9FCA5E /* Support Files */,
+				1FEB0B7659B3CBF3514D1FC9567D4F80 /* AppKitIntrospectionView.swift */,
+				EE9F97B7DBE7B5E51378241115EFD843 /* Introspect.swift */,
+				2FD39E502C826E5A7C5BAF30974FAEBB /* UIKitIntrospectionView.swift */,
+				8642AA28CFA4B0B137E3325D9FC24B36 /* UIKitIntrospectionViewController.swift */,
+				6519D1DDA6EB4B5EE3D38A3A0A7649DC /* ViewExtensions.swift */,
+				E74A7A19A59A269AF211D6D7D445E878 /* Support Files */,
 			);
 			name = Introspect;
 			path = Introspect;
 			sourceTree = "<group>";
 		};
-		59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */ = {
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */,
-				D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */,
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -167,45 +125,11 @@
 			path = "Target Support Files/Pods-seminar";
 			sourceTree = "<group>";
 		};
-		92912ECA95EC94BCB94F60AC2432049B /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				4ADF45548B7498B29E3C9CA1D36C03D6 /* SmileLock.modulemap */,
-				DAB6E31B80E5ED1E964DDD2FA416B5A3 /* SmileLock-dummy.m */,
-				9C8AC3EACF71BE3DD8C0F6091C03C6A9 /* SmileLock-Info.plist */,
-				CE40E2C8AF0A86B872901530CD013048 /* SmileLock-prefix.pch */,
-				FB3BEFCAF1905D083920F733A4CF1682 /* SmileLock-umbrella.h */,
-				AFA8A7C93BDFEACE824AA68B9AF0A087 /* SmileLock.debug.xcconfig */,
-				3B2EA94F54150756564CADAF3B7B7190 /* SmileLock.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SmileLock";
-			sourceTree = "<group>";
-		};
-		93CE32C8BDFB9096A218B4BB0678831B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4CFA47E8E6F74F343FECC2025E57C365 /* Introspect */,
-				D87BD5A7222FA1BEE662F49DB3D3EB19 /* SmileLock */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		AC9428E15969B150019C76061ADC29DC /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				598E5E345BFBF974E8FB2724A872CF5A /* Assets.xcassets */,
-				D5C7EC99566A3E59F02C7DCD2D02D634 /* PasswordContainerView.xib */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		AED4F70FE3811013B111DE51225EA3A7 /* Products */ = {
+		AAB8716236D6E2E3BC49070FF2398083 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				D0A70003FD5E49B30CA83DAAFE03116B /* Introspect */,
 				58C522A75F2DD324E12888EB4BABF3BD /* Pods-seminar */,
-				516BBBB29224D265D7D333938F7E78CA /* SmileLock */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,40 +138,34 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				93CE32C8BDFB9096A218B4BB0678831B /* Pods */,
-				AED4F70FE3811013B111DE51225EA3A7 /* Products */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				20C24BE28A8BC1948F8DA34D666339A7 /* Pods */,
+				AAB8716236D6E2E3BC49070FF2398083 /* Products */,
 				FF7BF6296600BD5CD9619BE76DBA3B7A /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D87466C5502E5F79350C63B8BD9FCA5E /* Support Files */ = {
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				62D4E17A5E97DA8100904D93DCBCE1C1 /* Introspect.modulemap */,
-				CB271008A26BA796B62AC7A7EF75C237 /* Introspect-dummy.m */,
-				145E69AC9340AB2295389195FC476F01 /* Introspect-Info.plist */,
-				7B2376CF78AA3451F43BCFD42583EF47 /* Introspect-prefix.pch */,
-				F2823BD9FCA094DD4DB75BABB1123164 /* Introspect-umbrella.h */,
-				E034A50C6ABDD29F1E1F76A485FD22F4 /* Introspect.debug.xcconfig */,
-				83E1144ACDAB99546C35D12DF90FE3DE /* Introspect.release.xcconfig */,
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E74A7A19A59A269AF211D6D7D445E878 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C6935A6B76A1F3ACA7781AE41385A149 /* Introspect.modulemap */,
+				A7133B45DB27B49E3F6A06E50B650D08 /* Introspect-dummy.m */,
+				C16A57B7BAC12B839B47B64EA86CB745 /* Introspect-Info.plist */,
+				3DF18865B218BCE5D62D0C436F575AFE /* Introspect-prefix.pch */,
+				1B6C185AFAF683A8F8152324DD89EEDF /* Introspect-umbrella.h */,
+				D1119A951EC43052081C7A9A0544F754 /* Introspect.debug.xcconfig */,
+				7FA8350B21394CC67B4C811628A647AB /* Introspect.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Introspect";
-			sourceTree = "<group>";
-		};
-		D87BD5A7222FA1BEE662F49DB3D3EB19 /* SmileLock */ = {
-			isa = PBXGroup;
-			children = (
-				A578C318AAD46B482410D75B482D80AE /* PasswordContainerView.swift */,
-				AEBCE588A105B91DAD2D583ED199E972 /* PasswordDotView.swift */,
-				8CA04B8A3CECFAD7C14343483BC039BC /* PasswordInputView.swift */,
-				C3BEB62A550C2D3660EA5281E06C48CC /* PasswordUIValidation.swift */,
-				AC9428E15969B150019C76061ADC29DC /* Resources */,
-				92912ECA95EC94BCB94F60AC2432049B /* Support Files */,
-			);
-			name = SmileLock;
-			path = SmileLock;
 			sourceTree = "<group>";
 		};
 		FF7BF6296600BD5CD9619BE76DBA3B7A /* Targets Support Files */ = {
@@ -261,11 +179,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6DD6B8E4AE47FDE7A0E159D11CF185BA /* Headers */ = {
+		29B652E49E8A791F1CBE9F0A5F3F74CF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AAEC7F99C4B8C762F4F6CC39EBBF86B /* Pods-seminar-umbrella.h in Headers */,
+				C7D80D995D9D32AFA15593CA9144138B /* Pods-seminar-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,31 +195,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EFC0AAB5FAE127A59D239BDE6E4BB315 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				154EF2EF9BEDD19893CDB00FA4900CE9 /* SmileLock-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		15114B1186D22F244C53E8AD80663235 /* Pods-seminar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05478A5633CA4EE68DBA14B0332D8DA9 /* Build configuration list for PBXNativeTarget "Pods-seminar" */;
+			buildConfigurationList = 7134F55C1BD6050B875E9FD02DA92970 /* Build configuration list for PBXNativeTarget "Pods-seminar" */;
 			buildPhases = (
-				6DD6B8E4AE47FDE7A0E159D11CF185BA /* Headers */,
-				A0C21BAAF6C14979A335FCB1ABACCD3B /* Sources */,
-				37C4A1B3BFC8FFD7DBD4868C18DB39CA /* Frameworks */,
-				367CAD6DFB9B3A13E39DA39553118BDF /* Resources */,
+				29B652E49E8A791F1CBE9F0A5F3F74CF /* Headers */,
+				6F3CD51EA42BF60DC06066C246F4D6EA /* Sources */,
+				54EC8914809FE4F819FB4C76FC1ABB51 /* Frameworks */,
+				3433C2B7B3C8F456ED47E6C4BD21D2C5 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D5CEFEA9A6B0F805DB1F7219571D1212 /* PBXTargetDependency */,
-				7AF24D2C303CCEFED3D9D668F384072A /* PBXTargetDependency */,
+				72327864E89C1F5725291A9216103985 /* PBXTargetDependency */,
 			);
 			name = "Pods-seminar";
 			productName = Pods_seminar;
@@ -326,24 +235,6 @@
 			productReference = D0A70003FD5E49B30CA83DAAFE03116B /* Introspect */;
 			productType = "com.apple.product-type.framework";
 		};
-		BF5B8FB50103E88F1B31C07164555C80 /* SmileLock */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D05ED1AC430D328E959829EBC2A29B82 /* Build configuration list for PBXNativeTarget "SmileLock" */;
-			buildPhases = (
-				EFC0AAB5FAE127A59D239BDE6E4BB315 /* Headers */,
-				3AC7A9443B3D40C0E38454782538CE6B /* Sources */,
-				8072437EC796E3DB7C169D8AA77DDEC7 /* Frameworks */,
-				AD915DD40DE916F60CB3D8345B687E3B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SmileLock;
-			productName = SmileLock;
-			productReference = 516BBBB29224D265D7D333938F7E78CA /* SmileLock */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -362,31 +253,21 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = AED4F70FE3811013B111DE51225EA3A7 /* Products */;
+			productRefGroup = AAB8716236D6E2E3BC49070FF2398083 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				97E3685499568DCCBA6C15905F707BDC /* Introspect */,
 				15114B1186D22F244C53E8AD80663235 /* Pods-seminar */,
-				BF5B8FB50103E88F1B31C07164555C80 /* SmileLock */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		367CAD6DFB9B3A13E39DA39553118BDF /* Resources */ = {
+		3433C2B7B3C8F456ED47E6C4BD21D2C5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AD915DD40DE916F60CB3D8345B687E3B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9547E086BC86B27A9E2775219AF22DA8 /* Assets.xcassets in Resources */,
-				B72D3EA4F0D04B935A5C878EB96158E4 /* PasswordContainerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,23 +281,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3AC7A9443B3D40C0E38454782538CE6B /* Sources */ = {
+		6F3CD51EA42BF60DC06066C246F4D6EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39E31147CCE48CBEABBF65DB0434F013 /* PasswordContainerView.swift in Sources */,
-				F804F4D0DBEB625CEC9439321C838847 /* PasswordDotView.swift in Sources */,
-				F13C755204F66D48FDCAE679EEA3767D /* PasswordInputView.swift in Sources */,
-				31CE5537B61B77CD1C8BD72925AB549A /* PasswordUIValidation.swift in Sources */,
-				21DA33DFCA378D9EC9E313F0EDD4B9BD /* SmileLock-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A0C21BAAF6C14979A335FCB1ABACCD3B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4EE7628346FD5F5F172C1E74E2310C28 /* Pods-seminar-dummy.m in Sources */,
+				6FF1C69934E2EB3CF408BA0E1BE5CA13 /* Pods-seminar-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,24 +305,18 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7AF24D2C303CCEFED3D9D668F384072A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SmileLock;
-			target = BF5B8FB50103E88F1B31C07164555C80 /* SmileLock */;
-			targetProxy = 8EF05537762D865E4294A40434C5EC05 /* PBXContainerItemProxy */;
-		};
-		D5CEFEA9A6B0F805DB1F7219571D1212 /* PBXTargetDependency */ = {
+		72327864E89C1F5725291A9216103985 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Introspect;
 			target = 97E3685499568DCCBA6C15905F707BDC /* Introspect */;
-			targetProxy = 72414E732951D47EEBAF1145B142575C /* PBXContainerItemProxy */;
+			targetProxy = EE8D7CC956B9973AC0401E2E6DA95DC6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		004EB582ADE887F0060D7D44E5FB1B8E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 83E1144ACDAB99546C35D12DF90FE3DE /* Introspect.release.xcconfig */;
+			baseConfigurationReference = 7FA8350B21394CC67B4C811628A647AB /* Introspect.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -487,7 +350,7 @@
 			};
 			name = Release;
 		};
-		04A12607F0A06B745D133880F5C4BB42 /* Debug */ = {
+		404B5931B9D13A8BA092FEB15097C30C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2FC7639643AD39809FE48975C4EAF3A3 /* Pods-seminar.debug.xcconfig */;
 			buildSettings = {
@@ -523,41 +386,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		477137CE6F903DEEC963A1FBA339F944 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B2EA94F54150756564CADAF3B7B7190 /* SmileLock.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SmileLock/SmileLock-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SmileLock/SmileLock-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SmileLock/SmileLock.modulemap";
-				PRODUCT_MODULE_NAME = SmileLock;
-				PRODUCT_NAME = SmileLock;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -689,7 +517,7 @@
 		};
 		ACB2C331B367FD90DC4853C6C6760CA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E034A50C6ABDD29F1E1F76A485FD22F4 /* Introspect.debug.xcconfig */;
+			baseConfigurationReference = D1119A951EC43052081C7A9A0544F754 /* Introspect.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -722,7 +550,7 @@
 			};
 			name = Debug;
 		};
-		D6347AFF23C2EAF478662F1599642F6E /* Release */ = {
+		BC20F717057917EC60A0EF2EB0BEE7D6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 18070B59D74B1AD6EB093BEB8C4F16CA /* Pods-seminar.release.xcconfig */;
 			buildSettings = {
@@ -760,52 +588,9 @@
 			};
 			name = Release;
 		};
-		FE2026AA26C22F1BE2E77F8B486E8844 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AFA8A7C93BDFEACE824AA68B9AF0A087 /* SmileLock.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SmileLock/SmileLock-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SmileLock/SmileLock-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SmileLock/SmileLock.modulemap";
-				PRODUCT_MODULE_NAME = SmileLock;
-				PRODUCT_NAME = SmileLock;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		05478A5633CA4EE68DBA14B0332D8DA9 /* Build configuration list for PBXNativeTarget "Pods-seminar" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				04A12607F0A06B745D133880F5C4BB42 /* Debug */,
-				D6347AFF23C2EAF478662F1599642F6E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		1B4245D565E60AD5C4C309E57C32E817 /* Build configuration list for PBXNativeTarget "Introspect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -824,11 +609,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D05ED1AC430D328E959829EBC2A29B82 /* Build configuration list for PBXNativeTarget "SmileLock" */ = {
+		7134F55C1BD6050B875E9FD02DA92970 /* Build configuration list for PBXNativeTarget "Pods-seminar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FE2026AA26C22F1BE2E77F8B486E8844 /* Debug */,
-				477137CE6F903DEEC963A1FBA339F944 /* Release */,
+				404B5931B9D13A8BA092FEB15097C30C /* Debug */,
+				BC20F717057917EC60A0EF2EB0BEE7D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

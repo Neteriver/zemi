@@ -5,8 +5,6 @@
 //  Created by 石井快思 on 2021/12/09.
 //
 
-import SmileLock
-import UIKit
 import SwiftUI
 import LocalAuthentication
 
@@ -25,7 +23,6 @@ struct ContentView: View {
     
     
     var body: some View {
-        FlickView()
         if(show) {
             GpsView()
         } else {
