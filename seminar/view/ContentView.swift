@@ -21,9 +21,11 @@ struct ContentView: View {
     let locationAuth:LocationAuth = LocationAuth()
     let flickAuth:FlickAuth = FlickAuth()
     
-    var test:[Double] = [1,2,4,9]
+    var test = [1.0,2.0,4.0,9.0]
+    
     
     var body: some View {
+        FlickView()
         if(show) {
             GpsView()
         } else {
@@ -57,8 +59,9 @@ struct ContentView: View {
                 }
             }
         }
-        // パスワード認証？
-        //        passwordAuth.setupPassword()
+    }
+    func develop (){
+        flickAuth.develop()
     }
 }
 

@@ -21,6 +21,7 @@
 		B6680F7F27619FB300F94D90 /* LocationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6680F7E27619FB300F94D90 /* LocationAuth.swift */; };
 		B6784456276C103400634C4F /* FlickAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6784455276C103400634C4F /* FlickAuth.swift */; };
 		B6784458276C12C500634C4F /* FlickData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6784457276C12C500634C4F /* FlickData.swift */; };
+		B678445A2770213100634C4F /* FlickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67844592770213100634C4F /* FlickView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		B6680F7E27619FB300F94D90 /* LocationAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuth.swift; sourceTree = "<group>"; };
 		B6784455276C103400634C4F /* FlickAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickAuth.swift; sourceTree = "<group>"; };
 		B6784457276C12C500634C4F /* FlickData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickData.swift; sourceTree = "<group>"; };
+		B67844592770213100634C4F /* FlickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickView.swift; sourceTree = "<group>"; };
 		EF78EA56CA2CAD4B8D2D789F /* Pods-seminar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-seminar.debug.xcconfig"; path = "Target Support Files/Pods-seminar/Pods-seminar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				B643C5B727682A5C003F2D11 /* PasswordView.swift */,
+				B67844592770213100634C4F /* FlickView.swift */,
 				B6680F7027619EAD00F94D90 /* ContentView.swift */,
 				2485F470276B04F700BF1B6A /* GpsView.swift */,
 			);
@@ -263,6 +266,7 @@
 				B643C5B827682A5C003F2D11 /* PasswordView.swift in Sources */,
 				B6680F7F27619FB300F94D90 /* LocationAuth.swift in Sources */,
 				B6784456276C103400634C4F /* FlickAuth.swift in Sources */,
+				B678445A2770213100634C4F /* FlickView.swift in Sources */,
 				B643C5BA27685CDD003F2D11 /* AuthData.swift in Sources */,
 				B643C5B32761AEFB003F2D11 /* PasswordAuth.swift in Sources */,
 				2485F471276B04F700BF1B6A /* GpsView.swift in Sources */,

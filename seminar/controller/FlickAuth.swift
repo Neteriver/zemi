@@ -13,6 +13,8 @@ class FlickAuth {
     
     var tempTable = [Double]()
     var count:Int = 0
+    var test = [1.0,2.0,4.0,9.0]
+    
     
     // ２次元配列で格納しているデータを１次元配列tempTableに退避させる
     // @param array FlickData内の２次元配列
@@ -61,5 +63,10 @@ class FlickAuth {
     // @return n文字目の標準偏差(分散の平方根):Double
     func standardDeviation(array : [Double]) -> Double {
         return sqrt(variance(array: array))
+    }
+    
+    // 標準偏差が適切かどうか確認するメソッド
+    func develop(){
+        print(standardDeviation(array: test))
     }
 }

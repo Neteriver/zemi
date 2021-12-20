@@ -26,7 +26,7 @@ public struct PasswordView: View {
                 pinDots
                 backgroundField
             }
-            showPinStack
+            //showPinStack
         }
         
     }
