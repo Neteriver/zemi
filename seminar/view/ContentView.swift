@@ -19,6 +19,9 @@ struct ContentView: View {
     
     let faceAuth:FaceAuth = FaceAuth()
     let locationAuth:LocationAuth = LocationAuth()
+    let flickAuth:FlickAuth = FlickAuth()
+    
+    var test:[Double] = [1,2,4,9]
     
     var body: some View {
         if(show) {

@@ -63,6 +63,7 @@ public struct PasswordView: View {
                  textField.keyboardType = .numberPad
                  textField.becomeFirstResponder()
                  textField.isEnabled = !self.isDisabled
+                 textField.isHidden = true
          }
     }
     
