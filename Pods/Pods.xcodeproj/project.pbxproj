@@ -7,123 +7,105 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0AE32791A83E63C66A4F82CD8CA33AD7 /* Pods-seminar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 322DE7681E19C198BA62AD28B01AFAB0 /* Pods-seminar-dummy.m */; };
-		154EF2EF9BEDD19893CDB00FA4900CE9 /* SmileLock-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E10185AB463982378CC56DECAC447E /* SmileLock-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21DA33DFCA378D9EC9E313F0EDD4B9BD /* SmileLock-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6664DE8BB2A3BEF20000BD1A44DD0A03 /* SmileLock-dummy.m */; };
-		31CE5537B61B77CD1C8BD72925AB549A /* PasswordUIValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704EDB5A1EAC4F75A8A76BEE3C3EA79E /* PasswordUIValidation.swift */; };
-		39E31147CCE48CBEABBF65DB0434F013 /* PasswordContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA31386FA527C2126094A32842C85DF /* PasswordContainerView.swift */; };
-		79BCC83DC3160C6C8711219D27E2D924 /* Pods-seminar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 61B8EC731E64AABE86344C3375237738 /* Pods-seminar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		87C07137C95E1AED8732CB5E72FA3BBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
-		9547E086BC86B27A9E2775219AF22DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01DEAC3B4D4929A7C356B0B9F6B6936D /* Assets.xcassets */; };
-		B72D3EA4F0D04B935A5C878EB96158E4 /* PasswordContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAF52F23D10EBD96A3CA1907233CC27C /* PasswordContainerView.xib */; };
-		BAD238BD38D1A33800F067F9B7DB6BB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		E7A837FB9C4FD0B7D6EE64EF4EB81702 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		F13C755204F66D48FDCAE679EEA3767D /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2F77D85F3243567FF14556303E54DD /* PasswordInputView.swift */; };
-		F804F4D0DBEB625CEC9439321C838847 /* PasswordDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1FBFDFD9A08668EC0AAEFE5FA76BAE /* PasswordDotView.swift */; };
+		04516B10D23612F1EF169D07F5E5D412 /* AppKitIntrospectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB0B7659B3CBF3514D1FC9567D4F80 /* AppKitIntrospectionView.swift */; };
+		11764697E09F25872A1EEC92A0913EE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		26A76676C1314B46DF5F1F1313ABE2F4 /* Introspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F97B7DBE7B5E51378241115EFD843 /* Introspect.swift */; };
+		33D5B287D5D67E4AA200CB30FDA207FB /* Pods-seminar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 322DE7681E19C198BA62AD28B01AFAB0 /* Pods-seminar-dummy.m */; };
+		6CEDA46F5BDA046891F69B6AC9C7992D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		A8B0DC12BE200007F9EB2D65531A84CA /* UIKitIntrospectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD39E502C826E5A7C5BAF30974FAEBB /* UIKitIntrospectionView.swift */; };
+		CBBB3C3152D4C6E2F661C3E5E813147C /* Introspect-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B6C185AFAF683A8F8152324DD89EEDF /* Introspect-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8DE7403B046571663D236C6905B4E52 /* UIKitIntrospectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8642AA28CFA4B0B137E3325D9FC24B36 /* UIKitIntrospectionViewController.swift */; };
+		DE9FE1FE2E7B9C17B1FB97C6E613DFF2 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6519D1DDA6EB4B5EE3D38A3A0A7649DC /* ViewExtensions.swift */; };
+		E3A9520CA6687AD8AA511C03D9DED0E6 /* Pods-seminar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 61B8EC731E64AABE86344C3375237738 /* Pods-seminar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FEE53BB666EC19D440243E6ED59F33CC /* Introspect-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7133B45DB27B49E3F6A06E50B650D08 /* Introspect-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		19D6BA46D4D1F9D2BF9E6C169581F8D2 /* PBXContainerItemProxy */ = {
+		25EE461627C5D332F0142BF3AF11B986 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BF5B8FB50103E88F1B31C07164555C80;
-			remoteInfo = SmileLock;
+			remoteGlobalIDString = 97E3685499568DCCBA6C15905F707BDC;
+			remoteInfo = Introspect;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01DEAC3B4D4929A7C356B0B9F6B6936D /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SmileLock/Assets/Assets.xcassets; sourceTree = "<group>"; };
 		18070B59D74B1AD6EB093BEB8C4F16CA /* Pods-seminar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-seminar.release.xcconfig"; sourceTree = "<group>"; };
+		1B6C185AFAF683A8F8152324DD89EEDF /* Introspect-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Introspect-umbrella.h"; sourceTree = "<group>"; };
+		1FEB0B7659B3CBF3514D1FC9567D4F80 /* AppKitIntrospectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppKitIntrospectionView.swift; path = Introspect/AppKitIntrospectionView.swift; sourceTree = "<group>"; };
 		2FC7639643AD39809FE48975C4EAF3A3 /* Pods-seminar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-seminar.debug.xcconfig"; sourceTree = "<group>"; };
+		2FD39E502C826E5A7C5BAF30974FAEBB /* UIKitIntrospectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIKitIntrospectionView.swift; path = Introspect/UIKitIntrospectionView.swift; sourceTree = "<group>"; };
 		322DE7681E19C198BA62AD28B01AFAB0 /* Pods-seminar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-seminar-dummy.m"; sourceTree = "<group>"; };
-		3CDB7A6A0F0F0093CB1AED8FE5C0ACFE /* SmileLock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SmileLock.debug.xcconfig; sourceTree = "<group>"; };
+		3DF18865B218BCE5D62D0C436F575AFE /* Introspect-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Introspect-prefix.pch"; sourceTree = "<group>"; };
 		40C8FE7014415A8E78105ECB818AB076 /* Pods-seminar-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-seminar-acknowledgements.plist"; sourceTree = "<group>"; };
-		516BBBB29224D265D7D333938F7E78CA /* SmileLock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SmileLock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5241845594A97E52C2B1E5968AE6C3AF /* SmileLock.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SmileLock.modulemap; sourceTree = "<group>"; };
-		56FC00326C36977B34F7032D7931825D /* SmileLock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SmileLock.release.xcconfig; sourceTree = "<group>"; };
-		58C522A75F2DD324E12888EB4BABF3BD /* Pods-seminar */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-seminar"; path = Pods_seminar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58C522A75F2DD324E12888EB4BABF3BD /* Pods_seminar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_seminar.framework; path = "Pods-seminar.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61B8EC731E64AABE86344C3375237738 /* Pods-seminar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-seminar-umbrella.h"; sourceTree = "<group>"; };
-		6664DE8BB2A3BEF20000BD1A44DD0A03 /* SmileLock-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SmileLock-dummy.m"; sourceTree = "<group>"; };
-		704EDB5A1EAC4F75A8A76BEE3C3EA79E /* PasswordUIValidation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PasswordUIValidation.swift; path = SmileLock/Classes/PasswordUIValidation.swift; sourceTree = "<group>"; };
+		6519D1DDA6EB4B5EE3D38A3A0A7649DC /* ViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewExtensions.swift; path = Introspect/ViewExtensions.swift; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		745E37B3CE5A5E3841D760CF51CF5D87 /* Pods-seminar-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-seminar-frameworks.sh"; sourceTree = "<group>"; };
+		7FA8350B21394CC67B4C811628A647AB /* Introspect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Introspect.release.xcconfig; sourceTree = "<group>"; };
+		8642AA28CFA4B0B137E3325D9FC24B36 /* UIKitIntrospectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIKitIntrospectionViewController.swift; path = Introspect/UIKitIntrospectionViewController.swift; sourceTree = "<group>"; };
 		8AD843A6C03BCB065B506E37B2389C20 /* Pods-seminar-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-seminar-Info.plist"; sourceTree = "<group>"; };
-		93E10185AB463982378CC56DECAC447E /* SmileLock-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SmileLock-umbrella.h"; sourceTree = "<group>"; };
 		95E281F6A061042619F0E6FA96ED2BE9 /* Pods-seminar-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-seminar-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9AC69CCCF8CDEAB465BEFCE79182E789 /* SmileLock-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SmileLock-prefix.pch"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9F1FBFDFD9A08668EC0AAEFE5FA76BAE /* PasswordDotView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PasswordDotView.swift; path = SmileLock/Classes/PasswordDotView.swift; sourceTree = "<group>"; };
-		ACA31386FA527C2126094A32842C85DF /* PasswordContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PasswordContainerView.swift; path = SmileLock/Classes/PasswordContainerView.swift; sourceTree = "<group>"; };
-		B3677FF38F202F070122827388BEF2CB /* SmileLock-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SmileLock-Info.plist"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A7133B45DB27B49E3F6A06E50B650D08 /* Introspect-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Introspect-dummy.m"; sourceTree = "<group>"; };
 		BB1F4C4A755FD4F7D52E0AEC6F3EEE7A /* Pods-seminar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-seminar.modulemap"; sourceTree = "<group>"; };
-		CAF52F23D10EBD96A3CA1907233CC27C /* PasswordContainerView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = PasswordContainerView.xib; path = SmileLock/Assets/PasswordContainerView.xib; sourceTree = "<group>"; };
-		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		FE2F77D85F3243567FF14556303E54DD /* PasswordInputView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PasswordInputView.swift; path = SmileLock/Classes/PasswordInputView.swift; sourceTree = "<group>"; };
+		C16A57B7BAC12B839B47B64EA86CB745 /* Introspect-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Introspect-Info.plist"; sourceTree = "<group>"; };
+		C6935A6B76A1F3ACA7781AE41385A149 /* Introspect.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Introspect.modulemap; sourceTree = "<group>"; };
+		D0A70003FD5E49B30CA83DAAFE03116B /* Introspect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Introspect.framework; path = Introspect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1119A951EC43052081C7A9A0544F754 /* Introspect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Introspect.debug.xcconfig; sourceTree = "<group>"; };
+		EE9F97B7DBE7B5E51378241115EFD843 /* Introspect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Introspect.swift; path = Introspect/Introspect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		26BA67B9F0B99E89A930319A4E9C929D /* Frameworks */ = {
+		31FA779C2E2C1439F386AC99AEC8D9FC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7A837FB9C4FD0B7D6EE64EF4EB81702 /* Foundation.framework in Frameworks */,
+				11764697E09F25872A1EEC92A0913EE1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8072437EC796E3DB7C169D8AA77DDEC7 /* Frameworks */ = {
+		996CE5B1EA8198519A58A88352783694 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAD238BD38D1A33800F067F9B7DB6BB9 /* Foundation.framework in Frameworks */,
-				87C07137C95E1AED8732CB5E72FA3BBA /* UIKit.framework in Frameworks */,
+				6CEDA46F5BDA046891F69B6AC9C7992D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+		20C24BE28A8BC1948F8DA34D666339A7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		391E763E860017AED011A55F17F70D77 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				01DEAC3B4D4929A7C356B0B9F6B6936D /* Assets.xcassets */,
-				CAF52F23D10EBD96A3CA1907233CC27C /* PasswordContainerView.xib */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */,
-				D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		67635A600ACF067026CA91B4B499F99D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				58C522A75F2DD324E12888EB4BABF3BD /* Pods-seminar */,
-				516BBBB29224D265D7D333938F7E78CA /* SmileLock.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		777EDCDACA527364D626EEC71DDABEC2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D43388AC3FE7ECAA432FBECD7D58B16D /* SmileLock */,
+				51CA0CEB90A680AD71900D5AB951F5AE /* Introspect */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		51CA0CEB90A680AD71900D5AB951F5AE /* Introspect */ = {
+			isa = PBXGroup;
+			children = (
+				1FEB0B7659B3CBF3514D1FC9567D4F80 /* AppKitIntrospectionView.swift */,
+				EE9F97B7DBE7B5E51378241115EFD843 /* Introspect.swift */,
+				2FD39E502C826E5A7C5BAF30974FAEBB /* UIKitIntrospectionView.swift */,
+				8642AA28CFA4B0B137E3325D9FC24B36 /* UIKitIntrospectionViewController.swift */,
+				6519D1DDA6EB4B5EE3D38A3A0A7649DC /* ViewExtensions.swift */,
+				E74A7A19A59A269AF211D6D7D445E878 /* Support Files */,
+			);
+			name = Introspect;
+			path = Introspect;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		85D28BAEB932DBD141EC791AF2FE473A /* Pods-seminar */ = {
@@ -143,43 +125,47 @@
 			path = "Target Support Files/Pods-seminar";
 			sourceTree = "<group>";
 		};
-		AE807AA22F4AFD190DE4E9EAA3940EC0 /* Support Files */ = {
+		B56341B6D0EB534739111430B1EC7B8D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5241845594A97E52C2B1E5968AE6C3AF /* SmileLock.modulemap */,
-				6664DE8BB2A3BEF20000BD1A44DD0A03 /* SmileLock-dummy.m */,
-				B3677FF38F202F070122827388BEF2CB /* SmileLock-Info.plist */,
-				9AC69CCCF8CDEAB465BEFCE79182E789 /* SmileLock-prefix.pch */,
-				93E10185AB463982378CC56DECAC447E /* SmileLock-umbrella.h */,
-				3CDB7A6A0F0F0093CB1AED8FE5C0ACFE /* SmileLock.debug.xcconfig */,
-				56FC00326C36977B34F7032D7931825D /* SmileLock.release.xcconfig */,
+				D0A70003FD5E49B30CA83DAAFE03116B /* Introspect.framework */,
+				58C522A75F2DD324E12888EB4BABF3BD /* Pods_seminar.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/SmileLock";
+			name = Products;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				777EDCDACA527364D626EEC71DDABEC2 /* Pods */,
-				67635A600ACF067026CA91B4B499F99D /* Products */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				20C24BE28A8BC1948F8DA34D666339A7 /* Pods */,
+				B56341B6D0EB534739111430B1EC7B8D /* Products */,
 				FF7BF6296600BD5CD9619BE76DBA3B7A /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D43388AC3FE7ECAA432FBECD7D58B16D /* SmileLock */ = {
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ACA31386FA527C2126094A32842C85DF /* PasswordContainerView.swift */,
-				9F1FBFDFD9A08668EC0AAEFE5FA76BAE /* PasswordDotView.swift */,
-				FE2F77D85F3243567FF14556303E54DD /* PasswordInputView.swift */,
-				704EDB5A1EAC4F75A8A76BEE3C3EA79E /* PasswordUIValidation.swift */,
-				391E763E860017AED011A55F17F70D77 /* Resources */,
-				AE807AA22F4AFD190DE4E9EAA3940EC0 /* Support Files */,
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
 			);
-			path = SmileLock;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E74A7A19A59A269AF211D6D7D445E878 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C6935A6B76A1F3ACA7781AE41385A149 /* Introspect.modulemap */,
+				A7133B45DB27B49E3F6A06E50B650D08 /* Introspect-dummy.m */,
+				C16A57B7BAC12B839B47B64EA86CB745 /* Introspect-Info.plist */,
+				3DF18865B218BCE5D62D0C436F575AFE /* Introspect-prefix.pch */,
+				1B6C185AFAF683A8F8152324DD89EEDF /* Introspect-umbrella.h */,
+				D1119A951EC43052081C7A9A0544F754 /* Introspect.debug.xcconfig */,
+				7FA8350B21394CC67B4C811628A647AB /* Introspect.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Introspect";
 			sourceTree = "<group>";
 		};
 		FF7BF6296600BD5CD9619BE76DBA3B7A /* Targets Support Files */ = {
@@ -193,19 +179,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		02151ABB65A7A5C52BD0F77DAF2B10E8 /* Headers */ = {
+		C4A87CCF965CA6A18F5C4D219FBD897B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79BCC83DC3160C6C8711219D27E2D924 /* Pods-seminar-umbrella.h in Headers */,
+				CBBB3C3152D4C6E2F661C3E5E813147C /* Introspect-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EFC0AAB5FAE127A59D239BDE6E4BB315 /* Headers */ = {
+		E47DF750703BF3E2EC0AD419FD5AE933 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				154EF2EF9BEDD19893CDB00FA4900CE9 /* SmileLock-umbrella.h in Headers */,
+				E3A9520CA6687AD8AA511C03D9DED0E6 /* Pods-seminar-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,39 +200,39 @@
 /* Begin PBXNativeTarget section */
 		15114B1186D22F244C53E8AD80663235 /* Pods-seminar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F7BCAF7C287203797990FFE9F9AC77C5 /* Build configuration list for PBXNativeTarget "Pods-seminar" */;
+			buildConfigurationList = 7F56EA0044D70FB8BE3031DC813A3A25 /* Build configuration list for PBXNativeTarget "Pods-seminar" */;
 			buildPhases = (
-				02151ABB65A7A5C52BD0F77DAF2B10E8 /* Headers */,
-				BEEB121E78D1522877B001881F27F773 /* Sources */,
-				26BA67B9F0B99E89A930319A4E9C929D /* Frameworks */,
-				549BD337A85CFC453E207EEE5AF88375 /* Resources */,
+				E47DF750703BF3E2EC0AD419FD5AE933 /* Headers */,
+				81EDB1078D25B0A01C759B8FD98AA7B8 /* Sources */,
+				996CE5B1EA8198519A58A88352783694 /* Frameworks */,
+				8FBC6590EF98C14544AEB51A5F726AD1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7F8CB307AC061C8EDFCEC3DDDBCBDAD9 /* PBXTargetDependency */,
+				1DBFCF78C104009E54B66AE49AE5C1E6 /* PBXTargetDependency */,
 			);
 			name = "Pods-seminar";
-			productName = Pods_seminar;
-			productReference = 58C522A75F2DD324E12888EB4BABF3BD /* Pods-seminar */;
+			productName = "Pods-seminar";
+			productReference = 58C522A75F2DD324E12888EB4BABF3BD /* Pods_seminar.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		BF5B8FB50103E88F1B31C07164555C80 /* SmileLock */ = {
+		97E3685499568DCCBA6C15905F707BDC /* Introspect */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D05ED1AC430D328E959829EBC2A29B82 /* Build configuration list for PBXNativeTarget "SmileLock" */;
+			buildConfigurationList = 16B9305882DF4E5359A9C88CFB34D3D7 /* Build configuration list for PBXNativeTarget "Introspect" */;
 			buildPhases = (
-				EFC0AAB5FAE127A59D239BDE6E4BB315 /* Headers */,
-				3AC7A9443B3D40C0E38454782538CE6B /* Sources */,
-				8072437EC796E3DB7C169D8AA77DDEC7 /* Frameworks */,
-				AD915DD40DE916F60CB3D8345B687E3B /* Resources */,
+				C4A87CCF965CA6A18F5C4D219FBD897B /* Headers */,
+				EDC774157FF0F74DA662C65D8D058FEF /* Sources */,
+				31FA779C2E2C1439F386AC99AEC8D9FC /* Frameworks */,
+				0CF6844CDBF49121C460836A8676E396 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SmileLock;
-			productName = SmileLock;
-			productReference = 516BBBB29224D265D7D333938F7E78CA /* SmileLock.framework */;
+			name = Introspect;
+			productName = Introspect;
+			productReference = D0A70003FD5E49B30CA83DAAFE03116B /* Introspect.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -256,122 +242,81 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1310;
-				TargetAttributes = {
-					BF5B8FB50103E88F1B31C07164555C80 = {
-						LastSwiftMigration = 1310;
-					};
-				};
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				Base,
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 67635A600ACF067026CA91B4B499F99D /* Products */;
+			productRefGroup = B56341B6D0EB534739111430B1EC7B8D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				97E3685499568DCCBA6C15905F707BDC /* Introspect */,
 				15114B1186D22F244C53E8AD80663235 /* Pods-seminar */,
-				BF5B8FB50103E88F1B31C07164555C80 /* SmileLock */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		549BD337A85CFC453E207EEE5AF88375 /* Resources */ = {
+		0CF6844CDBF49121C460836A8676E396 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AD915DD40DE916F60CB3D8345B687E3B /* Resources */ = {
+		8FBC6590EF98C14544AEB51A5F726AD1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9547E086BC86B27A9E2775219AF22DA8 /* Assets.xcassets in Resources */,
-				B72D3EA4F0D04B935A5C878EB96158E4 /* PasswordContainerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3AC7A9443B3D40C0E38454782538CE6B /* Sources */ = {
+		81EDB1078D25B0A01C759B8FD98AA7B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39E31147CCE48CBEABBF65DB0434F013 /* PasswordContainerView.swift in Sources */,
-				F804F4D0DBEB625CEC9439321C838847 /* PasswordDotView.swift in Sources */,
-				F13C755204F66D48FDCAE679EEA3767D /* PasswordInputView.swift in Sources */,
-				31CE5537B61B77CD1C8BD72925AB549A /* PasswordUIValidation.swift in Sources */,
-				21DA33DFCA378D9EC9E313F0EDD4B9BD /* SmileLock-dummy.m in Sources */,
+				33D5B287D5D67E4AA200CB30FDA207FB /* Pods-seminar-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BEEB121E78D1522877B001881F27F773 /* Sources */ = {
+		EDC774157FF0F74DA662C65D8D058FEF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AE32791A83E63C66A4F82CD8CA33AD7 /* Pods-seminar-dummy.m in Sources */,
+				04516B10D23612F1EF169D07F5E5D412 /* AppKitIntrospectionView.swift in Sources */,
+				26A76676C1314B46DF5F1F1313ABE2F4 /* Introspect.swift in Sources */,
+				FEE53BB666EC19D440243E6ED59F33CC /* Introspect-dummy.m in Sources */,
+				A8B0DC12BE200007F9EB2D65531A84CA /* UIKitIntrospectionView.swift in Sources */,
+				D8DE7403B046571663D236C6905B4E52 /* UIKitIntrospectionViewController.swift in Sources */,
+				DE9FE1FE2E7B9C17B1FB97C6E613DFF2 /* ViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7F8CB307AC061C8EDFCEC3DDDBCBDAD9 /* PBXTargetDependency */ = {
+		1DBFCF78C104009E54B66AE49AE5C1E6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = SmileLock;
-			target = BF5B8FB50103E88F1B31C07164555C80 /* SmileLock */;
-			targetProxy = 19D6BA46D4D1F9D2BF9E6C169581F8D2 /* PBXContainerItemProxy */;
+			name = Introspect;
+			target = 97E3685499568DCCBA6C15905F707BDC /* Introspect */;
+			targetProxy = 25EE461627C5D332F0142BF3AF11B986 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		477137CE6F903DEEC963A1FBA339F944 /* Release */ = {
+		56C7C9C6A701969C4EB7A3D3DB70A2C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56FC00326C36977B34F7032D7931825D /* SmileLock.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SmileLock/SmileLock-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SmileLock/SmileLock-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SmileLock/SmileLock.modulemap";
-				PRODUCT_MODULE_NAME = SmileLock;
-				PRODUCT_NAME = SmileLock;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		5055BC54DD552D5EB3D5C678509741E4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18070B59D74B1AD6EB093BEB8C4F16CA /* Pods-seminar.release.xcconfig */;
+			baseConfigurationReference = 2FC7639643AD39809FE48975C4EAF3A3 /* Pods-seminar.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -400,6 +345,41 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		890D8A8EE29D9796F998FE27B08100F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FA8350B21394CC67B4C811628A647AB /* Introspect.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Introspect/Introspect-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Introspect/Introspect-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Introspect/Introspect.modulemap";
+				PRODUCT_MODULE_NAME = Introspect;
+				PRODUCT_NAME = Introspect;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -535,9 +515,9 @@
 			};
 			name = Release;
 		};
-		B7837DAD83831BA79338917311C8DB66 /* Debug */ = {
+		C1CC2B32167D0F515E6C137DD1FAB50D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2FC7639643AD39809FE48975C4EAF3A3 /* Pods-seminar.debug.xcconfig */;
+			baseConfigurationReference = 18070B59D74B1AD6EB093BEB8C4F16CA /* Pods-seminar.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -567,15 +547,17 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		FE2026AA26C22F1BE2E77F8B486E8844 /* Debug */ = {
+		C2FEEF7BEE72A264ECF59D4A85DB9467 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3CDB7A6A0F0F0093CB1AED8FE5C0ACFE /* SmileLock.debug.xcconfig */;
+			baseConfigurationReference = D1119A951EC43052081C7A9A0544F754 /* Introspect.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -584,22 +566,22 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SmileLock/SmileLock-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SmileLock/SmileLock-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Introspect/Introspect-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Introspect/Introspect-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/SmileLock/SmileLock.modulemap";
-				PRODUCT_MODULE_NAME = SmileLock;
-				PRODUCT_NAME = SmileLock;
+				MODULEMAP_FILE = "Target Support Files/Introspect/Introspect.modulemap";
+				PRODUCT_MODULE_NAME = Introspect;
+				PRODUCT_NAME = Introspect;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 5.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -609,6 +591,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		16B9305882DF4E5359A9C88CFB34D3D7 /* Build configuration list for PBXNativeTarget "Introspect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2FEEF7BEE72A264ECF59D4A85DB9467 /* Debug */,
+				890D8A8EE29D9796F998FE27B08100F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -618,20 +609,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D05ED1AC430D328E959829EBC2A29B82 /* Build configuration list for PBXNativeTarget "SmileLock" */ = {
+		7F56EA0044D70FB8BE3031DC813A3A25 /* Build configuration list for PBXNativeTarget "Pods-seminar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FE2026AA26C22F1BE2E77F8B486E8844 /* Debug */,
-				477137CE6F903DEEC963A1FBA339F944 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F7BCAF7C287203797990FFE9F9AC77C5 /* Build configuration list for PBXNativeTarget "Pods-seminar" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B7837DAD83831BA79338917311C8DB66 /* Debug */,
-				5055BC54DD552D5EB3D5C678509741E4 /* Release */,
+				56C7C9C6A701969C4EB7A3D3DB70A2C5 /* Debug */,
+				C1CC2B32167D0F515E6C137DD1FAB50D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
