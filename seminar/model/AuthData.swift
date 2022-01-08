@@ -6,10 +6,10 @@
 //
 
 import Foundation
-class LocationAuthData {
-    var message:String = ""
-    
-    var result:Bool = false
+class LocationAuthData:ObservableObject {
+    @Published var isEnable = false
+    @Published var message:String = ""
+    @Published var result:Bool = false
 }
 
 class FaceAuthData {

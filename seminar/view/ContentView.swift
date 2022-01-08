@@ -17,7 +17,6 @@ struct ContentView: View {
     @State var show = false
     
     let faceAuth:FaceAuth = FaceAuth()
-    let locationAuth:LocationAuth = LocationAuth()
     
     var body: some View {
         if(show) {
@@ -33,29 +32,30 @@ struct ContentView: View {
             }
         }
     }
-    func exec() {
-        
-        // GPS認証
-        locationAuth.auth { locationData in
-            message = locationData.message
-            authResult = locationData.result
-            
-            if !authResult {
-                return
-            }
-            // 顔認証
-            faceAuth.auth { faceData in
-                message = faceData.message
-                authResult = faceData.result
-                
-                if !authResult {
-                    return
-                }
-            }
-        }
+    
+    
+//    func exec() {
+//        // GPS認証
+//        locationAuth.auth { locationData in
+//            message = locationData.message
+//            authResult = locationData.result
+//
+//            if !authResult {
+//                return
+//            }
+//            // 顔認証
+//            faceAuth.auth { faceData in
+//                message = faceData.message
+//                authResult = faceData.result
+//
+//                if !authResult {
+//                    return
+//                }
+//            }
+//        }
         // パスワード認証？
         //        passwordAuth.setupPassword()
-    }
+//    }
 }
 
 

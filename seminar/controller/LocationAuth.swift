@@ -1,108 +1,135 @@
 //
-//  LocationAuth.swift.swift
+//  RequestLocation.swift
 //  seminar
 //
-//  Created by 石井快思 on 2021/12/09.
+//  Created by しゅん on 2022/01/06.
 //
 
-import CoreLocation
 import Foundation
+import SwiftUI
+import CoreLocation
 import MapKit
 
-class LocationAuth:NSObject,ObservableObject,CLLocationManagerDelegate {
+class LocationAuth: NSObject,CLLocationManagerDelegate, ObservableObject {
     
     // 認証可能な座標定義
-    var authenticationCoordinate : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 43.061092, longitude: 141.356433)
-    var result : Bool = false
+    let authenticationCoordinate : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 43.061092, longitude: 141.356433)
     
-    let reason = "位置情報が取得できません"
-    var coordinate: CLLocationCoordinate2D? {
-        lastSeenLocation?.coordinate
-    }
-    @Published var authorizationStatus:CLAuthorizationStatus
-    @Published var lastSeenLocation:CLLocation?
+    let manager = CLLocationManager()
+    // 非同期処理用のクロージャ
+    typealias compLocation = (_ location:[String:CLLocationDegrees]) -> Void
     
-    private let locationManager: CLLocationManager
+    public var roomLocation:[String:CLLocationDegrees] = [:]
     
-    override init() {
-        locationManager = CLLocationManager()
-        authorizationStatus = locationManager.authorizationStatus
-        
+    @Published var authorizationStatus:CLAuthorizationStatus = .notDetermined
+    
+    // 位置情報利用フラグ
+    @Published var isEnable = false
+    
+    // 認証結果
+    @Published var result = false
+    
+    // 認証失敗フラグ
+    @Published var isAuthingBad = false
+    
+    @Published var region = MKCoordinateRegion(
+        center: .init(latitude: 43.0383, longitude: 131.81067894034084),
+        latitudinalMeters: 300,
+        longitudinalMeters: 300
+    )
+    
+    override init(){
         super.init()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.pausesLocationUpdatesAutomatically = false
-        locationManager.startUpdatingLocation()
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    func requestPermission() {
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestAlwaysAuthorization()
+    func request() {
+        manager.requestWhenInUseAuthorization()
     }
     
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        authorizationStatus = manager.authorizationStatus
-        
+    func auth() {
+        getLocation(comp: { location in
+            let result = self.contains(latitude: location["roomLatitude"]!, longitude: location["roomLongitude"]!)
+            self.result = result
+            self.isAuthingBad = !result
+        })
     }
+    
+    deinit {
+        manager.stopUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status{
+        case .authorizedAlways:
+            print("常に許可")
+            authorizationStatus = .authorizedAlways
+            isEnable = true
+            manager.startUpdatingLocation()
+        case .authorizedWhenInUse:
+            print("使用時のみ許可")
+            authorizationStatus = .authorizedWhenInUse
+            isEnable = true
+            manager.startUpdatingLocation()
+        case .denied:
+            authorizationStatus = .denied
+            isEnable = false
+            print("承認拒否")
+        case .notDetermined:
+            authorizationStatus = .notDetermined
+            isEnable = false
+            print("未設定")
+        case .restricted:
+            authorizationStatus = .restricted
+            isEnable = false
+            print("機能制限")
+        @unknown default:
+            print("何も一致しなかったよ")
+        }
+     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        lastSeenLocation = locations.first
+        guard let location = locations.last else {
+            return
+        }
+        let roomLatitude = location.coordinate.latitude
+        let roomLongitude = location.coordinate.longitude
+        self.region = MKCoordinateRegion(
+            center: .init(latitude: roomLatitude, longitude: roomLongitude),
+            latitudinalMeters: 300,
+            longitudinalMeters: 300
+        )
+        roomLocation = ["roomLatitude": roomLatitude, "roomLongitude": roomLongitude]
     }
     
-    // GPS認証
-    func auth(complation : @escaping(LocationAuthData) -> Void) {
-        let data = LocationAuthData()
-        switch authorizationStatus {
-        case .notDetermined:
-            requestPermission()
-            break
-        case .restricted:
-            data.message = "位置情報の使用が制限されています"
-            data.result = false
-            complation(data)
-            break
-        case .denied:
-            data.message = "位置情報を使用できません。"
-            data.result = false
-            complation(data)
-            break
-        case .authorizedAlways, .authorizedWhenInUse:
-            print("緯度：" + String(coordinate?.latitude ?? 0))
-            print("経度：" + String(coordinate?.longitude ?? 0))
-            result = contains(coordinate: coordinate!)
-            if result {
-                print("GPS認証が完了しました")
-                DispatchQueue.main.async {
-                    data.message = "GPS認証が成功しました"
-                    data.result = true
-                    complation(data)
-
-                }
-            } else {
-                print("GPS認証が失敗しました")
-                DispatchQueue.main.async {
-                    data.message = "GPS認証が失敗しました"
-                    data.result = false
-                    complation(data)
-                }
-            }
-            break
-        default:
-            break
-        }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("位置情報の取得に失敗しました")
     }
     
     // 現在の位置情報と承認可能なポイントの座標感の距離を測定
     // 座標間の距離が30m以内であれば認証可能
-    func contains(coordinate:CLLocationCoordinate2D) -> Bool {
-        let currentPoint:MKMapPoint = MKMapPoint(coordinate);
+    private func contains(latitude: CLLocationDegrees, longitude: CLLocationDegrees) -> Bool {
+        let locationCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let currentPoint:MKMapPoint = MKMapPoint(locationCoordinate);
         let authenticaitonPoint:MKMapPoint = MKMapPoint(authenticationCoordinate);
         let distance:CLLocationDistance = currentPoint.distance(to: authenticaitonPoint);
-        print(distance)
         if distance <= 3000 {
             return true
         }
         return false
+    }
+    
+    // 位置情報を取得する処理(取得できるまで0.5秒再帰)
+    private func getLocation(comp:@escaping compLocation) {
+        if roomLocation.isEmpty {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                // 0.5秒待機
+                self.getLocation(comp: comp)
+            }
+        } else {
+            // 位置情報を取得
+            comp(roomLocation)
+        }
     }
 }

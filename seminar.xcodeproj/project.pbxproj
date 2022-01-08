@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		24355545277C51E40082CF32 /* FlickAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24355544277C51E40082CF32 /* FlickAuthView.swift */; };
+		2470845B278736D9009284C5 /* LocationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2470845A278736D9009284C5 /* LocationAuth.swift */; };
+		2470845E27889C1B009284C5 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 2470845D27889C1B009284C5 /* AlertToast */; };
 		2485F471276B04F700BF1B6A /* GpsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F470276B04F700BF1B6A /* GpsView.swift */; };
 		24BCD31D277C5DC000444876 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCD31C277C5DC000444876 /* KeyboardView.swift */; };
 		24BCD31F277C67B700444876 /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCD31E277C67B700444876 /* KeyboardButton.swift */; };
@@ -21,12 +23,12 @@
 		B6680F7327619EAF00F94D90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6680F7227619EAF00F94D90 /* Assets.xcassets */; };
 		B6680F7627619EAF00F94D90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6680F7527619EAF00F94D90 /* Preview Assets.xcassets */; };
 		B6680F7D27619EF600F94D90 /* FaceAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6680F7C27619EF600F94D90 /* FaceAuth.swift */; };
-		B6680F7F27619FB300F94D90 /* LocationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6680F7E27619FB300F94D90 /* LocationAuth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0644E0DA643CB49DA13C54BF /* Pods-seminar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-seminar.release.xcconfig"; path = "Target Support Files/Pods-seminar/Pods-seminar.release.xcconfig"; sourceTree = "<group>"; };
 		24355544277C51E40082CF32 /* FlickAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickAuthView.swift; sourceTree = "<group>"; };
+		2470845A278736D9009284C5 /* LocationAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuth.swift; sourceTree = "<group>"; };
 		2485F470276B04F700BF1B6A /* GpsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpsView.swift; sourceTree = "<group>"; };
 		24BCD31C277C5DC000444876 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		24BCD31E277C67B700444876 /* KeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; };
@@ -42,7 +44,6 @@
 		B6680F7227619EAF00F94D90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6680F7527619EAF00F94D90 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B6680F7C27619EF600F94D90 /* FaceAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceAuth.swift; sourceTree = "<group>"; };
-		B6680F7E27619FB300F94D90 /* LocationAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuth.swift; sourceTree = "<group>"; };
 		EF78EA56CA2CAD4B8D2D789F /* Pods-seminar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-seminar.debug.xcconfig"; path = "Target Support Files/Pods-seminar/Pods-seminar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2470845E27889C1B009284C5 /* AlertToast in Frameworks */,
 				B643C5B52761C2F5003F2D11 /* CoreLocation.framework in Frameworks */,
 				33E053BB98A20D59402F4817 /* Pods_seminar.framework in Frameworks */,
 			);
@@ -92,8 +94,8 @@
 		2485F46F276AFFEA00BF1B6A /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				B6680F7E27619FB300F94D90 /* LocationAuth.swift */,
 				B643C5B22761AEFB003F2D11 /* PasswordAuth.swift */,
+				2470845A278736D9009284C5 /* LocationAuth.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -174,6 +176,9 @@
 			dependencies = (
 			);
 			name = seminar;
+			packageProductDependencies = (
+				2470845D27889C1B009284C5 /* AlertToast */,
+			);
 			productName = seminar;
 			productReference = B6680F6B27619EAD00F94D90 /* seminar.app */;
 			productType = "com.apple.product-type.application";
@@ -202,6 +207,9 @@
 				Base,
 			);
 			mainGroup = B6680F6227619EAD00F94D90;
+			packageReferences = (
+				2470845C27889C1B009284C5 /* XCRemoteSwiftPackageReference "AlertToast" */,
+			);
 			productRefGroup = B6680F6C27619EAD00F94D90 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -272,7 +280,6 @@
 			files = (
 				B6680F7D27619EF600F94D90 /* FaceAuth.swift in Sources */,
 				B643C5B827682A5C003F2D11 /* PasswordView.swift in Sources */,
-				B6680F7F27619FB300F94D90 /* LocationAuth.swift in Sources */,
 				24BCD31D277C5DC000444876 /* KeyboardView.swift in Sources */,
 				24355545277C51E40082CF32 /* FlickAuthView.swift in Sources */,
 				B643C5BA27685CDD003F2D11 /* AuthData.swift in Sources */,
@@ -280,6 +287,7 @@
 				2485F471276B04F700BF1B6A /* GpsView.swift in Sources */,
 				B6680F7127619EAD00F94D90 /* ContentView.swift in Sources */,
 				24BCD31F277C67B700444876 /* KeyboardButton.swift in Sources */,
+				2470845B278736D9009284C5 /* LocationAuth.swift in Sources */,
 				B6680F6F27619EAD00F94D90 /* seminarApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +505,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2470845C27889C1B009284C5 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2470845D27889C1B009284C5 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2470845C27889C1B009284C5 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B6680F6327619EAD00F94D90 /* Project object */;
 }
