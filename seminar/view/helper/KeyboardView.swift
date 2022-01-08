@@ -191,6 +191,7 @@ struct KeyboardView: View {
                         }
                         .gesture(DragGesture()
                                     .onChanged({ value in
+                            
                             flickingKeysA(value)
                             
                         })
@@ -1384,7 +1385,6 @@ struct KeyboardView: View {
         touchRow4 = false
         touchColomn2 = false
     }
-    
 }
 
 struct KeyboardView_Previews: PreviewProvider {

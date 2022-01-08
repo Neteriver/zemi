@@ -17,7 +17,9 @@ struct FlickAuthView: View {
     var body: some View {
         VStack {
             Spacer()
-            
+            TapView { _ in 
+                
+            }.background(.gray)
             Text("\(title[random])")
                 .font(.title)
                 .padding(10)
