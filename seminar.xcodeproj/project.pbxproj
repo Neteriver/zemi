@@ -10,6 +10,13 @@
 		24355545277C51E40082CF32 /* FlickAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24355544277C51E40082CF32 /* FlickAuthView.swift */; };
 		2470845B278736D9009284C5 /* LocationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2470845A278736D9009284C5 /* LocationAuth.swift */; };
 		2470845E27889C1B009284C5 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 2470845D27889C1B009284C5 /* AlertToast */; };
+		24723A43278C263900220FB0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24723A42278C263900220FB0 /* MainView.swift */; };
+		24723A46278C266C00220FB0 /* MainRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24723A45278C266C00220FB0 /* MainRow.swift */; };
+		24723A48278C2E0000220FB0 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24723A47278C2E0000220FB0 /* VideoView.swift */; };
+		24723A4B278C31C200220FB0 /* ImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 24723A4A278C31C200220FB0 /* ImageViewer */; };
+		24723A4D278C31C200220FB0 /* ImageViewerRemote in Frameworks */ = {isa = PBXBuildFile; productRef = 24723A4C278C31C200220FB0 /* ImageViewerRemote */; };
+		24723A4F278C40DC00220FB0 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24723A4E278C40DC00220FB0 /* TopView.swift */; };
+		24723A51278C41C800220FB0 /* TopRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24723A50278C41C800220FB0 /* TopRow.swift */; };
 		2485F471276B04F700BF1B6A /* GpsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F470276B04F700BF1B6A /* GpsView.swift */; };
 		24BCD31D277C5DC000444876 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCD31C277C5DC000444876 /* KeyboardView.swift */; };
 		24BCD31F277C67B700444876 /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCD31E277C67B700444876 /* KeyboardButton.swift */; };
@@ -29,6 +36,11 @@
 		0644E0DA643CB49DA13C54BF /* Pods-seminar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-seminar.release.xcconfig"; path = "Target Support Files/Pods-seminar/Pods-seminar.release.xcconfig"; sourceTree = "<group>"; };
 		24355544277C51E40082CF32 /* FlickAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickAuthView.swift; sourceTree = "<group>"; };
 		2470845A278736D9009284C5 /* LocationAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuth.swift; sourceTree = "<group>"; };
+		24723A42278C263900220FB0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		24723A45278C266C00220FB0 /* MainRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRow.swift; sourceTree = "<group>"; };
+		24723A47278C2E0000220FB0 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		24723A4E278C40DC00220FB0 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		24723A50278C41C800220FB0 /* TopRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRow.swift; sourceTree = "<group>"; };
 		2485F470276B04F700BF1B6A /* GpsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpsView.swift; sourceTree = "<group>"; };
 		24BCD31C277C5DC000444876 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		24BCD31E277C67B700444876 /* KeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; };
@@ -52,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24723A4B278C31C200220FB0 /* ImageViewer in Frameworks */,
+				24723A4D278C31C200220FB0 /* ImageViewerRemote in Frameworks */,
 				2470845E27889C1B009284C5 /* AlertToast in Frameworks */,
 				B643C5B52761C2F5003F2D11 /* CoreLocation.framework in Frameworks */,
 				33E053BB98A20D59402F4817 /* Pods_seminar.framework in Frameworks */,
@@ -68,6 +82,18 @@
 				24BCD31C277C5DC000444876 /* KeyboardView.swift */,
 			);
 			path = helper;
+			sourceTree = "<group>";
+		};
+		24723A44278C265A00220FB0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				24723A42278C263900220FB0 /* MainView.swift */,
+				24723A45278C266C00220FB0 /* MainRow.swift */,
+				24723A47278C2E0000220FB0 /* VideoView.swift */,
+				24723A4E278C40DC00220FB0 /* TopView.swift */,
+				24723A50278C41C800220FB0 /* TopRow.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		2485F46D276AFFE000BF1B6A /* model */ = {
@@ -87,6 +113,7 @@
 				2485F470276B04F700BF1B6A /* GpsView.swift */,
 				24355544277C51E40082CF32 /* FlickAuthView.swift */,
 				2471295E277F107F006482BC /* helper */,
+				24723A44278C265A00220FB0 /* Main */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -178,6 +205,8 @@
 			name = seminar;
 			packageProductDependencies = (
 				2470845D27889C1B009284C5 /* AlertToast */,
+				24723A4A278C31C200220FB0 /* ImageViewer */,
+				24723A4C278C31C200220FB0 /* ImageViewerRemote */,
 			);
 			productName = seminar;
 			productReference = B6680F6B27619EAD00F94D90 /* seminar.app */;
@@ -209,6 +238,7 @@
 			mainGroup = B6680F6227619EAD00F94D90;
 			packageReferences = (
 				2470845C27889C1B009284C5 /* XCRemoteSwiftPackageReference "AlertToast" */,
+				24723A49278C31C200220FB0 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */,
 			);
 			productRefGroup = B6680F6C27619EAD00F94D90 /* Products */;
 			projectDirPath = "";
@@ -279,11 +309,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6680F7D27619EF600F94D90 /* FaceAuth.swift in Sources */,
+				24723A4F278C40DC00220FB0 /* TopView.swift in Sources */,
+				24723A51278C41C800220FB0 /* TopRow.swift in Sources */,
+				24723A43278C263900220FB0 /* MainView.swift in Sources */,
 				B643C5B827682A5C003F2D11 /* PasswordView.swift in Sources */,
 				24BCD31D277C5DC000444876 /* KeyboardView.swift in Sources */,
 				24355545277C51E40082CF32 /* FlickAuthView.swift in Sources */,
 				B643C5BA27685CDD003F2D11 /* AuthData.swift in Sources */,
 				B643C5B32761AEFB003F2D11 /* PasswordAuth.swift in Sources */,
+				24723A46278C266C00220FB0 /* MainRow.swift in Sources */,
+				24723A48278C2E0000220FB0 /* VideoView.swift in Sources */,
 				2485F471276B04F700BF1B6A /* GpsView.swift in Sources */,
 				B6680F7127619EAD00F94D90 /* ContentView.swift in Sources */,
 				24BCD31F277C67B700444876 /* KeyboardButton.swift in Sources */,
@@ -515,6 +550,14 @@
 				kind = branch;
 			};
 		};
+		24723A49278C31C200220FB0 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Jake-Short/swiftui-image-viewer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -522,6 +565,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2470845C27889C1B009284C5 /* XCRemoteSwiftPackageReference "AlertToast" */;
 			productName = AlertToast;
+		};
+		24723A4A278C31C200220FB0 /* ImageViewer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24723A49278C31C200220FB0 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = ImageViewer;
+		};
+		24723A4C278C31C200220FB0 /* ImageViewerRemote */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24723A49278C31C200220FB0 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = ImageViewerRemote;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
