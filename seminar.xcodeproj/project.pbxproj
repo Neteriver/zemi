@@ -10,7 +10,6 @@
 		24355545277C51E40082CF32 /* FlickAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24355544277C51E40082CF32 /* FlickAuthView.swift */; };
 		2470845B278736D9009284C5 /* LocationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2470845A278736D9009284C5 /* LocationAuth.swift */; };
 		2470845E27889C1B009284C5 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 2470845D27889C1B009284C5 /* AlertToast */; };
-		2470846027896C34009284C5 /* TapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2470845F27896C33009284C5 /* TapView.swift */; };
 		2485F471276B04F700BF1B6A /* GpsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F470276B04F700BF1B6A /* GpsView.swift */; };
 		24BCD31D277C5DC000444876 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCD31C277C5DC000444876 /* KeyboardView.swift */; };
 		24BCD31F277C67B700444876 /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCD31E277C67B700444876 /* KeyboardButton.swift */; };
@@ -30,7 +29,6 @@
 		0644E0DA643CB49DA13C54BF /* Pods-seminar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-seminar.release.xcconfig"; path = "Target Support Files/Pods-seminar/Pods-seminar.release.xcconfig"; sourceTree = "<group>"; };
 		24355544277C51E40082CF32 /* FlickAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickAuthView.swift; sourceTree = "<group>"; };
 		2470845A278736D9009284C5 /* LocationAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuth.swift; sourceTree = "<group>"; };
-		2470845F27896C33009284C5 /* TapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapView.swift; sourceTree = "<group>"; };
 		2485F470276B04F700BF1B6A /* GpsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpsView.swift; sourceTree = "<group>"; };
 		24BCD31C277C5DC000444876 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		24BCD31E277C67B700444876 /* KeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; };
@@ -67,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				24BCD31E277C67B700444876 /* KeyboardButton.swift */,
-				2470845F27896C33009284C5 /* TapView.swift */,
 				24BCD31C277C5DC000444876 /* KeyboardView.swift */,
 			);
 			path = helper;
@@ -289,7 +286,6 @@
 				B643C5B32761AEFB003F2D11 /* PasswordAuth.swift in Sources */,
 				2485F471276B04F700BF1B6A /* GpsView.swift in Sources */,
 				B6680F7127619EAD00F94D90 /* ContentView.swift in Sources */,
-				2470846027896C34009284C5 /* TapView.swift in Sources */,
 				24BCD31F277C67B700444876 /* KeyboardButton.swift in Sources */,
 				2470845B278736D9009284C5 /* LocationAuth.swift in Sources */,
 				B6680F6F27619EAD00F94D90 /* seminarApp.swift in Sources */,
@@ -425,7 +421,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"seminar/Preview Content\"";
-				DEVELOPMENT_TEAM = 42N44GC6T9;
+				DEVELOPMENT_TEAM = 5PRVM435C9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = seminar/Info.plist;
@@ -443,7 +439,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = KaijiIshii.seminar;
+				PRODUCT_BUNDLE_IDENTIFIER = KaijiIshii.seminar.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -460,7 +456,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"seminar/Preview Content\"";
-				DEVELOPMENT_TEAM = 42N44GC6T9;
+				DEVELOPMENT_TEAM = 5PRVM435C9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = seminar/Info.plist;
@@ -479,7 +475,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = KaijiIshii.seminar;
+				PRODUCT_BUNDLE_IDENTIFIER = KaijiIshii.seminar.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

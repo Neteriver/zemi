@@ -11,6 +11,22 @@ struct KeyboardView: View {
     
     @Binding var input:String
     
+    // ドラッグ開始時間
+    @State var onTapFlg = false
+    @State var tapStartTime = Date()
+    @Binding var onTime:Double
+    
+    // 間隔時間
+    @State var intervalTime = Date()
+    @Binding var waitTime:Double
+    
+    // 角度
+    @State var length : CGFloat = 150
+    @Binding var angle:CGFloat
+    
+    // 距離
+    @Binding var distance:CGFloat
+    
     let radius = 4.0
     
     let rowTop = 3.0
@@ -88,6 +104,44 @@ struct KeyboardView: View {
     @State var woflg = false
     @State var nflg = false
     
+    // 句読点
+    @State var kutenflg = false
+    @State var hatenaflg = false
+    @State var bikkuriflg = false
+    
+    // 濁点
+    let sonant = [
+        "か":"が",
+        "き":"ぎ",
+        "く":"ぐ",
+        "け":"げ",
+        "こ":"ご",
+        "さ":"っざ",
+        "し":"じ",
+        "す":"ず",
+        "せ":"ぜ",
+        "そ":"ぞ",
+        "た":"だ",
+        "ち":"ぢ",
+        "つ":"っ",
+        "て":"で",
+        "と":"ど",
+        "は":"ば",
+        "ひ":"び",
+        "ふ":"ぶ",
+        "へ":"べ",
+        "ほ":"ぼ",
+        "ば":"ぱ",
+        "び":"ぴ",
+        "ぶ":"ぷ",
+        "べ":"ぺ",
+        "ぼ":"ぽ",
+        "っ":"づ",
+        "や":"ゃ",
+        "ゆ":"ゅ",
+        "よ":"ょ",
+    ]
+    
     var body: some View {
         
         
@@ -104,7 +158,7 @@ struct KeyboardView: View {
                                             bottom: buttom,
                                             trailing: right))
                         .overlay(
-                            Text("☆123")
+                            Text("")
                                 .font(.title2)
                                 .fontWeight(.regular)
                         )
@@ -115,7 +169,7 @@ struct KeyboardView: View {
                                             bottom: buttom,
                                             trailing: right))
                         .overlay(
-                            Text("ABC")
+                            Text("")
                                 .font(.title2)
                                 .fontWeight(.regular)
                         )
@@ -126,7 +180,7 @@ struct KeyboardView: View {
                                             bottom: buttom,
                                             trailing: right))
                         .overlay(
-                            Text("あいう")
+                            Text("")
                                 .font(.title3)
                                 .fontWeight(.regular)
                         )
@@ -138,7 +192,7 @@ struct KeyboardView: View {
                                                 bottom: buttom,
                                                 trailing: right))
                             .overlay(
-                                Text("○")
+                                Text("")
                                     .font(.title2)
                                     .fontWeight(.regular)
                             )
@@ -149,7 +203,7 @@ struct KeyboardView: View {
                                                 bottom: buttom,
                                                 trailing: right))
                             .overlay(
-                                Text("..")
+                                Text("")
                                     .font(.title2)
                                     .fontWeight(.regular)
                             )
@@ -188,10 +242,11 @@ struct KeyboardView: View {
                                    )
                         ).onTapGesture {
                             input += "あ"
+                            // 間隔時間を上書きする(タップジェスチャーは計測不可のため)
+                            intervalTime = Date()
                         }
                         .gesture(DragGesture()
                                     .onChanged({ value in
-                            
                             flickingKeysA(value)
                             
                         })
@@ -280,10 +335,16 @@ struct KeyboardView: View {
                                             bottom: buttom,
                                             trailing: right))
                         .overlay(
-                            Text("\".")
+                            Text("゛")
                                 .font(.title3)
                                 .fontWeight(.regular)
-                        ).zIndex(touchRow4 ? 1 : 0)
+                        ).onTapGesture {
+                            let suffix = input.suffix(1)
+                            if let c = sonant[String(suffix)] {
+                                input = input.replacingOccurrences(of: ".$", with: c, options: .regularExpression)
+                            }
+                        }
+                        .zIndex(touchRow4 ? 1 : 0)
                     
                 }
                 .padding(EdgeInsets(top: rowTop,
@@ -557,10 +618,31 @@ struct KeyboardView: View {
                                             bottom: buttom,
                                             trailing: right))
                         .overlay(
-                            Text("、。?!")
-                                .font(.title2)
+                            ZStack {
+                                Text("、。?!")
+                                    .font(.title2)
                                 .fontWeight(.regular)
-                        ).zIndex(touchRow4 ? 1 : 0)
+                                
+                                if(kutenflg) {
+                                    KeyboardButton(char: "。", vector: .left)
+                                } else if(hatenaflg) {
+                                    KeyboardButton(char: "？", vector: .top)
+                                    
+                                } else if(bikkuriflg) {
+                                    KeyboardButton(char: "！", vector: .right)
+                                }
+                            }.frame(width: 100, height: 100, alignment: .center)
+                        ).onTapGesture {
+                            input += "、"
+                        }
+                        .gesture(DragGesture()
+                                    .onChanged({ value in
+                            flickingKeysKutoten(value)
+                            
+                        })
+                                    .onEnded({ value in
+                            flickedKeysKutoten(value)
+                        })).zIndex(touchRow4 ? 1 : 0)
                     
                 }
                 .padding(EdgeInsets(top: rowTop,
@@ -591,7 +673,7 @@ struct KeyboardView: View {
                                             bottom: buttom,
                                             trailing: right))
                         .overlay(
-                            Text("候補")
+                            Text("")
                                 .font(.title2)
                                 .fontWeight(.regular)
                         )
@@ -607,7 +689,10 @@ struct KeyboardView: View {
                                 .font(.title2)
                                 .fontWeight(.regular)
                                 .foregroundColor(.white)
-                        )
+                        ).onTapGesture {
+                            // 認証
+                            auth()
+                        }
                     
                 }
                 .padding(EdgeInsets(top: rowTop,
@@ -617,6 +702,10 @@ struct KeyboardView: View {
             }
             
         }.frame(width: .infinity, height: 240.0, alignment: .center)
+            .onAppear(perform: {
+                // 時間計測を開始
+                intervalTime = Date()
+            })
     }
     
     
@@ -659,6 +748,22 @@ struct KeyboardView: View {
                 oflg = true
             }
         }
+        
+        // 角度の取得
+        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
+        if (self.angle < 0) { self.angle += 360 }
+        
+        // 距離の取得
+        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+        
+        if(!onTapFlg) {
+            // タップ状態へ
+            self.onTapFlg = true
+            // 間隔時間を取得
+            self.waitTime = Date().timeIntervalSince(intervalTime)
+            // タップ開始時間を取得
+            self.tapStartTime = Date()
+        }
     }
     
     fileprivate func flickedKeysA(_ value: _ChangedGesture<DragGesture>.Value) {
@@ -694,9 +799,14 @@ struct KeyboardView: View {
                 input += "お"
             }
         }
+        
         // 重なり順を解除
         touchRow1 = false
         touchColomn1 = false
+        
+        onTapFlg = false
+        onTime = Date().timeIntervalSince(tapStartTime)
+        intervalTime = Date()
     }
     
     fileprivate func flickingKeysKA(_ value: DragGesture.Value) {
@@ -1385,11 +1495,103 @@ struct KeyboardView: View {
         touchRow4 = false
         touchColomn2 = false
     }
+    
+    fileprivate func flickingKeysKutoten(_ value: DragGesture.Value) {
+        if (abs(value.translation.width) < 30 && abs(value.translation.height) < 30) {
+            kutenflg = false
+            hatenaflg = false
+            bikkuriflg = false
+            return
+        }
+        // Viewの重なりを最上へ
+        touchRow4 = true
+        touchColomn3 = true
+        
+        if(abs(value.translation.width) > abs(value.translation.height)) {
+            // 上下より左右の移動が大きい場合
+            hatenaflg = false
+            if (value.translation.width < 0 ) {
+                // 左
+                kutenflg = true
+                bikkuriflg = false
+            } else if (value.translation.width > 0 ) {
+                // 右
+                bikkuriflg = true
+                kutenflg = false
+            }
+        } else {
+            // 左右より上下の方が大きい場合
+            kuflg = false
+            bikkuriflg = false
+            if (value.translation.height < 0 ) {
+                // 上
+                hatenaflg = true
+            } else if (value.translation.height > 0 ) {
+                // 下
+                // なにもしない
+            }
+        }
+    }
+    
+    fileprivate func flickedKeysKutoten(_ value: _ChangedGesture<DragGesture>.Value) {
+        if (abs(value.translation.width) < 30 && abs(value.translation.height) < 30) {
+            // 動きが小さすぎるため無視
+            return
+        }
+        
+        if(abs(value.translation.width) > abs(value.translation.height)) {
+            // 上下より左右の移動が大きい場合
+            kutenflg = false
+            hatenaflg = false
+            bikkuriflg = false
+            if (value.translation.width < 0 ) {
+                // swiped to left
+                input += "。"
+            } else if (value.translation.width > 0 ) {
+                // swiped to right
+                input += "！"
+            }
+        } else {
+            // 左右より上下の方が大きい場合
+            kutenflg = false
+            hatenaflg = false
+            bikkuriflg = false
+            if (value.translation.height < 0 ) {
+                // swiped to up
+                input += "？"
+            } else if (value.translation.height > 0 ) {
+                // swiped to down
+                //なにもしない
+            }
+        }
+        // 重なり順を解除
+        touchRow4 = false
+        touchColomn3 = false
+    }
+    
+    func CGPointDistanceSquared(from: CGPoint, to: CGPoint) -> CGFloat {
+        return (from.x - to.x) * (from.x - to.x) + (from.y - to.y) * (from.y - to.y)
+    }
+    
+    func CGPointDistance(from: CGPoint, to: CGPoint) -> CGFloat {
+        return sqrt(CGPointDistanceSquared(from: from, to: to))
+    }
+    
+    func auth() {
+        
+    }
+    
 }
 
 struct KeyboardView_Previews: PreviewProvider {
+    
     @State static var input = ""
+    @State static var onTime = 0.0
+    @State static var waitTime = 0.0
+    @State static var angle:CGFloat = 0
+    @State static var distance:CGFloat = 0
+    
     static var previews: some View {
-        KeyboardView(input: $input)
+        KeyboardView(input: $input, onTime:$onTime, waitTime: $waitTime, angle:$angle, distance: $distance)
     }
 }
