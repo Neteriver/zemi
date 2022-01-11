@@ -15,18 +15,39 @@ struct MainView: View {
     @State var image = Image("example-image")
     
     let mainData:[MainData] = [
-        MainData(id: UUID(), name: "ほげほげ1.jpeg", image: UIImage(imageLiteralResourceName: "jpeg"), isImage: true, size: 0.01, insertDate: Date()),
-        MainData(id: UUID(), name: "ほげほげ2.jpeg", image: UIImage(imageLiteralResourceName: "jpeg"), isImage: true, size: 0.01, insertDate: Date()),
-        MainData(id: UUID(), name: "ほげほげ.mp4", image: UIImage(imageLiteralResourceName: "mp4"), isImage: false, size: 0.01, insertDate: Date()),
+        MainData(id: UUID(), name: "jpeg", image: UIImage(imageLiteralResourceName: "jpeg"), isImage: true, size: 0.01, insertDate: Date()),
+        MainData(id: UUID(), name: "jpeg", image: UIImage(imageLiteralResourceName: "jpeg"), isImage: true, size: 0.01, insertDate: Date()),
+        MainData(id: UUID(), name: "mp4", image: UIImage(imageLiteralResourceName: "mp4"), isImage: false, size: 0.01, insertDate: Date()),
     ]
     
     var body: some View {
         
         List(mainData) { data in
             MainRow(mainData: data)
+                .onTapGesture(perform: {
+                    image = Image(data.name)
+                    showImageViewer = true
+                })
         }
         .listStyle(PlainListStyle())
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .navigationBarTitle("ファイル",displayMode: .inline)
+        .toolbar(content: {
+            ToolbarItem(placement: .navigationBarTrailing){
+                Button(action: {
+                    // 削除処理
+                }) {
+                    Image(systemName: "trash")
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing){
+                Button(action: {
+                    // 追加処理
+                }) {
+                    Image(systemName: "plus")
+                }
+            }
+        })
         .overlay(ImageViewer(image: self.$image, viewerShown: self.$showImageViewer))
     }
 }

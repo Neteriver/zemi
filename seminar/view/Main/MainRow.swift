@@ -77,15 +77,6 @@ struct MainRow: View {
     }
 }
 
-struct MainData:Identifiable {
-    var id:UUID
-    var name:String
-    var image:UIImage
-    var isImage:Bool
-    var size:Double
-    var insertDate:Date
-}
-
 struct MainRow_Previews: PreviewProvider {
     
     static var mainData:MainData = MainData(id: UUID(), name: "北海道情報専門学校の裏掲示板の正体とは.jpeg", image: UIImage(imageLiteralResourceName: "jpeg"), isImage: true, size: 0.0, insertDate: Date())

@@ -23,6 +23,7 @@ struct TopView: View {
                     TopRow(title: "このアプリについて", imageName: "questionmark.circle.fill")
                 }
             }.navigationBarTitle("アプリ名")
+
         }
     }
 }
