@@ -17,6 +17,7 @@
 		24723A4D278C31C200220FB0 /* ImageViewerRemote in Frameworks */ = {isa = PBXBuildFile; productRef = 24723A4C278C31C200220FB0 /* ImageViewerRemote */; };
 		24723A4F278C40DC00220FB0 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24723A4E278C40DC00220FB0 /* TopView.swift */; };
 		24723A51278C41C800220FB0 /* TopRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24723A50278C41C800220FB0 /* TopRow.swift */; };
+		247517E3278D5197004573FD /* FlickAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247517E2278D5196004573FD /* FlickAuth.swift */; };
 		2485F471276B04F700BF1B6A /* GpsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F470276B04F700BF1B6A /* GpsView.swift */; };
 		24BCD31D277C5DC000444876 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCD31C277C5DC000444876 /* KeyboardView.swift */; };
 		24BCD31F277C67B700444876 /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCD31E277C67B700444876 /* KeyboardButton.swift */; };
@@ -41,6 +42,7 @@
 		24723A47278C2E0000220FB0 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		24723A4E278C40DC00220FB0 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		24723A50278C41C800220FB0 /* TopRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRow.swift; sourceTree = "<group>"; };
+		247517E2278D5196004573FD /* FlickAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickAuth.swift; sourceTree = "<group>"; };
 		2485F470276B04F700BF1B6A /* GpsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpsView.swift; sourceTree = "<group>"; };
 		24BCD31C277C5DC000444876 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		24BCD31E277C67B700444876 /* KeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				B643C5B22761AEFB003F2D11 /* PasswordAuth.swift */,
 				2470845A278736D9009284C5 /* LocationAuth.swift */,
+				247517E2278D5196004573FD /* FlickAuth.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				B643C5B827682A5C003F2D11 /* PasswordView.swift in Sources */,
 				24BCD31D277C5DC000444876 /* KeyboardView.swift in Sources */,
 				24355545277C51E40082CF32 /* FlickAuthView.swift in Sources */,
+				247517E3278D5197004573FD /* FlickAuth.swift in Sources */,
 				B643C5BA27685CDD003F2D11 /* AuthData.swift in Sources */,
 				B643C5B32761AEFB003F2D11 /* PasswordAuth.swift in Sources */,
 				24723A46278C266C00220FB0 /* MainRow.swift in Sources */,

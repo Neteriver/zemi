@@ -9,6 +9,7 @@ import SwiftUI
 
 struct KeyboardView: View {
     
+    // 入力文字
     @Binding var input:String
     
     // ドラッグ開始時間
@@ -26,6 +27,9 @@ struct KeyboardView: View {
     
     // 距離
     @Binding var distance:CGFloat
+    
+    // 確定ボタン
+    @Binding var isEnter:Bool
     
     let radius = 4.0
     
@@ -691,7 +695,7 @@ struct KeyboardView: View {
                                 .foregroundColor(.white)
                         ).onTapGesture {
                             // 認証
-                            auth()
+                            isEnter.toggle()
                         }
                     
                 }
@@ -1590,8 +1594,9 @@ struct KeyboardView_Previews: PreviewProvider {
     @State static var waitTime = 0.0
     @State static var angle:CGFloat = 0
     @State static var distance:CGFloat = 0
+    @State static var isEnter = false
     
     static var previews: some View {
-        KeyboardView(input: $input, onTime:$onTime, waitTime: $waitTime, angle:$angle, distance: $distance)
+        KeyboardView(input: $input, onTime:$onTime, waitTime: $waitTime, angle:$angle, distance: $distance, isEnter: $isEnter)
     }
 }
