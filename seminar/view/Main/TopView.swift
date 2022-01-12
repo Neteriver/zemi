@@ -19,7 +19,9 @@ struct TopView: View {
                     TopRow(title: "共有", imageName: "square.and.arrow.up.circle")
                 }
                 Section() {
-                    TopRow(title: "設定", imageName: "gear.circle.fill")
+                    NavigationLink(destination: SettingView(), label: {
+                        TopRow(title: "設定", imageName: "gear.circle.fill")
+                    })
                     TopRow(title: "このアプリについて", imageName: "questionmark.circle.fill")
                 }
             }.navigationBarTitle("アプリ名")

@@ -9,6 +9,9 @@ import SwiftUI
 
 struct MainRow: View {
     
+    @Binding var image:Image
+    @Binding var showImageViewer: Bool
+    
     var mainData:MainData
     
     var body: some View {
@@ -20,6 +23,12 @@ struct MainRow: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 55, height: 70, alignment: .leading)
+                    .onTapGesture(perform: {
+                        let data = try! Data(contentsOf: mainData.url)
+                        let uiimage = UIImage(data: data)
+                        image = Image(uiImage: uiimage!)
+                        showImageViewer = true
+                    })
             } else {
                 Image("mp4")
                     .resizable()
@@ -44,7 +53,12 @@ struct MainRow: View {
                         .foregroundColor(Color.gray)
                 }.padding(.leading, 10)
                     
-            }
+            }.onTapGesture(perform: {
+                let data = try! Data(contentsOf: mainData.url)
+                let uiimage = UIImage(data: data)
+                image = Image(uiImage: uiimage!)
+                showImageViewer = true
+            })
             
             Spacer()
             
@@ -77,11 +91,11 @@ struct MainRow: View {
     }
 }
 
-struct MainRow_Previews: PreviewProvider {
-    
-    static var mainData:MainData = MainData(id: UUID(), name: "北海道情報専門学校の裏掲示板の正体とは.jpeg", url: URL(string: "https://www.hcs.ac.jp/")!, isImage: true, size: "1.01 MB", insertDate: Date())
-    
-    static var previews: some View {
-        MainRow(mainData:mainData)
-    }
-}
+//struct MainRow_Previews: PreviewProvider {
+//    
+//    static var mainData:MainData = MainData(id: UUID(), name: "北海道情報専門学校の裏掲示板の正体とは.jpeg", url: URL(string: "https://www.hcs.ac.jp/")!, isImage: true, size: "1.01 MB", insertDate: Date())
+//    
+//    static var previews: some View {
+//        MainRow(mainData:mainData)
+//    }
+//}

@@ -13,7 +13,7 @@ struct MainView: View {
     
     // イメージ出力用
     @State var showImageViewer: Bool = false
-    @State var image = Image("example-image")
+    @State var image = Image("https://www.hcs.ac.jp/")
     
     @State var mainData:[MainData] = [
         MainData(id: UUID(), name: "jpeg", url: URL(string: "https://www.hcs.ac.jp/")!, isImage: true, size: "1.01 MB", insertDate: Date()),
@@ -24,13 +24,7 @@ struct MainView: View {
     var body: some View {
         
         List(mainData) { data in
-            MainRow(mainData: data)
-                .onTapGesture(perform: {
-                    let data = try! Data(contentsOf: data.url)
-                    let uiimage = UIImage(data: data)
-                    image = Image(uiImage: uiimage!)
-                    showImageViewer = true
-                })
+            MainRow(image: $image, showImageViewer: $showImageViewer, mainData: data)
         }
         .listStyle(PlainListStyle())
         .navigationBarTitle("ファイル",displayMode: .inline)

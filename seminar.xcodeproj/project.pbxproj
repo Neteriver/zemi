@@ -14,6 +14,8 @@
 		2416AB47278D9C7C00E041E5 /* ImageAndMovieShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2416AB39278D9C7B00E041E5 /* ImageAndMovieShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		24355545277C51E40082CF32 /* FlickAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24355544277C51E40082CF32 /* FlickAuthView.swift */; };
 		2467D598278F0CF4004123D9 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467D597278F0CF4004123D9 /* Util.swift */; };
+		2467D59A278F153A004123D9 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467D599278F153A004123D9 /* SettingView.swift */; };
+		2467D59C278F28B3004123D9 /* TextFieldAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467D59B278F28B2004123D9 /* TextFieldAlertView.swift */; };
 		2470845B278736D9009284C5 /* LocationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2470845A278736D9009284C5 /* LocationAuth.swift */; };
 		2470845E27889C1B009284C5 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 2470845D27889C1B009284C5 /* AlertToast */; };
 		24723A43278C263900220FB0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24723A42278C263900220FB0 /* MainView.swift */; };
@@ -76,6 +78,8 @@
 		24355544277C51E40082CF32 /* FlickAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickAuthView.swift; sourceTree = "<group>"; };
 		2467D596278EEA6C004123D9 /* ImageAndMovieShareRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageAndMovieShareRelease.entitlements; sourceTree = "<group>"; };
 		2467D597278F0CF4004123D9 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		2467D599278F153A004123D9 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		2467D59B278F28B2004123D9 /* TextFieldAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlertView.swift; sourceTree = "<group>"; };
 		2470845A278736D9009284C5 /* LocationAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuth.swift; sourceTree = "<group>"; };
 		24723A42278C263900220FB0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		24723A45278C266C00220FB0 /* MainRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRow.swift; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				24723A47278C2E0000220FB0 /* VideoView.swift */,
 				24723A4E278C40DC00220FB0 /* TopView.swift */,
 				24723A50278C41C800220FB0 /* TopRow.swift */,
+				2467D599278F153A004123D9 /* SettingView.swift */,
+				2467D59B278F28B2004123D9 /* TextFieldAlertView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -419,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6680F7D27619EF600F94D90 /* FaceAuth.swift in Sources */,
+				2467D59A278F153A004123D9 /* SettingView.swift in Sources */,
 				24723A4F278C40DC00220FB0 /* TopView.swift in Sources */,
 				24723A51278C41C800220FB0 /* TopRow.swift in Sources */,
 				24723A43278C263900220FB0 /* MainView.swift in Sources */,
@@ -426,6 +433,7 @@
 				B643C5B827682A5C003F2D11 /* PasswordView.swift in Sources */,
 				24BCD31D277C5DC000444876 /* KeyboardView.swift in Sources */,
 				24355545277C51E40082CF32 /* FlickAuthView.swift in Sources */,
+				2467D59C278F28B3004123D9 /* TextFieldAlertView.swift in Sources */,
 				247517E3278D5197004573FD /* FlickAuth.swift in Sources */,
 				B643C5BA27685CDD003F2D11 /* AuthData.swift in Sources */,
 				B643C5B32761AEFB003F2D11 /* PasswordAuth.swift in Sources */,
