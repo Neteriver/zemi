@@ -34,28 +34,28 @@ struct ContentView: View {
     }
     
     
-//    func exec() {
-//        // GPS認証
-//        locationAuth.auth { locationData in
-//            message = locationData.message
-//            authResult = locationData.result
-//
-//            if !authResult {
-//                return
-//            }
-//            // 顔認証
-//            faceAuth.auth { faceData in
-//                message = faceData.message
-//                authResult = faceData.result
-//
-//                if !authResult {
-//                    return
-//                }
-//            }
-//        }
-        // パスワード認証？
-        //        passwordAuth.setupPassword()
-//    }
+    //    func exec() {
+    //        // GPS認証
+    //        locationAuth.auth { locationData in
+    //            message = locationData.message
+    //            authResult = locationData.result
+    //
+    //            if !authResult {
+    //                return
+    //            }
+    //            // 顔認証
+    //            faceAuth.auth { faceData in
+    //                message = faceData.message
+    //                authResult = faceData.result
+    //
+    //                if !authResult {
+    //                    return
+    //                }
+    //            }
+    //        }
+    // パスワード認証？
+    //        passwordAuth.setupPassword()
+    //    }
 }
 
 

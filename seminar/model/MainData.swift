@@ -11,8 +11,8 @@ import UIKit
 struct MainData:Identifiable {
     var id:UUID
     var name:String
-    var image:UIImage
+    var url:URL
     var isImage:Bool
-    var size:Double
+    var size:String
     var insertDate:Date
 }

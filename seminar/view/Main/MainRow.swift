@@ -39,7 +39,7 @@ struct MainRow: View {
                         .font(.caption2)
                         .foregroundColor(Color.gray)
                     
-                    Text("\(mainData.size) MB")
+                    Text("\(mainData.size)")
                         .font(.caption2)
                         .foregroundColor(Color.gray)
                 }.padding(.leading, 10)
@@ -79,7 +79,7 @@ struct MainRow: View {
 
 struct MainRow_Previews: PreviewProvider {
     
-    static var mainData:MainData = MainData(id: UUID(), name: "北海道情報専門学校の裏掲示板の正体とは.jpeg", image: UIImage(imageLiteralResourceName: "jpeg"), isImage: true, size: 0.0, insertDate: Date())
+    static var mainData:MainData = MainData(id: UUID(), name: "北海道情報専門学校の裏掲示板の正体とは.jpeg", url: URL(string: "https://www.hcs.ac.jp/")!, isImage: true, size: "1.01 MB", insertDate: Date())
     
     static var previews: some View {
         MainRow(mainData:mainData)

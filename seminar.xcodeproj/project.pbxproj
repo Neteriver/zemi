@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2416AB3B278D9C7B00E041E5 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2416AB3A278D9C7B00E041E5 /* UniformTypeIdentifiers.framework */; };
+		2416AB3E278D9C7B00E041E5 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2416AB3D278D9C7B00E041E5 /* Media.xcassets */; };
+		2416AB40278D9C7B00E041E5 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2416AB3F278D9C7B00E041E5 /* ActionViewController.swift */; };
+		2416AB43278D9C7B00E041E5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2416AB41278D9C7B00E041E5 /* MainInterface.storyboard */; };
+		2416AB47278D9C7C00E041E5 /* ImageAndMovieShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2416AB39278D9C7B00E041E5 /* ImageAndMovieShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		24355545277C51E40082CF32 /* FlickAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24355544277C51E40082CF32 /* FlickAuthView.swift */; };
+		2467D598278F0CF4004123D9 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467D597278F0CF4004123D9 /* Util.swift */; };
 		2470845B278736D9009284C5 /* LocationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2470845A278736D9009284C5 /* LocationAuth.swift */; };
 		2470845E27889C1B009284C5 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 2470845D27889C1B009284C5 /* AlertToast */; };
 		24723A43278C263900220FB0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24723A42278C263900220FB0 /* MainView.swift */; };
@@ -34,9 +40,42 @@
 		B6680F7D27619EF600F94D90 /* FaceAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6680F7C27619EF600F94D90 /* FaceAuth.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2416AB45278D9C7C00E041E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6680F6327619EAD00F94D90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2416AB38278D9C7B00E041E5;
+			remoteInfo = ImageAndMovieShare;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2416AB31278D914400E041E5 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2416AB47278D9C7C00E041E5 /* ImageAndMovieShare.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0644E0DA643CB49DA13C54BF /* Pods-seminar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-seminar.release.xcconfig"; path = "Target Support Files/Pods-seminar/Pods-seminar.release.xcconfig"; sourceTree = "<group>"; };
+		2416AB39278D9C7B00E041E5 /* ImageAndMovieShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ImageAndMovieShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2416AB3A278D9C7B00E041E5 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
+		2416AB3D278D9C7B00E041E5 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		2416AB3F278D9C7B00E041E5 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		2416AB42278D9C7B00E041E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		2416AB44278D9C7B00E041E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2416AB4B278D9E5400E041E5 /* seminar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = seminar.entitlements; sourceTree = "<group>"; };
 		24355544277C51E40082CF32 /* FlickAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickAuthView.swift; sourceTree = "<group>"; };
+		2467D596278EEA6C004123D9 /* ImageAndMovieShareRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageAndMovieShareRelease.entitlements; sourceTree = "<group>"; };
+		2467D597278F0CF4004123D9 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		2470845A278736D9009284C5 /* LocationAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuth.swift; sourceTree = "<group>"; };
 		24723A42278C263900220FB0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		24723A45278C266C00220FB0 /* MainRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRow.swift; sourceTree = "<group>"; };
@@ -64,6 +103,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2416AB36278D9C7B00E041E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2416AB3B278D9C7B00E041E5 /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6680F6827619EAD00F94D90 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,6 +126,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2416AB3C278D9C7B00E041E5 /* ImageAndMovieShare */ = {
+			isa = PBXGroup;
+			children = (
+				2467D596278EEA6C004123D9 /* ImageAndMovieShareRelease.entitlements */,
+				2416AB3D278D9C7B00E041E5 /* Media.xcassets */,
+				2416AB3F278D9C7B00E041E5 /* ActionViewController.swift */,
+				2416AB41278D9C7B00E041E5 /* MainInterface.storyboard */,
+				2416AB44278D9C7B00E041E5 /* Info.plist */,
+			);
+			path = ImageAndMovieShare;
+			sourceTree = "<group>";
+		};
 		2471295E277F107F006482BC /* helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +188,7 @@
 				B643C5B22761AEFB003F2D11 /* PasswordAuth.swift */,
 				2470845A278736D9009284C5 /* LocationAuth.swift */,
 				247517E2278D5196004573FD /* FlickAuth.swift */,
+				2467D597278F0CF4004123D9 /* Util.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -138,6 +198,7 @@
 			children = (
 				B643C5B42761C2F5003F2D11 /* CoreLocation.framework */,
 				91B29C2F60DF150C7796A90C /* Pods_seminar.framework */,
+				2416AB3A278D9C7B00E041E5 /* UniformTypeIdentifiers.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -146,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				B6680F6D27619EAD00F94D90 /* seminar */,
+				2416AB3C278D9C7B00E041E5 /* ImageAndMovieShare */,
 				B6680F6C27619EAD00F94D90 /* Products */,
 				C173643B1E135F2A4E4FDAAD /* Pods */,
 				439F20EA5BF5184302DB5846 /* Frameworks */,
@@ -156,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				B6680F6B27619EAD00F94D90 /* seminar.app */,
+				2416AB39278D9C7B00E041E5 /* ImageAndMovieShare.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,6 +226,7 @@
 		B6680F6D27619EAD00F94D90 /* seminar */ = {
 			isa = PBXGroup;
 			children = (
+				2416AB4B278D9E5400E041E5 /* seminar.entitlements */,
 				2485F46F276AFFEA00BF1B6A /* controller */,
 				2485F46E276AFFE400BF1B6A /* view */,
 				2485F46D276AFFE000BF1B6A /* model */,
@@ -194,6 +258,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2416AB38278D9C7B00E041E5 /* ImageAndMovieShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2416AB48278D9C7C00E041E5 /* Build configuration list for PBXNativeTarget "ImageAndMovieShare" */;
+			buildPhases = (
+				2416AB35278D9C7B00E041E5 /* Sources */,
+				2416AB36278D9C7B00E041E5 /* Frameworks */,
+				2416AB37278D9C7B00E041E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImageAndMovieShare;
+			productName = ImageAndMovieShare;
+			productReference = 2416AB39278D9C7B00E041E5 /* ImageAndMovieShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B6680F6A27619EAD00F94D90 /* seminar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6680F7927619EAF00F94D90 /* Build configuration list for PBXNativeTarget "seminar" */;
@@ -203,10 +284,12 @@
 				B6680F6827619EAD00F94D90 /* Frameworks */,
 				B6680F6927619EAD00F94D90 /* Resources */,
 				9D80C0209655ED55BDBF09C6 /* [CP] Embed Pods Frameworks */,
+				2416AB31278D914400E041E5 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2416AB46278D9C7C00E041E5 /* PBXTargetDependency */,
 			);
 			name = seminar;
 			packageProductDependencies = (
@@ -225,9 +308,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1310;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
+					2416AB38278D9C7B00E041E5 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 					B6680F6A27619EAD00F94D90 = {
 						CreatedOnToolsVersion = 13.1;
 					};
@@ -251,11 +337,21 @@
 			projectRoot = "";
 			targets = (
 				B6680F6A27619EAD00F94D90 /* seminar */,
+				2416AB38278D9C7B00E041E5 /* ImageAndMovieShare */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2416AB37278D9C7B00E041E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2416AB3E278D9C7B00E041E5 /* Media.xcassets in Resources */,
+				2416AB43278D9C7B00E041E5 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6680F6927619EAD00F94D90 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,6 +406,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2416AB35278D9C7B00E041E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2416AB40278D9C7B00E041E5 /* ActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6680F6727619EAD00F94D90 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -326,6 +430,7 @@
 				B643C5BA27685CDD003F2D11 /* AuthData.swift in Sources */,
 				B643C5B32761AEFB003F2D11 /* PasswordAuth.swift in Sources */,
 				24723A46278C266C00220FB0 /* MainRow.swift in Sources */,
+				2467D598278F0CF4004123D9 /* Util.swift in Sources */,
 				24723A48278C2E0000220FB0 /* VideoView.swift in Sources */,
 				2485F471276B04F700BF1B6A /* GpsView.swift in Sources */,
 				B6680F7127619EAD00F94D90 /* ContentView.swift in Sources */,
@@ -337,7 +442,81 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		2416AB46278D9C7C00E041E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2416AB38278D9C7B00E041E5 /* ImageAndMovieShare */;
+			targetProxy = 2416AB45278D9C7C00E041E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2416AB41278D9C7B00E041E5 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2416AB42278D9C7B00E041E5 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		2416AB49278D9C7C00E041E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5PRVM435C9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ImageAndMovieShare/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ImageAndMovieShare;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = KaijiIshii.seminar.test.ImageAndMovieShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2416AB4A278D9C7C00E041E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = ImageAndMovieShare/ImageAndMovieShareRelease.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5PRVM435C9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ImageAndMovieShare/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ImageAndMovieShare;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = KaijiIshii.seminar.test.ImageAndMovieShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		B6680F7727619EAF00F94D90 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -459,8 +638,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF78EA56CA2CAD4B8D2D789F /* Pods-seminar.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = seminar/seminar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"seminar/Preview Content\"";
@@ -469,6 +650,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = seminar/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "ログインの簡略化のため";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "位置情報による認証";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "位置情報の特定";
@@ -494,8 +676,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0644E0DA643CB49DA13C54BF /* Pods-seminar.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = seminar/seminar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"seminar/Preview Content\"";
@@ -504,6 +688,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = seminar/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "ログインの簡略化のため";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "位置情報による認証";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "位置情報の特定";
@@ -529,6 +714,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2416AB48278D9C7C00E041E5 /* Build configuration list for PBXNativeTarget "ImageAndMovieShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2416AB49278D9C7C00E041E5 /* Debug */,
+				2416AB4A278D9C7C00E041E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B6680F6627619EAD00F94D90 /* Build configuration list for PBXProject "seminar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
