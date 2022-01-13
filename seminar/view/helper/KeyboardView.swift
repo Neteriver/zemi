@@ -285,6 +285,7 @@ struct KeyboardView: View {
                                    )
                         ).onTapGesture {
                             input += "た"
+                            intervalTime = Date()
                         }
                         .gesture(DragGesture()
                                     .onChanged({ value in
@@ -322,6 +323,7 @@ struct KeyboardView: View {
                                    )
                         ).onTapGesture {
                             input += "ま"
+                            intervalTime = Date()
                         }
                         .gesture(DragGesture()
                                     .onChanged({ value in
@@ -347,6 +349,7 @@ struct KeyboardView: View {
                             if let c = sonant[String(suffix)] {
                                 input = input.replacingOccurrences(of: ".$", with: c, options: .regularExpression)
                             }
+                            intervalTime = Date()
                         }
                         .zIndex(touchRow4 ? 1 : 0)
                     
@@ -385,6 +388,7 @@ struct KeyboardView: View {
                                    )
                         ).onTapGesture {
                             input += "か"
+                            intervalTime = Date()
                         }
                         .gesture(DragGesture()
                                     .onChanged({ value in
@@ -422,6 +426,7 @@ struct KeyboardView: View {
                                    )
                         ).onTapGesture {
                             input += "な"
+                            intervalTime = Date()
                         }
                         .gesture(DragGesture()
                                     .onChanged({ value in
@@ -454,6 +459,7 @@ struct KeyboardView: View {
                                    )
                         ).onTapGesture {
                             input += "や"
+                            intervalTime = Date()
                         }
                         .gesture(DragGesture()
                                     .onChanged({ value in
@@ -485,6 +491,7 @@ struct KeyboardView: View {
                                    )
                         ).onTapGesture {
                             input += "わ"
+                            intervalTime = Date()
                         }
                         .gesture(DragGesture()
                                     .onChanged({ value in
@@ -531,6 +538,7 @@ struct KeyboardView: View {
                                    )
                         ).onTapGesture {
                             input += "さ"
+                            intervalTime = Date()
                         }
                         .gesture(DragGesture()
                                     .onChanged({ value in
@@ -568,6 +576,7 @@ struct KeyboardView: View {
                                    )
                         ).onTapGesture {
                             input += "は"
+                            intervalTime = Date()
                         }
                         .gesture(DragGesture()
                                     .onChanged({ value in
@@ -605,6 +614,7 @@ struct KeyboardView: View {
                                    )
                         ).onTapGesture {
                             input += "ら"
+                            intervalTime = Date()
                         }
                         .gesture(DragGesture()
                                     .onChanged({ value in
@@ -638,6 +648,7 @@ struct KeyboardView: View {
                             }.frame(width: 100, height: 100, alignment: .center)
                         ).onTapGesture {
                             input += "、"
+                            intervalTime = Date()
                         }
                         .gesture(DragGesture()
                                     .onChanged({ value in
@@ -668,6 +679,7 @@ struct KeyboardView: View {
                                 .fontWeight(.regular)
                                 .onTapGesture(perform: {
                                     input = String(input.dropLast())
+                                    intervalTime = Date()
                                 })
                         )
                     RoundedRectangle(cornerRadius: radius)
@@ -852,6 +864,21 @@ struct KeyboardView: View {
                 koflg = true
             }
         }
+        // 角度の取得
+        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
+        if (self.angle < 0) { self.angle += 360 }
+        
+        // 距離の取得
+        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+        
+        if(!onTapFlg) {
+            // タップ状態へ
+            self.onTapFlg = true
+            // 間隔時間を取得
+            self.waitTime = Date().timeIntervalSince(intervalTime)
+            // タップ開始時間を取得
+            self.tapStartTime = Date()
+        }
     }
     
     fileprivate func flickedKeysKA(_ value: _ChangedGesture<DragGesture>.Value) {
@@ -890,6 +917,10 @@ struct KeyboardView: View {
         // 重なり順を解除
         touchRow1 = false
         touchColomn2 = false
+        
+        onTapFlg = false
+        onTime = Date().timeIntervalSince(tapStartTime)
+        intervalTime = Date()
     }
     
     fileprivate func flickingKeysSA(_ value: DragGesture.Value) {
@@ -931,6 +962,21 @@ struct KeyboardView: View {
                 soflg = true
             }
         }
+        // 角度の取得
+        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
+        if (self.angle < 0) { self.angle += 360 }
+        
+        // 距離の取得
+        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+        
+        if(!onTapFlg) {
+            // タップ状態へ
+            self.onTapFlg = true
+            // 間隔時間を取得
+            self.waitTime = Date().timeIntervalSince(intervalTime)
+            // タップ開始時間を取得
+            self.tapStartTime = Date()
+        }
     }
     
     fileprivate func flickedKeysSA(_ value: _ChangedGesture<DragGesture>.Value) {
@@ -969,6 +1015,10 @@ struct KeyboardView: View {
         // 重なり順を解除
         touchRow1 = false
         touchColomn3 = false
+        
+        onTapFlg = false
+        onTime = Date().timeIntervalSince(tapStartTime)
+        intervalTime = Date()
     }
     
     fileprivate func flickingKeysTA(_ value: DragGesture.Value) {
@@ -1010,6 +1060,21 @@ struct KeyboardView: View {
                 toflg = true
             }
         }
+        // 角度の取得
+        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
+        if (self.angle < 0) { self.angle += 360 }
+        
+        // 距離の取得
+        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+        
+        if(!onTapFlg) {
+            // タップ状態へ
+            self.onTapFlg = true
+            // 間隔時間を取得
+            self.waitTime = Date().timeIntervalSince(intervalTime)
+            // タップ開始時間を取得
+            self.tapStartTime = Date()
+        }
     }
     
     fileprivate func flickedKeysTA(_ value: _ChangedGesture<DragGesture>.Value) {
@@ -1048,6 +1113,10 @@ struct KeyboardView: View {
         // 重なり順を解除
         touchRow2 = false
         touchColomn1 = false
+        
+        onTapFlg = false
+        onTime = Date().timeIntervalSince(tapStartTime)
+        intervalTime = Date()
     }
     fileprivate func flickingKeysNA(_ value: DragGesture.Value) {
         if (abs(value.translation.width) < 30 && abs(value.translation.height) < 30) {
@@ -1088,6 +1157,21 @@ struct KeyboardView: View {
                 noflg = true
             }
         }
+        // 角度の取得
+        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
+        if (self.angle < 0) { self.angle += 360 }
+        
+        // 距離の取得
+        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+        
+        if(!onTapFlg) {
+            // タップ状態へ
+            self.onTapFlg = true
+            // 間隔時間を取得
+            self.waitTime = Date().timeIntervalSince(intervalTime)
+            // タップ開始時間を取得
+            self.tapStartTime = Date()
+        }
     }
     
     fileprivate func flickedKeysNA(_ value: _ChangedGesture<DragGesture>.Value) {
@@ -1126,6 +1210,10 @@ struct KeyboardView: View {
         // 重なり順を解除
         touchRow2 = false
         touchColomn2 = false
+        
+        onTapFlg = false
+        onTime = Date().timeIntervalSince(tapStartTime)
+        intervalTime = Date()
     }
     fileprivate func flickingKeysHA(_ value: DragGesture.Value) {
         if (abs(value.translation.width) < 30 && abs(value.translation.height) < 30) {
@@ -1166,6 +1254,21 @@ struct KeyboardView: View {
                 hoflg = true
             }
         }
+        // 角度の取得
+        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
+        if (self.angle < 0) { self.angle += 360 }
+        
+        // 距離の取得
+        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+        
+        if(!onTapFlg) {
+            // タップ状態へ
+            self.onTapFlg = true
+            // 間隔時間を取得
+            self.waitTime = Date().timeIntervalSince(intervalTime)
+            // タップ開始時間を取得
+            self.tapStartTime = Date()
+        }
     }
     
     fileprivate func flickedKeysHA(_ value: _ChangedGesture<DragGesture>.Value) {
@@ -1204,6 +1307,10 @@ struct KeyboardView: View {
         // 重なり順を解除
         touchRow2 = false
         touchColomn3 = false
+        
+        onTapFlg = false
+        onTime = Date().timeIntervalSince(tapStartTime)
+        intervalTime = Date()
     }
     fileprivate func flickingKeysMA(_ value: DragGesture.Value) {
         if (abs(value.translation.width) < 30 && abs(value.translation.height) < 30) {
@@ -1244,6 +1351,21 @@ struct KeyboardView: View {
                 moflg = true
             }
         }
+        // 角度の取得
+        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
+        if (self.angle < 0) { self.angle += 360 }
+        
+        // 距離の取得
+        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+        
+        if(!onTapFlg) {
+            // タップ状態へ
+            self.onTapFlg = true
+            // 間隔時間を取得
+            self.waitTime = Date().timeIntervalSince(intervalTime)
+            // タップ開始時間を取得
+            self.tapStartTime = Date()
+        }
     }
     
     fileprivate func flickedKeysMA(_ value: _ChangedGesture<DragGesture>.Value) {
@@ -1282,6 +1404,10 @@ struct KeyboardView: View {
         // 重なり順を解除
         touchRow1 = false
         touchColomn3 = false
+        
+        onTapFlg = false
+        onTime = Date().timeIntervalSince(tapStartTime)
+        intervalTime = Date()
     }
     fileprivate func flickingKeysYA(_ value: DragGesture.Value) {
         if (abs(value.translation.width) < 30 && abs(value.translation.height) < 30) {
@@ -1320,6 +1446,21 @@ struct KeyboardView: View {
                 yoflg = true
             }
         }
+        // 角度の取得
+        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
+        if (self.angle < 0) { self.angle += 360 }
+        
+        // 距離の取得
+        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+        
+        if(!onTapFlg) {
+            // タップ状態へ
+            self.onTapFlg = true
+            // 間隔時間を取得
+            self.waitTime = Date().timeIntervalSince(intervalTime)
+            // タップ開始時間を取得
+            self.tapStartTime = Date()
+        }
     }
     
     fileprivate func flickedKeysYA(_ value: _ChangedGesture<DragGesture>.Value) {
@@ -1354,6 +1495,10 @@ struct KeyboardView: View {
         // 重なり順を解除
         touchRow2 = false
         touchColomn3 = false
+        
+        onTapFlg = false
+        onTime = Date().timeIntervalSince(tapStartTime)
+        intervalTime = Date()
     }
     
     fileprivate func flickingKeysRA(_ value: DragGesture.Value) {
@@ -1395,6 +1540,21 @@ struct KeyboardView: View {
                 roflg = true
             }
         }
+        // 角度の取得
+        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
+        if (self.angle < 0) { self.angle += 360 }
+        
+        // 距離の取得
+        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+        
+        if(!onTapFlg) {
+            // タップ状態へ
+            self.onTapFlg = true
+            // 間隔時間を取得
+            self.waitTime = Date().timeIntervalSince(intervalTime)
+            // タップ開始時間を取得
+            self.tapStartTime = Date()
+        }
     }
     
     fileprivate func flickedKeysRA(_ value: _ChangedGesture<DragGesture>.Value) {
@@ -1433,6 +1593,10 @@ struct KeyboardView: View {
         // 重なり順を解除
         touchRow3 = false
         touchColomn3 = false
+        
+        onTapFlg = false
+        onTime = Date().timeIntervalSince(tapStartTime)
+        intervalTime = Date()
     }
     fileprivate func flickingKeysWA(_ value: DragGesture.Value) {
         if (abs(value.translation.width) < 30 && abs(value.translation.height) < 30) {
@@ -1466,6 +1630,21 @@ struct KeyboardView: View {
                 // なにもしない
             }
         }
+        // 角度の取得
+        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
+        if (self.angle < 0) { self.angle += 360 }
+        
+        // 距離の取得
+        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+        
+        if(!onTapFlg) {
+            // タップ状態へ
+            self.onTapFlg = true
+            // 間隔時間を取得
+            self.waitTime = Date().timeIntervalSince(intervalTime)
+            // タップ開始時間を取得
+            self.tapStartTime = Date()
+        }
     }
     
     fileprivate func flickedKeysWA(_ value: _ChangedGesture<DragGesture>.Value) {
@@ -1498,6 +1677,10 @@ struct KeyboardView: View {
         // 重なり順を解除
         touchRow4 = false
         touchColomn2 = false
+        
+        onTapFlg = false
+        onTime = Date().timeIntervalSince(tapStartTime)
+        intervalTime = Date()
     }
     
     fileprivate func flickingKeysKutoten(_ value: DragGesture.Value) {
@@ -1535,6 +1718,21 @@ struct KeyboardView: View {
                 // なにもしない
             }
         }
+        // 角度の取得
+        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
+        if (self.angle < 0) { self.angle += 360 }
+        
+        // 距離の取得
+        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+        
+        if(!onTapFlg) {
+            // タップ状態へ
+            self.onTapFlg = true
+            // 間隔時間を取得
+            self.waitTime = Date().timeIntervalSince(intervalTime)
+            // タップ開始時間を取得
+            self.tapStartTime = Date()
+        }
     }
     
     fileprivate func flickedKeysKutoten(_ value: _ChangedGesture<DragGesture>.Value) {
@@ -1571,6 +1769,10 @@ struct KeyboardView: View {
         // 重なり順を解除
         touchRow4 = false
         touchColomn3 = false
+        
+        onTapFlg = false
+        onTime = Date().timeIntervalSince(tapStartTime)
+        intervalTime = Date()
     }
     
     func CGPointDistanceSquared(from: CGPoint, to: CGPoint) -> CGFloat {
@@ -1579,10 +1781,6 @@ struct KeyboardView: View {
     
     func CGPointDistance(from: CGPoint, to: CGPoint) -> CGFloat {
         return sqrt(CGPointDistanceSquared(from: from, to: to))
-    }
-    
-    func auth() {
-        
     }
     
 }
