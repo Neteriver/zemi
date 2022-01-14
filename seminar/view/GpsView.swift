@@ -13,6 +13,8 @@ struct GpsView: View {
         
     @ObservedObject var locationAuth = LocationAuth()
     
+    @State private var userTrackingMode: MapUserTrackingMode = .follow
+    
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
     
@@ -22,13 +24,20 @@ struct GpsView: View {
         } else {
             if(locationAuth.isEnable) {
                 ZStack {
-                    Map(coordinateRegion: $locationAuth.region)
-                        .edgesIgnoringSafeArea(.all)
-
                     Rectangle().frame(width: width, height: height, alignment: .center)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.black)
                         .opacity(0.6)
                         .edgesIgnoringSafeArea(.all)
+                    
+                    VStack {
+                        Spacer(minLength: 10.0)
+                        Map(coordinateRegion: $locationAuth.region, interactionModes: .all, showsUserLocation: true, userTrackingMode: $userTrackingMode)
+                            .frame(width: width, height: height*0.30)
+                            .border(Color.gray)
+                        Spacer()
+                        Text("").foregroundColor(.black).opacity(0.6).frame(width: width, height: height/2)
+                    }
+
                     
                     AlertToast(type: .loading, title: "GPS認証中です", subTitle: nil)
                         .alert("GPSが一致しません", isPresented: $locationAuth.isAuthingBad) {

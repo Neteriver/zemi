@@ -97,8 +97,8 @@ class LocationAuth: NSObject,CLLocationManagerDelegate, ObservableObject {
         let roomLongitude = location.coordinate.longitude
         self.region = MKCoordinateRegion(
             center: .init(latitude: roomLatitude, longitude: roomLongitude),
-            latitudinalMeters: 300,
-            longitudinalMeters: 300
+            latitudinalMeters: 100,
+            longitudinalMeters: 700
         )
         roomLocation = ["roomLatitude": roomLatitude, "roomLongitude": roomLongitude]
     }
@@ -123,8 +123,8 @@ class LocationAuth: NSObject,CLLocationManagerDelegate, ObservableObject {
     // 位置情報を取得する処理(取得できるまで0.5秒再帰)
     private func getLocation(comp:@escaping compLocation) {
         if roomLocation.isEmpty {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                // 0.5秒待機
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                // 4秒待機
                 self.getLocation(comp: comp)
             }
         } else {
