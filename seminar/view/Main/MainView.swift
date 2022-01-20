@@ -55,7 +55,7 @@ struct MainView: View {
     }
     
     func readFromFile() -> [MainData] {
-        guard let dirURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.seminar.kaijiIshii") else {
+        guard let dirURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.seminar.kaijiIshi") else {
             fatalError("")
         }
         print(dirURL.path)
@@ -67,15 +67,15 @@ struct MainView: View {
         for fileName in fileNames  {
             let fullpath = dirURL.appendingPathComponent(fileName)
             guard let content = try? Data(contentsOf: fullpath) else {
-                break
+                continue
             }
             guard let _ = UIImage(data: content) else {
-                break
+                continue
             }
             let attr = try! FileManager.default.attributesOfItem(atPath: fullpath.path) as NSDictionary
             let size = Util.formatSize(size: attr.fileSize())
             guard let insertDate = attr.fileCreationDate() else {
-                break
+                continue
             }
             let data = MainData(id: UUID(), name: fileName, url: fullpath, isImage: true, size: size, insertDate: insertDate)
             mainData.append(data)

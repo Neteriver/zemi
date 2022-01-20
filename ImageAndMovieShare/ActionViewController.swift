@@ -58,7 +58,7 @@ class ActionViewController: UIViewController {
     }
     
     func saveUIImageToAppGroup(_ image: UIImage) -> String {
-        if let shareURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.seminar.kaijiIshii") {
+        if let shareURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.seminar.kaijiIshi") {
             let fileName = "image-\(UUID().uuidString).jpg"
             if let data = image.jpegData(compressionQuality: 1.0) {
                 do {
