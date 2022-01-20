@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 class FlickAuth:ObservableObject {
     
+    var flickAuthData = FlickAuthData()
+    
+    
     // ここから
     // エラー起きるから一旦書いておく(あとで消す)
     var test = [1.0,2.0,4.0,9.0]
@@ -36,6 +39,15 @@ class FlickAuth:ObservableObject {
             sleep(2)
             completion()
         }
+    }
+    
+    // 入力データを保存(一旦1文字分のみ)
+    // authInfo.append([])を追加しないと多次元配列にできないから注意
+    func addData(x_distance : Double, y_distance : Double, on_time : Double, wait_time : Double){
+        flickAuthData.authInfo[count].append(x_distance)
+        flickAuthData.authInfo[count].append(y_distance)
+        flickAuthData.authInfo[count].append(on_time)
+        flickAuthData.authInfo[count].append(wait_time)
     }
     
     // ２次元配列で格納しているデータを１次元配列tempTableに退避させる
@@ -93,13 +105,13 @@ class FlickAuth:ObservableObject {
     }
     // 原点(入力地点)からのx移動値
     // ※x座標が返されるが、入力地点の座標が原点なのでx座標が原点からの距離となる
-    func xDistance(distance : Double) -> Double {
-        return convert(angle: Angle) * sin(tmpDistance)
+    func xDistance(distance : CGFloat, angle : CGFloat) -> Double {
+        return convert(angle: angle) * sin(tmpDistance)
     }
     // 原点(入力地点)からのy移動値
     // ※y座標が返されるが、入力地点の座標が原点なのでy座標が原点からの距離となる
-    func yDistance(distance : Double) -> Double {
-        return convert(angle: Angle) * cos(tmpDistance)
+    func yDistance(distance : CGFloat, angle : CGFloat) -> Double {
+        return convert(angle: angle) * cos(tmpDistance)
     }
     
     // 標準偏差が適切かどうか確認するメソッド

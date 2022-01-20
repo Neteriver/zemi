@@ -667,6 +667,7 @@ struct KeyboardView: View {
                 .zIndex(touchColomn3 ? 1 : 0)
                 
                 VStack {
+                    // TODO このボタン押下したら入力を初めからにする
                     RoundedRectangle(cornerRadius: radius)
                         .foregroundColor(Color(red: 0.671, green: 0.698, blue: 0.741))
                         .padding(EdgeInsets(top: top,
