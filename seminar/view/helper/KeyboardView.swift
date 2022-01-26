@@ -31,6 +31,8 @@ struct KeyboardView: View {
     // 確定ボタン
     @Binding var isEnter:Bool
     
+    let flickAuth:FlickAuth
+    
     let radius = 4.0
     
     let rowTop = 3.0
@@ -816,6 +818,12 @@ struct KeyboardView: View {
                 input += "お"
             }
         }
+        
+        // 2点間の角度
+        var Aangle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
+        if (Aangle < 0) { Aangle += 360 }
+        
+        flickAuth.xDistance(distance: CGPointDistance(from: value.startLocation, to: value.location), radian: Aangle)
         
         // 重なり順を解除
         touchRow1 = false
@@ -1780,22 +1788,31 @@ struct KeyboardView: View {
         return (from.x - to.x) * (from.x - to.x) + (from.y - to.y) * (from.y - to.y)
     }
     
+    // 2点間の距離
     func CGPointDistance(from: CGPoint, to: CGPoint) -> CGFloat {
         return sqrt(CGPointDistanceSquared(from: from, to: to))
     }
     
-}
-
-struct KeyboardView_Previews: PreviewProvider {
-    
-    @State static var input = ""
-    @State static var onTime = 0.0
-    @State static var waitTime = 0.0
-    @State static var angle:CGFloat = 0
-    @State static var distance:CGFloat = 0
-    @State static var isEnter = false
-    
-    static var previews: some View {
-        KeyboardView(input: $input, onTime:$onTime, waitTime: $waitTime, angle:$angle, distance: $distance, isEnter: $isEnter)
+    // 2点間の角度(ラジアン表記)
+    func CGPointAngle(x1: Double, y1: Double, x2: Double, y2: Double) -> Double {
+        let radian = atan2(y2 - y1, x2 - x1)
+        if (radian < 0) {
+            return radian + 360
+        }
+        return radian
     }
 }
+
+//struct KeyboardView_Previews: PreviewProvider {
+//    
+//    @State static var input = ""
+//    @State static var onTime = 0.0
+//    @State static var waitTime = 0.0
+//    @State static var angle:CGFloat = 0
+//    @State static var distance:CGFloat = 0
+//    @State static var isEnter = false
+//    
+//    static var previews: some View {
+//        KeyboardView(input: $input, onTime:$onTime, waitTime: $waitTime, angle:$angle, distance: $distance, isEnter: $isEnter)
+//    }
+//}

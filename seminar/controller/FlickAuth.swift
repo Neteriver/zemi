@@ -11,16 +11,11 @@ class FlickAuth:ObservableObject {
     
     var flickAuthData = FlickAuthData()
     
+    // x移動値のデータを格納
+    var xlist:[CGFloat] = []
     
-    // ここから
-    // エラー起きるから一旦書いておく(あとで消す)
-    var test = [1.0,2.0,4.0,9.0]
-    let divisor:Double = 10.0
-    var tempTable = [Double]()
-    var count:Int = 0
-    var Angle:CGFloat = 0
-    var tmpDistance:Double = 9.0
-    // ここまで
+    // y移動値のデータを格納
+    var ylist:[CGFloat] = []
     
     @Published var isAuthingBad = false
     
@@ -40,20 +35,11 @@ class FlickAuth:ObservableObject {
             completion()
         }
     }
-    
-    // 入力データを保存(一旦1文字分のみ)
-    // authInfo.append([])を追加しないと多次元配列にできないから注意
-    func addData(x_distance : Double, y_distance : Double, on_time : Double, wait_time : Double){
-        flickAuthData.authInfo[count].append(x_distance)
-        flickAuthData.authInfo[count].append(y_distance)
-        flickAuthData.authInfo[count].append(on_time)
-        flickAuthData.authInfo[count].append(wait_time)
-    }
-    
     // ２次元配列で格納しているデータを１次元配列tempTableに退避させる
     // @param array FlickData内の２次元配列
     // @param index n文字目の添字
-    func temp(array : [[Double]], index : Int) -> [Double] {
+    func temp(array : [[Double]], index : Int, count: Int) -> [Double] {
+        var tempTable = [Double]()
         while count < 9 {
             tempTable.append(array[index][count])
         }
@@ -64,8 +50,6 @@ class FlickAuth:ObservableObject {
     // @param array n文字目のX移動値のデータが格納されているテーブル
     // @return n文字目の合計値:Double
     func sum(array : [Double]) -> Double {
-        //        flickData.xSumTable[index].append(array.reduce(0, +))
-        //        flickData.charDataTable[index].append(array.reduce(0, +))
         return array.reduce(0, +)
     }
     
@@ -73,8 +57,6 @@ class FlickAuth:ObservableObject {
     // @param array n文字目のX移動値のデータが格納されているテーブル
     // @return n文字目の平均値:Double
     func average(array : [Double]) -> Double {
-        //        flickData.xAveTable[index].append(array[index][0] / divisor)
-        //        flickData.charDataTable[index].append(array[index][0] / divisor)
         return sum(array: array) / Double(array.count)
     }
     
@@ -99,23 +81,14 @@ class FlickAuth:ObservableObject {
         return sqrt(variance(array: array))
     }
     
-    // 角度->ラジアン変換
-    func convert(angle : CGFloat) -> CGFloat {
-        return CGFloat.pi / 180 * angle
+    // 入力地点からのx移動値
+    func xDistance(distance : CGFloat, radian: CGFloat) {
+        let resulted = radian * sin(distance)
+        xlist.append(resulted)
     }
-    // 原点(入力地点)からのx移動値
-    // ※x座標が返されるが、入力地点の座標が原点なのでx座標が原点からの距離となる
-    func xDistance(distance : CGFloat, angle : CGFloat) -> Double {
-        return convert(angle: angle) * sin(tmpDistance)
-    }
-    // 原点(入力地点)からのy移動値
-    // ※y座標が返されるが、入力地点の座標が原点なのでy座標が原点からの距離となる
-    func yDistance(distance : CGFloat, angle : CGFloat) -> Double {
-        return convert(angle: angle) * cos(tmpDistance)
-    }
-    
-    // 標準偏差が適切かどうか確認するメソッド
-    func develop(){
-        print(standardDeviation(array: test))
+    // 入力地点からのy移動値
+    func yDistance(distance : CGFloat, radian : CGFloat) {
+        let resulted = radian * cos(distance)
+        ylist.append(resulted)
     }
 }

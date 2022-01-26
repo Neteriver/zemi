@@ -59,10 +59,6 @@ struct FlickAuthView: View {
                             .font(.title)
                             .padding(10)
                         
-                        //                        Text("\(dic.value)")
-                        //                            .font(.title2)
-                        //                            .padding(30)
-                        
                         Text("\(input)")
                         
                     }
@@ -83,7 +79,8 @@ struct FlickAuthView: View {
                                  waitTime: $waitTime,
                                  angle: $angle,
                                  distance: $distance,
-                                 isEnter: $isEnter)
+                                 isEnter: $isEnter,
+                                 flickAuth: flickAuth)
                 }
                 
                 // Enterキーを押下したときの処理
