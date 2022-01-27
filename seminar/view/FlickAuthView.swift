@@ -22,24 +22,17 @@ struct FlickAuthView: View {
     //フリック時間(間隔)
     @State var waitTime = 0.0
     
-    //フリック距離
-    @State var distance:CGFloat = 0
-    
-    //フリック角度
-    @State var angle:CGFloat = 0
-    
     //エンター
     @State var isEnter = false
     
     // x移動値
-    @State var xDistance:Double = 0.0
+    @State var xDistance:CGFloat = 0
     
     // y移動値
-    @State var yDistance:Double = 0.0
+    @State var yDistance:CGFloat = 0
     
     @ObservedObject var flickAuth = FlickAuth()
-    
-    var flickAuthData = FlickAuthData()
+
     
     let width = UIScreen.main.bounds.width
     
@@ -66,21 +59,16 @@ struct FlickAuthView: View {
                     Spacer()
                     
                     Group {
-                        Text("onTime: \(onTime)")
-                        Text("waitTime: \(waitTime)")
-                        Text("angle: \(angle)")
-                        Text("distance: \(distance)")
+                        Text("キーを押している時間: \(onTime)")
+                        Text("次のキーを押すまでの時間: \(waitTime)")
+                        Text("x移動値: \(xDistance)")
+                        Text("y移動値: \(yDistance)")
+                        Text("文字列長: \(dic.count)")
                     }
                     
                     Spacer()
                     
-                    KeyboardView(input: $input,
-                                 onTime: $onTime,
-                                 waitTime: $waitTime,
-                                 angle: $angle,
-                                 distance: $distance,
-                                 isEnter: $isEnter,
-                                 flickAuth: flickAuth)
+                    KeyboardView(input: $input, onTime: $onTime, waitTime: $waitTime, xDistance: $xDistance, yDistance: $yDistance, isEnter: $isEnter, flickAuth: flickAuth)
                 }
                 
                 // Enterキーを押下したときの処理

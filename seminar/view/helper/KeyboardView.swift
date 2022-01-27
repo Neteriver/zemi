@@ -21,17 +21,14 @@ struct KeyboardView: View {
     @State var intervalTime = Date()
     @Binding var waitTime:Double
     
-    // 角度
-    @State var length : CGFloat = 150
-    @Binding var angle:CGFloat
-    
-    // 距離
-    @Binding var distance:CGFloat
+    @Binding var xDistance:CGFloat
+    @Binding var yDistance:CGFloat
     
     // 確定ボタン
     @Binding var isEnter:Bool
     
     let flickAuth:FlickAuth
+    
     
     let radius = 4.0
     
@@ -768,12 +765,12 @@ struct KeyboardView: View {
             }
         }
         
-        // 角度の取得
-        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
-        if (self.angle < 0) { self.angle += 360 }
+
+        // x移動値取得
+        xDistance = flickAuth.xDistance(from: value.startLocation, to: value.location)
+        // y移動値取得
+        yDistance = flickAuth.yDistance(from: value.startLocation, to: value.location)
         
-        // 距離の取得
-        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -819,11 +816,6 @@ struct KeyboardView: View {
             }
         }
         
-        // 2点間の角度
-        var Aangle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
-        if (Aangle < 0) { Aangle += 360 }
-        
-        flickAuth.xDistance(distance: CGPointDistance(from: value.startLocation, to: value.location), radian: Aangle)
         
         // 重なり順を解除
         touchRow1 = false
@@ -873,13 +865,7 @@ struct KeyboardView: View {
                 koflg = true
             }
         }
-        // 角度の取得
-        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
-        if (self.angle < 0) { self.angle += 360 }
-        
-        // 距離の取得
-        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
-        
+
         if(!onTapFlg) {
             // タップ状態へ
             self.onTapFlg = true
@@ -929,6 +915,7 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
+        
         intervalTime = Date()
     }
     
@@ -971,12 +958,7 @@ struct KeyboardView: View {
                 soflg = true
             }
         }
-        // 角度の取得
-        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
-        if (self.angle < 0) { self.angle += 360 }
-        
-        // 距離の取得
-        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1069,12 +1051,7 @@ struct KeyboardView: View {
                 toflg = true
             }
         }
-        // 角度の取得
-        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
-        if (self.angle < 0) { self.angle += 360 }
-        
-        // 距離の取得
-        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1166,12 +1143,7 @@ struct KeyboardView: View {
                 noflg = true
             }
         }
-        // 角度の取得
-        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
-        if (self.angle < 0) { self.angle += 360 }
-        
-        // 距離の取得
-        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1263,12 +1235,7 @@ struct KeyboardView: View {
                 hoflg = true
             }
         }
-        // 角度の取得
-        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
-        if (self.angle < 0) { self.angle += 360 }
-        
-        // 距離の取得
-        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1360,12 +1327,7 @@ struct KeyboardView: View {
                 moflg = true
             }
         }
-        // 角度の取得
-        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
-        if (self.angle < 0) { self.angle += 360 }
-        
-        // 距離の取得
-        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1455,12 +1417,7 @@ struct KeyboardView: View {
                 yoflg = true
             }
         }
-        // 角度の取得
-        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
-        if (self.angle < 0) { self.angle += 360 }
-        
-        // 距離の取得
-        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
+
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1549,12 +1506,6 @@ struct KeyboardView: View {
                 roflg = true
             }
         }
-        // 角度の取得
-        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
-        if (self.angle < 0) { self.angle += 360 }
-        
-        // 距離の取得
-        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1639,12 +1590,6 @@ struct KeyboardView: View {
                 // なにもしない
             }
         }
-        // 角度の取得
-        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
-        if (self.angle < 0) { self.angle += 360 }
-        
-        // 距離の取得
-        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1727,12 +1672,6 @@ struct KeyboardView: View {
                 // なにもしない
             }
         }
-        // 角度の取得
-        self.angle = atan2(value.location.x - self.length / 2, self.length / 2 - value.location.y) * 180 / .pi
-        if (self.angle < 0) { self.angle += 360 }
-        
-        // 距離の取得
-        self.distance = CGPointDistance(from: value.startLocation, to: value.location)
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1782,24 +1721,6 @@ struct KeyboardView: View {
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
         intervalTime = Date()
-    }
-    
-    func CGPointDistanceSquared(from: CGPoint, to: CGPoint) -> CGFloat {
-        return (from.x - to.x) * (from.x - to.x) + (from.y - to.y) * (from.y - to.y)
-    }
-    
-    // 2点間の距離
-    func CGPointDistance(from: CGPoint, to: CGPoint) -> CGFloat {
-        return sqrt(CGPointDistanceSquared(from: from, to: to))
-    }
-    
-    // 2点間の角度(ラジアン表記)
-    func CGPointAngle(x1: Double, y1: Double, x2: Double, y2: Double) -> Double {
-        let radian = atan2(y2 - y1, x2 - x1)
-        if (radian < 0) {
-            return radian + 360
-        }
-        return radian
     }
 }
 

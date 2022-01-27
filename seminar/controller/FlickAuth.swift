@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 class FlickAuth:ObservableObject {
-    
-    var flickAuthData = FlickAuthData()
+    // 認証用のデータを格納する
+    var authInfo = [[Double]]()
     
     // x移動値のデータを格納
     var xlist:[CGFloat] = []
@@ -17,8 +17,14 @@ class FlickAuth:ObservableObject {
     // y移動値のデータを格納
     var ylist:[CGFloat] = []
     
-    @Published var isAuthingBad = false
+    // タップ時間のデータを格納する
+    var onList = [[Double]]()
     
+    // フリックの間隔のデータを格納する
+    var waitList = [[Double]]()
+
+    
+    @Published var isAuthingBad = false
     @Published var result = false
     
     
@@ -82,13 +88,39 @@ class FlickAuth:ObservableObject {
     }
     
     // 入力地点からのx移動値
-    func xDistance(distance : CGFloat, radian: CGFloat) {
-        let resulted = radian * sin(distance)
-        xlist.append(resulted)
+    func xDistance(from : CGPoint, to: CGPoint) -> CGFloat {
+        var result = from.x - to.x
+        if (result < 0) { result = result * -1 }
+        xlist.append(result)
+        return result
     }
     // 入力地点からのy移動値
-    func yDistance(distance : CGFloat, radian : CGFloat) {
-        let resulted = radian * cos(distance)
-        ylist.append(resulted)
+    func yDistance(from : CGPoint, to: CGPoint) -> CGFloat {
+        var result = from.y - to.y
+        if (result < 0) { result = result * -1  }
+        ylist.append(result)
+        return result
+    }
+    
+    // 2点間の距離
+    func CGPointDistance(from: CGPoint, to: CGPoint) -> CGFloat {
+        return sqrt((from.x - to.x) * (from.x - to.x) + (from.y - to.y) * (from.y - to.y))
+    }
+    
+    // 2点間の角度(ラジアン表記)
+    // x1,y1 -> フリック開始位置(startLocation)
+    // x2,y2 -> フリック終了位置(location)
+    func CGPointRadian(x1: Double, y1: Double, x2: Double, y2: Double) -> Double {
+        return atan2(y2 - y1, x2 - x1)
+    }
+    // 一応degrees表記の変換も
+    func CGPointAngle(radian: Double) -> Double {
+        var angle = radian
+        if(angle < 0) {
+            angle = floor(angle  * (180 / .pi) + 360)
+        } else {
+            angle = floor(angle  * (180 / .pi))
+        }
+        return angle
     }
 }
