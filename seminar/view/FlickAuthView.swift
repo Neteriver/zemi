@@ -10,8 +10,11 @@ import AlertToast
 
 struct FlickAuthView: View {
     
-    // 辞書
+    // 認証用文字列
     let dic = "すいかわりをしませんか"
+    
+    // 認証用文字列の長さ
+    var length : Int { get { return dic.count } }
     
     //入力文字
     @State var input = ""
@@ -26,13 +29,13 @@ struct FlickAuthView: View {
     @State var isEnter = false
     
     // x移動値
-    @State var xDistance:CGFloat = 0
+    @State var xDistance:Double = 0
     
     // y移動値
-    @State var yDistance:CGFloat = 0
+    @State var yDistance:Double = 0
     
     @ObservedObject var flickAuth = FlickAuth()
-
+    
     
     let width = UIScreen.main.bounds.width
     
@@ -63,12 +66,18 @@ struct FlickAuthView: View {
                         Text("次のキーを押すまでの時間: \(waitTime)")
                         Text("x移動値: \(xDistance)")
                         Text("y移動値: \(yDistance)")
-                        Text("文字列長: \(dic.count)")
                     }
                     
                     Spacer()
                     
-                    KeyboardView(input: $input, onTime: $onTime, waitTime: $waitTime, xDistance: $xDistance, yDistance: $yDistance, isEnter: $isEnter, flickAuth: flickAuth)
+                    KeyboardView(input: $input,
+                                 length: length,
+                                 onTime: $onTime,
+                                 waitTime: $waitTime,
+                                 xDistance: $xDistance,
+                                 yDistance: $yDistance,
+                                 isEnter: $isEnter,
+                                 flickAuth: flickAuth)
                 }
                 
                 // Enterキーを押下したときの処理
@@ -89,7 +98,6 @@ struct FlickAuthView: View {
                         }.onAppear(perform: {
                             flickAuth.auth()
                         })
-                    
                 }
             }
             

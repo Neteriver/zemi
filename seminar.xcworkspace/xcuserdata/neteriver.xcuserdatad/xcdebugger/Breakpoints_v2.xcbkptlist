@@ -30,8 +30,8 @@
             filePath = "seminar/view/helper/KeyboardView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "819"
-            endingLineNumber = "819"
+            startingLineNumber = "822"
+            endingLineNumber = "822"
             landmarkName = "flickedKeysA(_:)"
             landmarkType = "7">
          </BreakpointContent>

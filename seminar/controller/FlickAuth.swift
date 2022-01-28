@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 class FlickAuth:ObservableObject {
-    // 認証用のデータを格納する
-    var authInfo = [[Double]]()
+    // auth
+    @State var authList:[[Double]] = []
     
     // x移動値のデータを格納
     var xlist:[CGFloat] = []
@@ -92,14 +92,14 @@ class FlickAuth:ObservableObject {
         var result = from.x - to.x
         if (result < 0) { result = result * -1 }
         xlist.append(result)
-        return result
+        return Double(result)
     }
     // 入力地点からのy移動値
     func yDistance(from : CGPoint, to: CGPoint) -> CGFloat {
         var result = from.y - to.y
         if (result < 0) { result = result * -1  }
         ylist.append(result)
-        return result
+        return Double(result)
     }
     
     // 2点間の距離
@@ -122,5 +122,20 @@ class FlickAuth:ObservableObject {
             angle = floor(angle  * (180 / .pi))
         }
         return angle
+    }
+    
+    // 入力時点の文字数計算
+    // これによりデータを格納するための添字を確定させる
+    func LengthCount(input: String) -> Int {
+        return input.count - 1
+        
+    }
+    
+    // 認証用データを格納する
+    func StoreArray(index: Int, onTime: Double, waitTime: Double, x: Double, y: Double){
+        authList[index].append(onTime)
+        authList[index].append(waitTime)
+        authList[index].append(x)
+        authList[index].append(y)
     }
 }

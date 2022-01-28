@@ -12,6 +12,9 @@ struct KeyboardView: View {
     // 入力文字
     @Binding var input:String
     
+    // 設定したパスワードの文字数
+    @State var length:Int
+    
     // ドラッグ開始時間
     @State var onTapFlg = false
     @State var tapStartTime = Date()
@@ -21,8 +24,8 @@ struct KeyboardView: View {
     @State var intervalTime = Date()
     @Binding var waitTime:Double
     
-    @Binding var xDistance:CGFloat
-    @Binding var yDistance:CGFloat
+    @Binding var xDistance:Double
+    @Binding var yDistance:Double
     
     // 確定ボタン
     @Binding var isEnter:Bool
@@ -782,7 +785,7 @@ struct KeyboardView: View {
         }
     }
     
-    fileprivate func flickedKeysA(_ value: _ChangedGesture<DragGesture>.Value) {
+    fileprivate mutating func flickedKeysA(_ value: _ChangedGesture<DragGesture>.Value) {
         if (abs(value.translation.width) < 30 && abs(value.translation.height) < 30) {
             // 動きが小さすぎるため無視
             return
@@ -823,6 +826,11 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
+        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+                             onTime: onTime,
+                             waitTime: waitTime,
+                             x: xDistance,
+                             y: yDistance)
         intervalTime = Date()
     }
     
