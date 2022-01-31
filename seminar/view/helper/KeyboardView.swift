@@ -24,6 +24,7 @@ struct KeyboardView: View {
     @State var intervalTime = Date()
     @Binding var waitTime:Double
     
+    // 距離
     @Binding var xDistance:Double
     @Binding var yDistance:Double
     
@@ -770,9 +771,11 @@ struct KeyboardView: View {
         
 
         // x移動値取得
-        xDistance = flickAuth.xDistance(from: value.startLocation, to: value.location)
+        self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
+                                                          to: value.location.x))
         // y移動値取得
-        yDistance = flickAuth.yDistance(from: value.startLocation, to: value.location)
+        self.yDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.y,
+                                                          to: value.location.y))
         
         
         if(!onTapFlg) {
@@ -785,7 +788,7 @@ struct KeyboardView: View {
         }
     }
     
-    fileprivate mutating func flickedKeysA(_ value: _ChangedGesture<DragGesture>.Value) {
+    fileprivate func flickedKeysA(_ value: _ChangedGesture<DragGesture>.Value) {
         if (abs(value.translation.width) < 30 && abs(value.translation.height) < 30) {
             // 動きが小さすぎるため無視
             return
@@ -873,6 +876,12 @@ struct KeyboardView: View {
                 koflg = true
             }
         }
+        // x移動値取得
+        self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
+                                                          to: value.location.x))
+        // y移動値取得
+        self.yDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.y,
+                                                          to: value.location.y))
 
         if(!onTapFlg) {
             // タップ状態へ
@@ -923,6 +932,11 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
+        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+                             onTime: onTime,
+                             waitTime: waitTime,
+                             x: xDistance,
+                             y: yDistance)
         
         intervalTime = Date()
     }
@@ -967,6 +981,12 @@ struct KeyboardView: View {
             }
         }
 
+        // x移動値取得
+        self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
+                                                          to: value.location.x))
+        // y移動値取得
+        self.yDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.y,
+                                                          to: value.location.y))
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1017,6 +1037,11 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
+        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+                             onTime: onTime,
+                             waitTime: waitTime,
+                             x: xDistance,
+                             y: yDistance)
         intervalTime = Date()
     }
     
@@ -1059,6 +1084,13 @@ struct KeyboardView: View {
                 toflg = true
             }
         }
+        
+        // x移動値取得
+        self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
+                                                          to: value.location.x))
+        // y移動値取得
+        self.yDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.y,
+                                                          to: value.location.y))
 
         
         if(!onTapFlg) {
@@ -1110,6 +1142,11 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
+        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+                             onTime: onTime,
+                             waitTime: waitTime,
+                             x: xDistance,
+                             y: yDistance)
         intervalTime = Date()
     }
     fileprivate func flickingKeysNA(_ value: DragGesture.Value) {
@@ -1152,6 +1189,12 @@ struct KeyboardView: View {
             }
         }
 
+        // x移動値取得
+        self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
+                                                          to: value.location.x))
+        // y移動値取得
+        self.yDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.y,
+                                                          to: value.location.y))
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1202,6 +1245,11 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
+        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+                             onTime: onTime,
+                             waitTime: waitTime,
+                             x: xDistance,
+                             y: yDistance)
         intervalTime = Date()
     }
     fileprivate func flickingKeysHA(_ value: DragGesture.Value) {
@@ -1244,6 +1292,12 @@ struct KeyboardView: View {
             }
         }
 
+        // x移動値取得
+        self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
+                                                          to: value.location.x))
+        // y移動値取得
+        self.yDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.y,
+                                                          to: value.location.y))
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1294,6 +1348,11 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
+        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+                             onTime: onTime,
+                             waitTime: waitTime,
+                             x: xDistance,
+                             y: yDistance)
         intervalTime = Date()
     }
     fileprivate func flickingKeysMA(_ value: DragGesture.Value) {
@@ -1336,6 +1395,12 @@ struct KeyboardView: View {
             }
         }
 
+        // x移動値取得
+        self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
+                                                          to: value.location.x))
+        // y移動値取得
+        self.yDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.y,
+                                                          to: value.location.y))
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1386,6 +1451,11 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
+        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+                             onTime: onTime,
+                             waitTime: waitTime,
+                             x: xDistance,
+                             y: yDistance)
         intervalTime = Date()
     }
     fileprivate func flickingKeysYA(_ value: DragGesture.Value) {
@@ -1426,6 +1496,12 @@ struct KeyboardView: View {
             }
         }
 
+        // x移動値取得
+        self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
+                                                          to: value.location.x))
+        // y移動値取得
+        self.yDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.y,
+                                                          to: value.location.y))
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1472,6 +1548,11 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
+        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+                             onTime: onTime,
+                             waitTime: waitTime,
+                             x: xDistance,
+                             y: yDistance)
         intervalTime = Date()
     }
     
@@ -1514,6 +1595,13 @@ struct KeyboardView: View {
                 roflg = true
             }
         }
+        
+        // x移動値取得
+        self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
+                                                          to: value.location.x))
+        // y移動値取得
+        self.yDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.y,
+                                                          to: value.location.y))
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1564,6 +1652,11 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
+        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+                             onTime: onTime,
+                             waitTime: waitTime,
+                             x: xDistance,
+                             y: yDistance)
         intervalTime = Date()
     }
     fileprivate func flickingKeysWA(_ value: DragGesture.Value) {
@@ -1598,6 +1691,13 @@ struct KeyboardView: View {
                 // なにもしない
             }
         }
+        
+        // x移動値取得
+        self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
+                                                          to: value.location.x))
+        // y移動値取得
+        self.yDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.y,
+                                                          to: value.location.y))
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1642,6 +1742,11 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
+        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+                             onTime: onTime,
+                             waitTime: waitTime,
+                             x: xDistance,
+                             y: yDistance)
         intervalTime = Date()
     }
     
@@ -1680,6 +1785,13 @@ struct KeyboardView: View {
                 // なにもしない
             }
         }
+        
+        // x移動値取得
+        self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
+                                                          to: value.location.x))
+        // y移動値取得
+        self.yDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.y,
+                                                          to: value.location.y))
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1728,6 +1840,11 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
+        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+                             onTime: onTime,
+                             waitTime: waitTime,
+                             x: xDistance,
+                             y: yDistance)
         intervalTime = Date()
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 class FlickAuth:ObservableObject {
     // auth
-    @State var authList:[[Double]] = []
+    var authList:[[Double]] = []
     
     // x移動値のデータを格納
     var xlist:[CGFloat] = []
@@ -87,24 +87,11 @@ class FlickAuth:ObservableObject {
         return sqrt(variance(array: array))
     }
     
-    // 入力地点からのx移動値
-    func xDistance(from : CGPoint, to: CGPoint) -> CGFloat {
-        var result = from.x - to.x
+    // 入力地点からの距離
+    func CGPointDistance(from: CGFloat, to: CGFloat) -> CGFloat {
+        var result = from - to
         if (result < 0) { result = result * -1 }
-        xlist.append(result)
-        return Double(result)
-    }
-    // 入力地点からのy移動値
-    func yDistance(from : CGPoint, to: CGPoint) -> CGFloat {
-        var result = from.y - to.y
-        if (result < 0) { result = result * -1  }
-        ylist.append(result)
-        return Double(result)
-    }
-    
-    // 2点間の距離
-    func CGPointDistance(from: CGPoint, to: CGPoint) -> CGFloat {
-        return sqrt((from.x - to.x) * (from.x - to.x) + (from.y - to.y) * (from.y - to.y))
+        return result
     }
     
     // 2点間の角度(ラジアン表記)
@@ -133,9 +120,16 @@ class FlickAuth:ObservableObject {
     
     // 認証用データを格納する
     func StoreArray(index: Int, onTime: Double, waitTime: Double, x: Double, y: Double){
-        authList[index].append(onTime)
-        authList[index].append(waitTime)
-        authList[index].append(x)
-        authList[index].append(y)
+        
+        var hogeList:[Double] = []
+        hogeList.append(onTime)
+        hogeList.append(waitTime)
+        hogeList.append(x)
+        hogeList.append(y)
+        
+        authList.append(hogeList)
+        print("index:\(index)")
+        print("hogelist:\(hogeList)")
+        print("authlist:\(authList)")
     }
 }
