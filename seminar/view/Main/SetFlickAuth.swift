@@ -44,7 +44,7 @@ struct SetFlickAuth: View {
     
     @ObservedObject var flickAuth = FlickAuth()
     
-    @State var message = "登録するパスワードを入力してください"
+    @State var message = "新しいパスワードを入力してください"
     @State var countDown = ""
     
     
@@ -77,18 +77,9 @@ struct SetFlickAuth: View {
                                  xDistance: $xDistance,
                                  yDistance: $yDistance,
                                  isEnter: $isEnter,
+                                 message: $message,
+                                 num: $count,
                                  flickAuth: flickAuth)
-                }
-                
-                // Enterキーを押下したときの処理
-                if(isEnter) {
-                    if(initFlag) {
-                        //SetFlickAuth()
-                    } else {
-                        SetFlickAuth(count: count, initFlag: true, message: "データ登録のためあと\(count)回入力して下さい").onAppear {
-                            self.count = count - 1
-                        }
-                    }
                 }
             }
             

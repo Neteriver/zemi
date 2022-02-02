@@ -34,6 +34,9 @@ struct FlickAuthView: View {
     // y移動値
     @State var yDistance:Double = 0
     
+    @State var message:String = ""
+    @State var num:Int = 0
+    
     @ObservedObject var flickAuth = FlickAuth()
     
     
@@ -77,6 +80,8 @@ struct FlickAuthView: View {
                                  xDistance: $xDistance,
                                  yDistance: $yDistance,
                                  isEnter: $isEnter,
+                                 message: $message,
+                                 num: $num,
                                  flickAuth: flickAuth)
                 }
                 

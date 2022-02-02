@@ -33,6 +33,10 @@ struct KeyboardView: View {
     // 確定ボタン
     @Binding var isEnter:Bool
     
+    @Binding var message:String
+    
+    @Binding var num:Int
+    
     let flickAuth:FlickAuth
     
     
@@ -714,6 +718,8 @@ struct KeyboardView: View {
                         ).onTapGesture {
                             // 認証
                             isEnter.toggle()
+                            self.message = "データ登録のためあと\(num)回入力して下さい"
+                            self.num = num - 1
                         }
                     
                 }
