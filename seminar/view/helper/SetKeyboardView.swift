@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct KeyboardView: View {
+struct SetKeyboardView: View {
     // 入力文字
     @Binding var input:String
     
@@ -29,6 +29,12 @@ struct KeyboardView: View {
     
     // 確定ボタン
     @Binding var isEnter:Bool
+    
+    @Binding var message:String
+    
+    @Binding var num:Int
+    
+    @Binding var trans:Bool
     
     let flickAuth:FlickAuth
     
@@ -711,6 +717,11 @@ struct KeyboardView: View {
                         ).onTapGesture {
                             // 認証
                             isEnter.toggle()
+                            self.message = "データ登録のためあと\(num)回入力して下さい"
+                            self.num = num - 1
+                            if(num < 0) {
+                                self.trans = true
+                            }
                         }
                     
                 }
@@ -1848,15 +1859,15 @@ struct KeyboardView: View {
     }
 }
 
-//struct KeyboardView_Previews: PreviewProvider {
-//    
+//struct SetKeyboardView_Previews: PreviewProvider {
+//
 //    @State static var input = ""
 //    @State static var onTime = 0.0
 //    @State static var waitTime = 0.0
 //    @State static var angle:CGFloat = 0
 //    @State static var distance:CGFloat = 0
 //    @State static var isEnter = false
-//    
+//
 //    static var previews: some View {
 //        KeyboardView(input: $input, onTime:$onTime, waitTime: $waitTime, angle:$angle, distance: $distance, isEnter: $isEnter)
 //    }

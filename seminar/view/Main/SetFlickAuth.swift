@@ -42,6 +42,10 @@ struct SetFlickAuth: View {
     // y移動値
     @State var yDistance:Double = 0
     
+    @State var transition = false
+    
+    
+    
     @ObservedObject var flickAuth = FlickAuth()
     
     @State var message = "新しいパスワードを入力してください"
@@ -54,8 +58,8 @@ struct SetFlickAuth: View {
     
     var body: some View {
         
-        if(flickAuth.result) {
-            TopView()
+        if(transition) {
+            SettingView()
         } else {
             ZStack {
                 VStack {
@@ -70,7 +74,7 @@ struct SetFlickAuth: View {
                     
                     Spacer()
                     
-                    KeyboardView(input: $input,
+                    SetKeyboardView(input: $input,
                                  length: inputLength,
                                  onTime: $onTime,
                                  waitTime: $waitTime,
@@ -79,18 +83,14 @@ struct SetFlickAuth: View {
                                  isEnter: $isEnter,
                                  message: $message,
                                  num: $count,
+                                 trans: $transition,
                                  flickAuth: flickAuth)
                 }
+                
             }
             
+            
         }
-    }
-    
-    fileprivate func afteredEnter (){
-        
-    }
-    fileprivate func countMinus(num: Int) -> Int {
-        return num - 1
     }
 }
 
