@@ -9,6 +9,8 @@ import SwiftUI
 
 struct KeyboardView: View {
     
+    
+    
     // 入力文字
     @Binding var input:String
     

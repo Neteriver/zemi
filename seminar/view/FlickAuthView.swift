@@ -91,12 +91,12 @@ struct FlickAuthView: View {
                     AlertToast(type: .loading, title: "フリック認証中です", subTitle: nil)
                         .alert("フリックが一致しません", isPresented: $flickAuth.isAuthingBad) {
                             Button("了解") {
-                                flickAuth.auth()
+                                flickAuth.auth(dic: dic, input: input)
                             }
                         } message: {
                             Text("フリックが一致しません")
                         }.onAppear(perform: {
-                            flickAuth.auth()
+                            flickAuth.auth(dic: dic, input: input)
                         })
                 }
             }

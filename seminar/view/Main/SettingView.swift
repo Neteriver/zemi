@@ -15,11 +15,13 @@ struct SettingView: View {
     @State private var isShowingAlert = false
     @State var text: String = ""
     
+    
+    
     var body: some View {
         Form {
             Section {
                 HStack {
-                    Text("パスワード")
+                    Text("パスコード")
                     Spacer()
                     Toggle(isOn: $isPasswordOn.animation()) {
                         EmptyView()
@@ -33,17 +35,17 @@ struct SettingView: View {
                             isShowingAlert: $isShowingAlert,
                             placeholder: "",
                             isSecureTextEntry: true,
-                            title: "パスワードを入力",
-                            message: "パスワードを入力してください",
+                            title: "パスコードを入力",
+                            message: "パスコードを入力してください",
                             leftButtonTitle: "キャンセル",
                             rightButtonTitle: "登録",
                             leftButtonAction: nil,
                             rightButtonAction: {
-                                print("パスワード認証リクエスト")
+                                print("パスコード認証リクエスト")
                             }
                         )
                         HStack {
-                            Text("パスフレーズ")
+                            Text("パスコードの変更")
                             Spacer()
                             Image(systemName: "chevron.right").foregroundColor(.gray)
                         }.onTapGesture(perform: {
@@ -52,7 +54,7 @@ struct SettingView: View {
                     }
                 }
             } header :{
-                Text("パスワード")
+                Text("パスコード認証")
             }
             Section {
                 HStack {
@@ -82,11 +84,9 @@ struct SettingView: View {
                 }
                 if(isFlickOn) {
                     
-                    HStack {
-                        Text("キーボード")
-                        Spacer()
-                        Image(systemName: "chevron.right").foregroundColor(.gray)
-                    }
+                    NavigationLink(destination: SetFlickAuth(), label: {
+                        TopRow(title: "パスワードの変更", imageName: "11")
+                    })
                 }
             } header :{
                 Text("フリック認証")

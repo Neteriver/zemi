@@ -22,13 +22,27 @@ class FlickAuth:ObservableObject {
     
     // フリックの間隔のデータを格納する
     var waitList = [[Double]]()
+    
+    var initial = ""
 
     
     @Published var isAuthingBad = false
     @Published var result = false
     
     
-    func auth() {
+    func auth(dic: String, input: String) {
+        // 引数として入力文字(input)、設定したパスワード(dic)、入力した文字のデータ(authList)？
+        // ここでは入力文字が設定したパスワードと一致しているか判別
+        if (dic == input) {
+            self.result = true
+            print("dic:\(dic)")
+            print("input:\(input)")
+        } else {
+            isAuthingBad = false
+            print("dic:\(dic)")
+            print("input:\(input)")
+        }
+        
         //　認証処理を書く。。以下はダミーメソッド
         dummy(completion: {
             self.result = true
@@ -41,6 +55,7 @@ class FlickAuth:ObservableObject {
             completion()
         }
     }
+    
     // ２次元配列で格納しているデータを１次元配列tempTableに退避させる
     // @param array FlickData内の２次元配列
     // @param index n文字目の添字
@@ -112,7 +127,6 @@ class FlickAuth:ObservableObject {
     }
     
     // 入力時点の文字数計算
-    // これによりデータを格納するための添字を確定させる
     func LengthCount(input: String) -> Int {
         return input.count - 1
         
@@ -128,8 +142,24 @@ class FlickAuth:ObservableObject {
         hogeList.append(y)
         
         authList.append(hogeList)
-        print("index:\(index)")
-        print("hogelist:\(hogeList)")
-        print("authlist:\(authList)")
+    }
+    
+    func initPasswaord(input: String, temp: String) -> String {
+        if(temp == ""){
+            if (rangeOfLength(input: input, min: 8, max: 12)) {
+                return input
+            }
+        }
+        return input
+    }
+    
+    func compareToInput(input: String, temp: String) -> Bool {
+        if (input == temp) { return true }
+        return false
+    }
+    
+    func rangeOfLength(input: String, min: Int, max: Int) -> Bool {
+        if ((input.count < min) || (input.count > max)) { return false }
+        return true
     }
 }

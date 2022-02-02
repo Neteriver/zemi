@@ -11,7 +11,7 @@ import LocalAuthentication
 
 struct ContentView: View {
     
-    @State var message = "AuthenticationApp"
+    @State var message = "Fivate"
     @State var authResult:Bool = false
     @State var pass = ""
     @State var show = false

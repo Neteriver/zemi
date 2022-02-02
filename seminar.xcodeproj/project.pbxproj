@@ -33,7 +33,6 @@
 		24BCD31F277C67B700444876 /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCD31E277C67B700444876 /* KeyboardButton.swift */; };
 		33E053BB98A20D59402F4817 /* Pods_seminar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B29C2F60DF150C7796A90C /* Pods_seminar.framework */; };
 		B62875C127990907009D1B2B /* SetFlickAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62875C027990907009D1B2B /* SetFlickAuth.swift */; };
-		B62875C227990907009D1B2B /* SetFlickAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62875C027990907009D1B2B /* SetFlickAuth.swift */; };
 		B62875C427990922009D1B2B /* SetLocationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62875C327990922009D1B2B /* SetLocationAuth.swift */; };
 		B62875C527990922009D1B2B /* SetLocationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62875C327990922009D1B2B /* SetLocationAuth.swift */; };
 		B62875C727990938009D1B2B /* SetPasswordAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62875C627990938009D1B2B /* SetPasswordAuth.swift */; };
@@ -166,6 +165,7 @@
 		24723A44278C265A00220FB0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B62875C027990907009D1B2B /* SetFlickAuth.swift */,
 				24723A42278C263900220FB0 /* MainView.swift */,
 				24723A45278C266C00220FB0 /* MainRow.swift */,
 				24723A47278C2E0000220FB0 /* VideoView.swift */,
@@ -225,7 +225,6 @@
 		B62875BF279908D3009D1B2B /* settings */ = {
 			isa = PBXGroup;
 			children = (
-				B62875C027990907009D1B2B /* SetFlickAuth.swift */,
 				B62875C327990922009D1B2B /* SetLocationAuth.swift */,
 				B62875C627990938009D1B2B /* SetPasswordAuth.swift */,
 			);
@@ -442,7 +441,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B62875C227990907009D1B2B /* SetFlickAuth.swift in Sources */,
 				B62875C827990938009D1B2B /* SetPasswordAuth.swift in Sources */,
 				B62875C527990922009D1B2B /* SetLocationAuth.swift in Sources */,
 				2416AB40278D9C7B00E041E5 /* ActionViewController.swift in Sources */,
