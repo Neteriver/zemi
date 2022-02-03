@@ -89,7 +89,7 @@ struct SettingView: View {
                     
                     NavigationLink(destination: SetFlickAuth().onAppear(perform: {
                         // 配列の初期化
-                        flickAuth.initArray()
+                        flickAuth.initAll()
                         print("配列初期化")
                     }),
                                    label: {

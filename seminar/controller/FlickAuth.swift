@@ -13,19 +13,23 @@ class FlickAuth:ObservableObject {
     
     // x移動値のデータを格納
     var xlist:[[Double]] = []
-    @Published var xTemp:[Double] = []
+    var xTemp:[Double] = []
     
     // y移動値のデータを格納
     var ylist:[[Double]] = []
-    @Published var yTemp:[Double] = []
+    var yTemp:[Double] = []
     
     // タップ時間のデータを格納する
     var onList:[[Double]] = []
-    @Published var onTemp:[Double] = []
+    var onTemp:[Double] = []
     
     // フリックの間隔のデータを格納する
     var waitList:[[Double]] = []
-    @Published var waitTemp:[Double] = []
+    var waitTemp:[Double] = []
+    
+    
+    var averageList:[[Double]] = []
+    var sdList:[[Double]] = []
     
     var initial = ""
 
@@ -61,12 +65,12 @@ class FlickAuth:ObservableObject {
     }
     
     // ２次元配列で格納しているデータを１次元配列tempTableに退避させる
-    // @param array FlickData内の２次元配列
-    // @param index n文字目の添字
-    func temp(array : [[Double]], index : Int, count: Int) -> [Double] {
-        var tempTable = [Double]()
-        while count < 9 {
-            tempTable.append(array[index][count])
+    // index:何文字目のものか
+    func temp(array : [[Double]], index : Int) -> [Double] {
+        var tempTable:[Double] = []
+        for num in 0..<9 {
+            tempTable.append(array[num][index])
+            print(tempTable)
         }
         return tempTable
     }
@@ -148,16 +152,52 @@ class FlickAuth:ObservableObject {
         authList.append(hogeList)
     }
     
-    func setData(index: Int, onTime: Double, waitTime: Double, x: Double, y: Double) {
+    func setData(input: String, initPass: String, initFlag: Bool, index: Int, onTime: Double, waitTime: Double, x: Double, y: Double) {
         onTemp.append(onTime)
         waitTemp.append(waitTime)
         xTemp.append(x)
         yTemp.append(y)
-        var xLength : Int { get { return xTemp.count } }
-        print("onCount:\(onTemp.count)")
-        print("waitCount:\(waitTemp.count)")
-        print("xCount:\(xLength)")
-        print("yCount:\(yTemp.count)")
+        if((xTemp.count == index) && (initFlag) && (compareToInput(input: input, temp: initPass))) {
+            setList(index: index)
+        }
+    }
+    
+    func setList(index: Int) {
+        onList.append(onTemp)
+        waitList.append(waitTemp)
+        xlist.append(xTemp)
+        ylist.append(yTemp)
+        print("x移動値のリスト:\(xlist)")
+        print("xlistの要素数:\(xlist.count)")
+        // データの数が10個になった時、標準偏差と平均を求める
+        if(xlist.count == 10) {
+            setAverage(initPassLength: index)
+        }
+
+    }
+    
+    func setAverage(initPassLength: Int) {
+        var tempList:[Double] = []
+        for i in 0..<10 {
+            tempList.append(xlist[i][0])
+        }
+        print("平均を算出するための配列:\(tempList)")
+        var l:[Double] = []
+        l.append(average(array: tempList))
+        averageList.append(l)
+        print("x移動値の平均:\(averageList)")
+    }
+    
+    func setSd(initPass: String) {
+        var tempList:[Double] = []
+        for i in 0..<initPass.count - 1 {
+            tempList.append(standardDeviation(array: temp(array: xlist, index: i)))
+            tempList.append(standardDeviation(array: temp(array: ylist, index: i)))
+            tempList.append(standardDeviation(array: temp(array: onList, index: i)))
+            tempList.append(standardDeviation(array: temp(array: waitList, index: i)))
+            sdList.append(tempList)
+        }
+        print(sdList)
     }
     
     func initArray() {
@@ -165,6 +205,20 @@ class FlickAuth:ObservableObject {
         yTemp = []
         onTemp = []
         waitTemp = []
+    }
+    
+    func initAll() {
+        xTemp.removeAll()
+        yTemp.removeAll()
+        onTemp.removeAll()
+        waitTemp.removeAll()
+        xlist.removeAll()
+        ylist.removeAll()
+        onList.removeAll()
+        waitList.removeAll()
+        print("remove!")
+        print("xlist:\(xlist)")
+        print("xTemp:\(xTemp)")
     }
     
     func initPasswaord(input: String, temp: String) -> String {

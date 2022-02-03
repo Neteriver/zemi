@@ -731,18 +731,21 @@ struct SetKeyboardView: View {
                                     self.initPass = self.input
                                 }
                                 if(flickAuth.compareToInput(input: input, temp: initPass)) {
+                                    flickAuth.initArray()
                                     self.message = "データ登録のためあと\(num)回入力して下さい"
                                     self.num = num - 1
                                     if(num < 0) {
                                         self.trans = true
+//                                        flickAuth.setAverage(initPass: self.initPass)
+//                                        flickAuth.setSd(initPass: self.initPass)
                                     }
                                 } else {
                                     self.message = "最初に入力したパスワードと一致しません"
+                                    flickAuth.initArray()
                                 }
-                                
-                                
                             } else {
                                 self.message = "パスワードは\(minLength)文字以上\(maxLength)文字以下で入力してください"
+                                flickAuth.initArray()
                             }
                             self.input = ""
                         }
@@ -862,7 +865,7 @@ struct SetKeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.setData(index: input.count, onTime: onTime, waitTime: waitTime, x: xDistance, y: yDistance)
+        flickAuth.setData(input: input, initPass: initPass, initFlag: initFlag, index: initPass.count, onTime: onTime, waitTime: waitTime, x: xDistance, y: yDistance)
         intervalTime = Date()
     }
     
