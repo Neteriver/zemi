@@ -33,7 +33,7 @@
             startingLineNumber = "824"
             endingLineNumber = "824"
             landmarkName = "flickedKeysA(_:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -49,7 +49,7 @@
             startingLineNumber = "823"
             endingLineNumber = "823"
             landmarkName = "flickedKeysA(_:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -65,7 +65,7 @@
             startingLineNumber = "825"
             endingLineNumber = "825"
             landmarkName = "flickedKeysA(_:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

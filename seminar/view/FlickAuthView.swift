@@ -104,11 +104,7 @@ struct FlickAuthView: View {
                         })
                 }
             }
-            
         }
-        
-        
-        
     }
 }
 

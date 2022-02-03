@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct SetKeyboardView: View {
+    
+    let minLength = 8
+    let maxLength = 12
+    
     // 入力文字
     @Binding var input:String
     
@@ -36,8 +40,10 @@ struct SetKeyboardView: View {
     
     @Binding var trans:Bool
     
-    let flickAuth:FlickAuth
+    @State var initFlag = false
+    @State var initPass = ""
     
+    @ObservedObject var flickAuth = FlickAuth()
     
     let radius = 4.0
     
@@ -643,7 +649,7 @@ struct SetKeyboardView: View {
                             ZStack {
                                 Text("、。?!")
                                     .font(.title2)
-                                .fontWeight(.regular)
+                                    .fontWeight(.regular)
                                 
                                 if(kutenflg) {
                                     KeyboardButton(char: "。", vector: .left)
@@ -717,11 +723,28 @@ struct SetKeyboardView: View {
                         ).onTapGesture {
                             // 認証
                             isEnter.toggle()
-                            self.message = "データ登録のためあと\(num)回入力して下さい"
-                            self.num = num - 1
-                            if(num < 0) {
-                                self.trans = true
+                            print("input:\(input)")
+                            print("length:\(input.count)")
+                            if(flickAuth.rangeOfLength(input: input, min: minLength, max: maxLength)) {
+                                if(!initFlag) {
+                                    self.initFlag = true
+                                    self.initPass = self.input
+                                }
+                                if(flickAuth.compareToInput(input: input, temp: initPass)) {
+                                    self.message = "データ登録のためあと\(num)回入力して下さい"
+                                    self.num = num - 1
+                                    if(num < 0) {
+                                        self.trans = true
+                                    }
+                                } else {
+                                    self.message = "最初に入力したパスワードと一致しません"
+                                }
+                                
+                                
+                            } else {
+                                self.message = "パスワードは\(minLength)文字以上\(maxLength)文字以下で入力してください"
                             }
+                            self.input = ""
                         }
                     
                 }
@@ -779,7 +802,7 @@ struct SetKeyboardView: View {
             }
         }
         
-
+        
         // x移動値取得
         self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
                                                           to: value.location.x))
@@ -839,11 +862,7 @@ struct SetKeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
-                             onTime: onTime,
-                             waitTime: waitTime,
-                             x: xDistance,
-                             y: yDistance)
+        flickAuth.setData(index: input.count, onTime: onTime, waitTime: waitTime, x: xDistance, y: yDistance)
         intervalTime = Date()
     }
     
@@ -892,7 +911,7 @@ struct SetKeyboardView: View {
         // y移動値取得
         self.yDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.y,
                                                           to: value.location.y))
-
+        
         if(!onTapFlg) {
             // タップ状態へ
             self.onTapFlg = true
@@ -990,7 +1009,7 @@ struct SetKeyboardView: View {
                 soflg = true
             }
         }
-
+        
         // x移動値取得
         self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
                                                           to: value.location.x))
@@ -1101,7 +1120,7 @@ struct SetKeyboardView: View {
         // y移動値取得
         self.yDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.y,
                                                           to: value.location.y))
-
+        
         
         if(!onTapFlg) {
             // タップ状態へ
@@ -1198,7 +1217,7 @@ struct SetKeyboardView: View {
                 noflg = true
             }
         }
-
+        
         // x移動値取得
         self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
                                                           to: value.location.x))
@@ -1301,7 +1320,7 @@ struct SetKeyboardView: View {
                 hoflg = true
             }
         }
-
+        
         // x移動値取得
         self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
                                                           to: value.location.x))
@@ -1404,7 +1423,7 @@ struct SetKeyboardView: View {
                 moflg = true
             }
         }
-
+        
         // x移動値取得
         self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
                                                           to: value.location.x))
@@ -1505,7 +1524,7 @@ struct SetKeyboardView: View {
                 yoflg = true
             }
         }
-
+        
         // x移動値取得
         self.xDistance = Double(flickAuth.CGPointDistance(from: value.startLocation.x,
                                                           to: value.location.x))

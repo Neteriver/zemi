@@ -95,8 +95,8 @@ struct SetFlickAuth: View {
 }
 
 
-struct SetFlickAuth_Previews: PreviewProvider {
-    static var previews: some View {
-        SetFlickAuth()
-    }
-}
+//struct SetFlickAuth_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SetFlickAuth()
+//    }
+//}

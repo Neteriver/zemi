@@ -16,6 +16,9 @@ struct SettingView: View {
     @State var text: String = ""
     
     
+    @ObservedObject var flickAuth = FlickAuth()
+    
+    
     
     var body: some View {
         Form {
@@ -84,7 +87,12 @@ struct SettingView: View {
                 }
                 if(isFlickOn) {
                     
-                    NavigationLink(destination: SetFlickAuth(), label: {
+                    NavigationLink(destination: SetFlickAuth().onAppear(perform: {
+                        // 配列の初期化
+                        flickAuth.initArray()
+                        print("配列初期化")
+                    }),
+                                   label: {
                         TopRow(title: "パスワードの変更", imageName: "11")
                     })
                 }

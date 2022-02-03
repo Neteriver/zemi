@@ -12,16 +12,20 @@ class FlickAuth:ObservableObject {
     var authList:[[Double]] = []
     
     // x移動値のデータを格納
-    var xlist:[CGFloat] = []
+    var xlist:[[Double]] = []
+    @Published var xTemp:[Double] = []
     
     // y移動値のデータを格納
-    var ylist:[CGFloat] = []
+    var ylist:[[Double]] = []
+    @Published var yTemp:[Double] = []
     
     // タップ時間のデータを格納する
-    var onList = [[Double]]()
+    var onList:[[Double]] = []
+    @Published var onTemp:[Double] = []
     
     // フリックの間隔のデータを格納する
-    var waitList = [[Double]]()
+    var waitList:[[Double]] = []
+    @Published var waitTemp:[Double] = []
     
     var initial = ""
 
@@ -142,6 +146,25 @@ class FlickAuth:ObservableObject {
         hogeList.append(y)
         
         authList.append(hogeList)
+    }
+    
+    func setData(index: Int, onTime: Double, waitTime: Double, x: Double, y: Double) {
+        onTemp.append(onTime)
+        waitTemp.append(waitTime)
+        xTemp.append(x)
+        yTemp.append(y)
+        var xLength : Int { get { return xTemp.count } }
+        print("onCount:\(onTemp.count)")
+        print("waitCount:\(waitTemp.count)")
+        print("xCount:\(xLength)")
+        print("yCount:\(yTemp.count)")
+    }
+    
+    func initArray() {
+        xTemp = []
+        yTemp = []
+        onTemp = []
+        waitTemp = []
     }
     
     func initPasswaord(input: String, temp: String) -> String {
