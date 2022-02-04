@@ -40,7 +40,7 @@ struct SetKeyboardView: View {
     
     @Binding var trans:Bool
     
-    @State var initFlag = false
+    @Binding var initFlag:Bool
     @State var initPass = ""
     
     @ObservedObject var flickAuth = FlickAuth()
@@ -727,27 +727,29 @@ struct SetKeyboardView: View {
                             print("length:\(input.count)")
                             if(flickAuth.rangeOfLength(input: input, min: minLength, max: maxLength)) {
                                 if(!initFlag) {
+                                    print("initPass設定")
                                     self.initFlag = true
                                     self.initPass = self.input
                                 }
                                 if(flickAuth.compareToInput(input: input, temp: initPass)) {
-                                    flickAuth.initArray()
-                                    self.message = "データ登録のためあと\(num)回入力して下さい"
-                                    self.num = num - 1
-                                    if(num < 0) {
-                                        self.trans = true
-//                                        flickAuth.setAverage(initPass: self.initPass)
-//                                        flickAuth.setSd(initPass: self.initPass)
+                                    if((num < 10) && (num > -1)) {
+                                        print("リスト登録")
+                                        flickAuth.setList(index: initPass.count)
                                     }
+                                    self.message = "データ登録のためあと\(num)回入力して下さい"
+                                    if(num == 0) {
+                                        // 画面遷移用のフラグを切り替える
+                                        self.trans = true
+                                    }
+                                    self.num = num - 1
                                 } else {
                                     self.message = "最初に入力したパスワードと一致しません"
-                                    flickAuth.initArray()
                                 }
                             } else {
                                 self.message = "パスワードは\(minLength)文字以上\(maxLength)文字以下で入力してください"
-                                flickAuth.initArray()
                             }
                             self.input = ""
+                            flickAuth.initArray()
                         }
                     
                 }

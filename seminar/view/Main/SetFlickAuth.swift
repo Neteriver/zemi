@@ -15,9 +15,6 @@ struct SetFlickAuth: View {
     // データ登録回数
     @State var count = 10
     
-    // 初期設定フラグ
-    @State var initFlag = false
-    
     //入力文字
     @State var input = ""
     
@@ -43,6 +40,8 @@ struct SetFlickAuth: View {
     @State var yDistance:Double = 0
     
     @State var transition = false
+    
+    @State var initFlag = false
     
     
     
@@ -75,16 +74,22 @@ struct SetFlickAuth: View {
                     Spacer()
                     
                     SetKeyboardView(input: $input,
-                                 length: inputLength,
-                                 onTime: $onTime,
-                                 waitTime: $waitTime,
-                                 xDistance: $xDistance,
-                                 yDistance: $yDistance,
-                                 isEnter: $isEnter,
-                                 message: $message,
-                                 num: $count,
-                                 trans: $transition,
-                                 flickAuth: flickAuth)
+                                    length: inputLength,
+                                    onTime: $onTime,
+                                    waitTime: $waitTime,
+                                    xDistance: $xDistance,
+                                    yDistance: $yDistance,
+                                    isEnter: $isEnter,
+                                    message: $message,
+                                    num: $count,
+                                    trans: $transition,
+                                    initFlag: $initFlag,
+                                    flickAuth: flickAuth).onAppear(perform: {
+                        if(!initFlag) {
+                            print("SetFlickAuth内の配列初期化")
+                            flickAuth.initAll()
+                        }
+                    })
                 }
                 
             }

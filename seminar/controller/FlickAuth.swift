@@ -153,13 +153,10 @@ class FlickAuth:ObservableObject {
     }
     
     func setData(input: String, initPass: String, initFlag: Bool, index: Int, onTime: Double, waitTime: Double, x: Double, y: Double) {
-        onTemp.append(onTime)
-        waitTemp.append(waitTime)
-        xTemp.append(x)
-        yTemp.append(y)
-        if((xTemp.count == index) && (initFlag) && (compareToInput(input: input, temp: initPass))) {
-            setList(index: index)
-        }
+        self.onTemp.append(onTime)
+        self.waitTemp.append(waitTime)
+        self.xTemp.append(x)
+        self.yTemp.append(y)
     }
     
     func setList(index: Int) {
@@ -172,53 +169,80 @@ class FlickAuth:ObservableObject {
         // データの数が10個になった時、標準偏差と平均を求める
         if(xlist.count == 10) {
             setAverage(initPassLength: index)
+            setSd(initPassLength: index)
         }
 
     }
     
     func setAverage(initPassLength: Int) {
-        var tempList:[Double] = []
+        var xAverage:[Double] = []
+        var yAverage:[Double] = []
+        var onAverage:[Double] = []
+        var waitAverage:[Double] = []
         for i in 0..<10 {
-            tempList.append(xlist[i][0])
+            xAverage.append(xlist[i][0])
+            yAverage.append(ylist[i][0])
+            onAverage.append(onList[i][0])
+            if(i != 0) {
+                waitAverage.append(waitList[i][0])
+            }
         }
-        print("平均を算出するための配列:\(tempList)")
-        var l:[Double] = []
-        l.append(average(array: tempList))
-        averageList.append(l)
-        print("x移動値の平均:\(averageList)")
+        print("平均を算出するためのx配列:\(xAverage)")
+        print("平均を算出するためのy配列:\(yAverage)")
+        print("平均を算出するためのon配列:\(onAverage)")
+        print("平均を算出するためのwait配列:\(waitAverage)")
+        var ave:[Double] = []
+        ave.append(average(array: xAverage))
+        ave.append(average(array: yAverage))
+        ave.append(average(array: onAverage))
+        ave.append(average(array: waitAverage))
+        averageList.append(ave)
+        print("平均:\(averageList)")
     }
     
-    func setSd(initPass: String) {
-        var tempList:[Double] = []
-        for i in 0..<initPass.count - 1 {
-            tempList.append(standardDeviation(array: temp(array: xlist, index: i)))
-            tempList.append(standardDeviation(array: temp(array: ylist, index: i)))
-            tempList.append(standardDeviation(array: temp(array: onList, index: i)))
-            tempList.append(standardDeviation(array: temp(array: waitList, index: i)))
-            sdList.append(tempList)
+    func setSd(initPassLength: Int) {
+        var xSd:[Double] = []
+        var ySd:[Double] = []
+        var onSd:[Double] = []
+        var waitSd:[Double] = []
+        for i in 0..<10 {
+            xSd.append(xlist[i][0])
+            ySd.append(ylist[i][0])
+            onSd.append(onList[i][0])
+            if(i != 0) {
+                waitSd.append(waitList[i][0])
+            }
         }
-        print(sdList)
+        print("標準偏差を算出するためのx配列:\(xSd)")
+        print("標準偏差を算出するためのy配列:\(ySd)")
+        print("標準偏差を算出するためのon配列:\(onSd)")
+        print("標準偏差を算出するためのwait配列:\(waitSd)")
+        var sd:[Double] = []
+        sd.append(standardDeviation(array: xSd))
+        sd.append(standardDeviation(array: ySd))
+        sd.append(standardDeviation(array: onSd))
+        sd.append(standardDeviation(array: waitSd))
+        
+        sdList.append(sd)
+        print("標準偏差:\(sdList)")
     }
     
     func initArray() {
-        xTemp = []
-        yTemp = []
-        onTemp = []
-        waitTemp = []
+        self.xTemp = []
+        self.yTemp = []
+        self.onTemp = []
+        self.waitTemp = []
     }
     
     func initAll() {
-        xTemp.removeAll()
-        yTemp.removeAll()
-        onTemp.removeAll()
-        waitTemp.removeAll()
-        xlist.removeAll()
-        ylist.removeAll()
-        onList.removeAll()
-        waitList.removeAll()
-        print("remove!")
-        print("xlist:\(xlist)")
-        print("xTemp:\(xTemp)")
+        self.xTemp.removeAll()
+        self.yTemp.removeAll()
+        self.onTemp.removeAll()
+        self.waitTemp.removeAll()
+        self.xlist.removeAll()
+        self.ylist.removeAll()
+        self.onList.removeAll()
+        self.waitList.removeAll()
     }
     
     func initPasswaord(input: String, temp: String) -> String {

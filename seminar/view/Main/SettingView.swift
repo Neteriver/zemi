@@ -87,11 +87,7 @@ struct SettingView: View {
                 }
                 if(isFlickOn) {
                     
-                    NavigationLink(destination: SetFlickAuth().onAppear(perform: {
-                        // 配列の初期化
-                        flickAuth.initAll()
-                        print("配列初期化")
-                    }),
+                    NavigationLink(destination: SetFlickAuth(),
                                    label: {
                         TopRow(title: "パスワードの変更", imageName: "11")
                     })
