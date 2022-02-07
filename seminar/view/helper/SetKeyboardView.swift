@@ -693,8 +693,8 @@ struct SetKeyboardView: View {
                                 .font(.title2)
                                 .fontWeight(.regular)
                                 .onTapGesture(perform: {
-                                    input = String(input.dropLast())
-                                    intervalTime = Date()
+                                    input = ""
+                                    flickAuth.initArray()
                                 })
                         )
                     RoundedRectangle(cornerRadius: radius)

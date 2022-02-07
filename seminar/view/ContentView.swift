@@ -15,19 +15,25 @@ struct ContentView: View {
     @State var authResult:Bool = false
     @State var pass = ""
     @State var show = false
+    @State var firstTime = false
     
     let faceAuth:FaceAuth = FaceAuth()
     
     var body: some View {
-        if(show) {
-            GpsView()
+        if(firstTime) {
+            // 初回起動時初期設定を行う
+            SetPassword(passcord: $pass)
         } else {
-            PasswordView { otp, completionHandler in
-                if(otp == "1111") {
-                    completionHandler(true)
-                    show = true
-                } else {
-                    completionHandler(false)
+            if(show) {
+                GpsView()
+            } else {
+                PasswordView { otp, completionHandler in
+                    if(otp == "1111") {
+                        completionHandler(true)
+                        show = true
+                    } else {
+                        completionHandler(false)
+                    }
                 }
             }
         }

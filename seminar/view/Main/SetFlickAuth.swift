@@ -45,6 +45,7 @@ struct SetFlickAuth: View {
     
     
     
+    
     @ObservedObject var flickAuth = FlickAuth()
     
     @State var message = "新しいパスワードを入力してください"

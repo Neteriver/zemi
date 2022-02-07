@@ -7,6 +7,6 @@
 
 import Foundation
 
-class PasswordAuth {
+class PasswordAuth:ObservableObject {
     
 }

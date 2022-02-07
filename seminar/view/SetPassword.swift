@@ -1,25 +1,30 @@
 //
-//  SetPasswordAuth.swift
+//  SetLocationAuth.swift
 //  seminar
 //
 //  Created by 石井快思 on 2022/01/20.
 //
 
-
-// パスコードを設定する画面
+// 認証可能な座標を設定する画面
 
 import SwiftUI
 import Introspect
 
-public struct SetPasswordAuth: View {
+public struct SetPassword: View {
+    
+    @ObservedObject var passwordAuth = PasswordAuth()
+    
+    @Binding var passcord:String
+    
     var maxDigits: Int = 4
     @State var label = "パスコードを入力してください"
     
     @State var pin: String = ""
     @State var showPin = false
     @State var isDisabled = false
+    @State var initFlag = false
     
-    var handler: (String, (Bool) -> Void) -> Void
+//    var handler: (String, (Bool) -> Void) -> Void
     
     public var body: some View {
         VStack {
@@ -50,15 +55,6 @@ public struct SetPasswordAuth: View {
         })
         
         return TextField("", text: boundPin, onCommit: submitPin)
-      
-      // Introspect library can used to make the textField become first resonder on appearing
-      // if you decide to add the pod 'Introspect' and import it, comment #50 to #53 and uncomment #55 to #61
-//
-//           .accentColor(.clear)
-//           .foregroundColor(.clear)
-//           .keyboardType(.numberPad)
-//           .disabled(isDisabled)
-      
              .introspectTextField { textField in
                  textField.tintColor = .clear
                  textField.textColor = .clear
@@ -90,29 +86,19 @@ public struct SetPasswordAuth: View {
     }
     
     private func submitPin() {
+        // pinが空文字の時の処理
         guard !pin.isEmpty else {
             showPin = false
             return
         }
-        
+        // pinの文字数が最大文字数と一致している時の処理
         if pin.count == maxDigits {
             isDisabled = true
-            
-            handler(pin) { isSuccess in
-                if isSuccess {
-                    // パスコードの照合が成功した時の処理
-                    print("パスワード照合成功")
-                } else {
-                    // パスコードの処理が失敗した時の処理
-                    pin = ""
-                    isDisabled = false
-                    label = "パスワードが違います"
-                }
-            }
+
+
         }
-        
-        // this code is never reached under  normal circumstances. If the user pastes a text with count higher than the
-        // max digits, we remove the additional characters and make a recursive call.
+
+        // 最大文字数を超えたテキストを貼り付けた場合、追加された文字を削除し、再帰的な呼び出しを行う
         if pin.count > maxDigits {
             pin = String(pin.prefix(maxDigits))
             submitPin()
@@ -129,31 +115,5 @@ public struct SetPasswordAuth: View {
         }
         
         return "circle.fill"
-    }
-}
-
-extension String {
-    
-    var digits: [Int] {
-        var result = [Int]()
-        
-        for char in self {
-            if let number = Int(String(char)) {
-                result.append(number)
-            }
-        }
-        
-        return result
-    }
-    
-}
-
-extension Int {
-    
-    var numberString: String {
-        
-        guard self < 10 else { return "0" }
-        
-        return String(self)
     }
 }

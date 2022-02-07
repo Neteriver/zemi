@@ -175,55 +175,62 @@ class FlickAuth:ObservableObject {
     }
     
     func setAverage(initPassLength: Int) {
-        var xAverage:[Double] = []
-        var yAverage:[Double] = []
-        var onAverage:[Double] = []
-        var waitAverage:[Double] = []
-        for i in 0..<10 {
-            xAverage.append(xlist[i][0])
-            yAverage.append(ylist[i][0])
-            onAverage.append(onList[i][0])
-            if(i != 0) {
-                waitAverage.append(waitList[i][0])
+        for leng in 0..<initPassLength {
+            var xAverage:[Double] = []
+            var yAverage:[Double] = []
+            var onAverage:[Double] = []
+            var waitAverage:[Double] = []
+            for i in 0..<10 {
+                xAverage.append(xlist[i][leng])
+                yAverage.append(ylist[i][leng])
+                onAverage.append(onList[i][leng])
+                if(i != 0) {
+                    waitAverage.append(waitList[i][leng])
+                }
             }
+            print("平均を算出するためのx配列:\(xAverage)")
+            print("平均を算出するためのy配列:\(yAverage)")
+            print("平均を算出するためのon配列:\(onAverage)")
+            print("平均を算出するためのwait配列:\(waitAverage)")
+            var ave:[Double] = []
+            ave.append(average(array: xAverage))
+            ave.append(average(array: yAverage))
+            ave.append(average(array: onAverage))
+            ave.append(average(array: waitAverage))
+            averageList.append(ave)
         }
-        print("平均を算出するためのx配列:\(xAverage)")
-        print("平均を算出するためのy配列:\(yAverage)")
-        print("平均を算出するためのon配列:\(onAverage)")
-        print("平均を算出するためのwait配列:\(waitAverage)")
-        var ave:[Double] = []
-        ave.append(average(array: xAverage))
-        ave.append(average(array: yAverage))
-        ave.append(average(array: onAverage))
-        ave.append(average(array: waitAverage))
-        averageList.append(ave)
         print("平均:\(averageList)")
     }
     
     func setSd(initPassLength: Int) {
-        var xSd:[Double] = []
-        var ySd:[Double] = []
-        var onSd:[Double] = []
-        var waitSd:[Double] = []
-        for i in 0..<10 {
-            xSd.append(xlist[i][0])
-            ySd.append(ylist[i][0])
-            onSd.append(onList[i][0])
-            if(i != 0) {
-                waitSd.append(waitList[i][0])
-            }
-        }
-        print("標準偏差を算出するためのx配列:\(xSd)")
-        print("標準偏差を算出するためのy配列:\(ySd)")
-        print("標準偏差を算出するためのon配列:\(onSd)")
-        print("標準偏差を算出するためのwait配列:\(waitSd)")
-        var sd:[Double] = []
-        sd.append(standardDeviation(array: xSd))
-        sd.append(standardDeviation(array: ySd))
-        sd.append(standardDeviation(array: onSd))
-        sd.append(standardDeviation(array: waitSd))
         
-        sdList.append(sd)
+        // TODO:全部の文字数分行う
+        for leng in 0..<initPassLength {
+            var xSd:[Double] = []
+            var ySd:[Double] = []
+            var onSd:[Double] = []
+            var waitSd:[Double] = []
+            for i in 0..<10 {
+                xSd.append(xlist[i][leng])
+                ySd.append(ylist[i][leng])
+                onSd.append(onList[i][leng])
+                if(i != 0) {
+                    waitSd.append(waitList[i][leng])
+                }
+            }
+            print("標準偏差を算出するためのx配列:\(xSd)")
+            print("標準偏差を算出するためのy配列:\(ySd)")
+            print("標準偏差を算出するためのon配列:\(onSd)")
+            print("標準偏差を算出するためのwait配列:\(waitSd)")
+            var sd:[Double] = []
+            sd.append(standardDeviation(array: xSd))
+            sd.append(standardDeviation(array: ySd))
+            sd.append(standardDeviation(array: onSd))
+            sd.append(standardDeviation(array: waitSd))
+            
+            sdList.append(sd)
+        }
+        
         print("標準偏差:\(sdList)")
     }
     
