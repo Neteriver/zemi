@@ -41,9 +41,8 @@ struct FlickAuthView: View {
     @State var isStandard = false
     
     @ObservedObject var flickAuth = FlickAuth()
-    let keychain = KeyChain()
     
-    var flickPass : String { get { return keychain.getPass(key: "FlickPass") ?? "data is nil" } }
+    var flickPass : String { get { return flickAuth.getPass() ?? "" } }
     
     
     let width = UIScreen.main.bounds.width
@@ -107,7 +106,6 @@ struct FlickAuthView: View {
                                 self.waitTime = 0
                                 self.xDistance = 0
                                 self.yDistance = 0
-                                flickAuth.auth(dic: flickPass, input: input)
                             }
                         } message: {
                             Text("フリックが一致しません")

@@ -731,7 +731,8 @@ struct SetKeyboardView: View {
                                     print("initPass設定")
                                     self.initFlag = true
                                     self.initPass = self.input
-                                    keychain.savePass(value: initPass, key: "FlickPass")
+                                    flickAuth.savePass(pass: initPass)
+                                    //keychain.savePass(value: initPass, key: "FlickPass")
                                     //keychain.getPass(key: "FlickPass")
                                 }
                                 if(flickAuth.compareToInput(input: input, temp: initPass)) {

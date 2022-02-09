@@ -13,17 +13,20 @@ struct ContentView: View {
     
     @State var message = "Fivate"
     @State var authResult:Bool = false
-    @State var pass = ""
     @State var show = false
     @State var firstTime = true
     @State var flickFlag = false
     
     let faceAuth:FaceAuth = FaceAuth()
+    let flickAuth = FlickAuth()
+    
+    var pass : String { get { return flickAuth.getPass() ?? "" } }
+    
     
     var body: some View {
-        if(firstTime) {
+        if(pass == "") {
             // 初回起動時初期設定を行う
-            SetFlickAuth(firstFlag: firstTime)
+            SetFlickAuth()
         } else {
             if(show) {
                 GpsView()

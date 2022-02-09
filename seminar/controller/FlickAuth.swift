@@ -10,7 +10,16 @@ import SwiftUI
 class FlickAuth:ObservableObject {
     let authStandard = 1.0
     let averageKey = "AverageData"
+    let xAverageKey = "xAverageData"
+    let yAverageKey = "yAverageData"
+    let onAverageKey = "onAverageData"
+    let waitAverageKey = "waitAverageData"
     let sdKey = "StandardDeviationData"
+    let xSdKey = "xSdData"
+    let ySdKey = "ySdData"
+    let onSdKey = "onSdData"
+    let waitSdKey = "waitSdData"
+    let passKey = "FlickPass"
     
     // auth
     var authList:[[Double]] = []
@@ -35,9 +44,19 @@ class FlickAuth:ObservableObject {
     var averageList:[[Double]] = []
     var sdList:[[Double]] = []
     
+    var xAverageList:[Double] = []
+    var yAverageList:[Double] = []
+    var onAverageList:[Double] = []
+    var waitAverageList:[Double] = []
+    var xSdList:[Double] = []
+    var ySdList:[Double] = []
+    var onSdList:[Double] = []
+    var waitSdList:[Double] = []
+    
+    
     var initial = ""
     
-    var userDefaults = UserDefaults()
+    var userDefaults = UserDefaults.standard
     
     
     @Published var isAuthingBad = false
@@ -49,10 +68,14 @@ class FlickAuth:ObservableObject {
         // ここでは入力文字が設定したパスワードと一致しているか判別
         if (dic == input) {
             self.result = true
+            print("success")
             print("dic:\(dic)")
             print("input:\(input)")
         } else {
             self.isAuthingBad = true
+            print("error")
+            print("dic:\(dic)")
+            print("input:\(input)")
         }
         
         //　認証処理を書く。。以下はダミーメソッド
@@ -153,12 +176,12 @@ class FlickAuth:ObservableObject {
         hogeList.append(onTime)
         hogeList.append(waitTime)
         
-        authList.append(hogeList)
+        self.authList.append(hogeList)
     }
     
     func removeArray() {
         print(authList)
-        authList.removeAll()
+        self.authList.removeAll()
         print(authList)
     }
     
@@ -180,6 +203,7 @@ class FlickAuth:ObservableObject {
         if(xlist.count == 10) {
             setAverage(initPassLength: index)
             setSd(initPassLength: index)
+            saveAuthData()
         }
         
     }
@@ -198,18 +222,18 @@ class FlickAuth:ObservableObject {
                     waitAverage.append(waitList[i][leng])
                 }
             }
-            print("平均を算出するためのx配列:\(xAverage)")
-            print("平均を算出するためのy配列:\(yAverage)")
-            print("平均を算出するためのon配列:\(onAverage)")
-            print("平均を算出するためのwait配列:\(waitAverage)")
-            var ave:[Double] = []
-            ave.append(average(array: xAverage))
-            ave.append(average(array: yAverage))
-            ave.append(average(array: onAverage))
-            ave.append(average(array: waitAverage))
-            averageList.append(ave)
+//            var ave:[Double] = []
+//            ave.append(average(array: xAverage))
+//            ave.append(average(array: yAverage))
+//            ave.append(average(array: onAverage))
+//            ave.append(average(array: waitAverage))
+//            averageList.append(ave)
+            xAverageList.append(average(array: xAverage))
+            yAverageList.append(average(array: yAverage))
+            onAverageList.append(average(array: onAverage))
+            waitAverageList.append(average(array: waitAverage))
         }
-        print("平均:\(averageList)")
+        print("平均:\(xAverageList)")
     }
     
     func setSd(initPassLength: Int) {
@@ -228,20 +252,21 @@ class FlickAuth:ObservableObject {
                     waitSd.append(waitList[i][leng])
                 }
             }
-            print("標準偏差を算出するためのx配列:\(xSd)")
-            print("標準偏差を算出するためのy配列:\(ySd)")
-            print("標準偏差を算出するためのon配列:\(onSd)")
-            print("標準偏差を算出するためのwait配列:\(waitSd)")
-            var sd:[Double] = []
-            sd.append(standardDeviation(array: xSd))
-            sd.append(standardDeviation(array: ySd))
-            sd.append(standardDeviation(array: onSd))
-            sd.append(standardDeviation(array: waitSd))
+//            var sd:[Double] = []
+//            sd.append(standardDeviation(array: xSd))
+//            sd.append(standardDeviation(array: ySd))
+//            sd.append(standardDeviation(array: onSd))
+//            sd.append(standardDeviation(array: waitSd))
+//
+//            sdList.append(sd)
             
-            sdList.append(sd)
+            xSdList.append(average(array: xSd))
+            ySdList.append(average(array: ySd))
+            onSdList.append(average(array: onSd))
+            waitSdList.append(average(array: waitSd))
         }
         
-        print("標準偏差:\(sdList)")
+        print("標準偏差:\(xSdList)")
     }
     
     func initArray() {
@@ -283,25 +308,45 @@ class FlickAuth:ObservableObject {
     
     func saveAuthData(){
         userDefaults.set(averageList, forKey: averageKey)
+        userDefaults.set(xAverageList, forKey: xAverageKey)
+        userDefaults.set(yAverageList, forKey: yAverageKey)
+        userDefaults.set(onAverageList, forKey: onAverageKey)
+        userDefaults.set(waitAverageList, forKey: waitAverageKey)
         userDefaults.set(sdList, forKey: sdKey)
+        userDefaults.set(xSdList, forKey: xSdKey)
+        userDefaults.set(ySdList, forKey: ySdKey)
+        userDefaults.set(onSdList, forKey: onSdKey)
+        userDefaults.set(waitSdList, forKey: waitSdKey)
+        getData()
+    }
+    
+    func getData(){
+        print("getData:\(userDefaults.array(forKey: xAverageKey))")
+    }
+    
+    func savePass(pass: String) {
+        userDefaults.set(pass, forKey: passKey)
+    }
+    
+    func getPass() -> String? {
+        return userDefaults.string(forKey: passKey)
     }
     
     func authBase(length: Int) -> Bool {
         var left:Double
         var right:Double
-        let ave = userDefaults.value(forKey: averageKey) as! [[Double]]
-        let sd = userDefaults.value(forKey: sdKey) as! [[Double]]
-        print(ave)
-        print(sd)
+        print(userDefaults.array(forKey: xAverageKey) ?? [])
+        // 一旦x移動値のみでやる
         for i in 0..<length {
-            for j in 0..<4 {
-                left = ave[i][j] - sd[i][j] * authStandard
-                right = ave[i][j] + sd[i][j] * authStandard
-                print("left:\(left)")
-                print("right:\(right)")
-                if authList[i][j] < left || authList[i][j] > right {
-                    return false
-                }
+            let xDisAve = userDefaults.array(forKey: xAverageKey) as! [Double]
+            let xDisSd = userDefaults.array(forKey: xSdKey) as! [Double]
+            left = xDisAve[i] - xDisSd[i] * authStandard
+            right = xDisAve[i] + xDisSd[i] * authStandard
+            print("left:\(left)")
+            print("right:\(right)")
+            print("authList:\(self.authList)")
+            if  left > self.authList[i][0] || right < self.authList[i][0] {
+                return false
             }
         }
         return true

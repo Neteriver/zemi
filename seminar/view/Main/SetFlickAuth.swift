@@ -43,7 +43,6 @@ struct SetFlickAuth: View {
     
     @State var initFlag = false
     
-    @State var firstFlag = false
     
     
     
@@ -53,90 +52,52 @@ struct SetFlickAuth: View {
     @State var message = "新しいパスワードを入力してください"
     @State var countDown = ""
     
-    let userDefaults = UserDefaults()
     
     let width = UIScreen.main.bounds.width
     
     let height = UIScreen.main.bounds.height
     
     var body: some View {
-        if firstFlag {
-            if(transition) {
-                TopView()
-            } else {
-                ZStack {
-                    VStack {
-                        Spacer()
-                        
-                        Group {
-                            Text("\(message)")
-                            Text("\(input)")
-                                .font(.title)
-                                .padding(10)
-                        }
-                        
-                        Spacer()
-                        
-                        SetKeyboardView(input: $input,
-                                        length: inputLength,
-                                        onTime: $onTime,
-                                        waitTime: $waitTime,
-                                        xDistance: $xDistance,
-                                        yDistance: $yDistance,
-                                        isEnter: $isEnter,
-                                        message: $message,
-                                        num: $count,
-                                        trans: $transition,
-                                        initFlag: $initFlag,
-                                        flickAuth: flickAuth).onAppear(perform: {
-                            if(!initFlag) {
-                                print("配列初期化")
-                                flickAuth.initAll()
-                            }
-                            //if userDefaults.value(forKey: <#T##String#>)
-                        })
-                    }
-                }
-            }
-        } else {
-            if(transition) {
-                SettingView()
-            } else {
-                ZStack {
-                    VStack {
-                        Spacer()
-                        
-                        Group {
-                            Text("\(message)")
-                            Text("\(input)")
-                                .font(.title)
-                                .padding(10)
-                        }
-                        
-                        Spacer()
-                        
-                        SetKeyboardView(input: $input,
-                                        length: inputLength,
-                                        onTime: $onTime,
-                                        waitTime: $waitTime,
-                                        xDistance: $xDistance,
-                                        yDistance: $yDistance,
-                                        isEnter: $isEnter,
-                                        message: $message,
-                                        num: $count,
-                                        trans: $transition,
-                                        initFlag: $initFlag,
-                                        flickAuth: flickAuth).onAppear(perform: {
-                            if(!initFlag) {
-                                print("配列初期化")
-                                flickAuth.initAll()
-                            }
-                        })
-                    }
-                }
-            }
-        }
         
+        if(transition) {
+            SettingView()
+        } else {
+            ZStack {
+                VStack {
+                    Spacer()
+                    
+                    Group {
+                        Text("\(message)")
+                        Text("\(input)")
+                            .font(.title)
+                            .padding(10)
+                    }
+                    
+                    Spacer()
+                    
+                    SetKeyboardView(input: $input,
+                                    length: inputLength,
+                                    onTime: $onTime,
+                                    waitTime: $waitTime,
+                                    xDistance: $xDistance,
+                                    yDistance: $yDistance,
+                                    isEnter: $isEnter,
+                                    message: $message,
+                                    num: $count,
+                                    trans: $transition,
+                                    initFlag: $initFlag,
+                                    flickAuth: flickAuth).onAppear(perform: {
+                        if(!initFlag) {
+                            print("配列初期化")
+                            flickAuth.initAll()
+                        }
+                    })
+                }
+                
+            }
+            
+            
+        }
     }
 }
 
