@@ -44,6 +44,7 @@ struct SetKeyboardView: View {
     @State var initPass = ""
     
     @ObservedObject var flickAuth = FlickAuth()
+    let keychain = KeyChain()
     
     let radius = 4.0
     
@@ -730,6 +731,8 @@ struct SetKeyboardView: View {
                                     print("initPass設定")
                                     self.initFlag = true
                                     self.initPass = self.input
+                                    keychain.savePass(value: initPass, key: "FlickPass")
+                                    //keychain.getPass(key: "FlickPass")
                                 }
                                 if(flickAuth.compareToInput(input: input, temp: initPass)) {
                                     if((num < 10) && (num > -1)) {
@@ -740,6 +743,8 @@ struct SetKeyboardView: View {
                                     if(num == 0) {
                                         // 画面遷移用のフラグを切り替える
                                         self.trans = true
+                                        //keychain.savePass(value: <#T##String#>, key: <#T##String#>)
+                                        
                                     }
                                     self.num = num - 1
                                 } else {
@@ -966,11 +971,7 @@ struct SetKeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
-                             onTime: onTime,
-                             waitTime: waitTime,
-                             x: xDistance,
-                             y: yDistance)
+        flickAuth.setData(input: input, initPass: initPass, initFlag: initFlag, index: initPass.count, onTime: onTime, waitTime: waitTime, x: xDistance, y: yDistance)
         
         intervalTime = Date()
     }
@@ -1071,11 +1072,7 @@ struct SetKeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
-                             onTime: onTime,
-                             waitTime: waitTime,
-                             x: xDistance,
-                             y: yDistance)
+        flickAuth.setData(input: input, initPass: initPass, initFlag: initFlag, index: initPass.count, onTime: onTime, waitTime: waitTime, x: xDistance, y: yDistance)
         intervalTime = Date()
     }
     
@@ -1176,11 +1173,7 @@ struct SetKeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
-                             onTime: onTime,
-                             waitTime: waitTime,
-                             x: xDistance,
-                             y: yDistance)
+        flickAuth.setData(input: input, initPass: initPass, initFlag: initFlag, index: initPass.count, onTime: onTime, waitTime: waitTime, x: xDistance, y: yDistance)
         intervalTime = Date()
     }
     fileprivate func flickingKeysNA(_ value: DragGesture.Value) {
@@ -1279,11 +1272,7 @@ struct SetKeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
-                             onTime: onTime,
-                             waitTime: waitTime,
-                             x: xDistance,
-                             y: yDistance)
+        flickAuth.setData(input: input, initPass: initPass, initFlag: initFlag, index: initPass.count, onTime: onTime, waitTime: waitTime, x: xDistance, y: yDistance)
         intervalTime = Date()
     }
     fileprivate func flickingKeysHA(_ value: DragGesture.Value) {
@@ -1382,11 +1371,7 @@ struct SetKeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
-                             onTime: onTime,
-                             waitTime: waitTime,
-                             x: xDistance,
-                             y: yDistance)
+        flickAuth.setData(input: input, initPass: initPass, initFlag: initFlag, index: initPass.count, onTime: onTime, waitTime: waitTime, x: xDistance, y: yDistance)
         intervalTime = Date()
     }
     fileprivate func flickingKeysMA(_ value: DragGesture.Value) {
@@ -1485,11 +1470,7 @@ struct SetKeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
-                             onTime: onTime,
-                             waitTime: waitTime,
-                             x: xDistance,
-                             y: yDistance)
+        flickAuth.setData(input: input, initPass: initPass, initFlag: initFlag, index: initPass.count, onTime: onTime, waitTime: waitTime, x: xDistance, y: yDistance)
         intervalTime = Date()
     }
     fileprivate func flickingKeysYA(_ value: DragGesture.Value) {
@@ -1582,11 +1563,7 @@ struct SetKeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
-                             onTime: onTime,
-                             waitTime: waitTime,
-                             x: xDistance,
-                             y: yDistance)
+        flickAuth.setData(input: input, initPass: initPass, initFlag: initFlag, index: initPass.count, onTime: onTime, waitTime: waitTime, x: xDistance, y: yDistance)
         intervalTime = Date()
     }
     
@@ -1686,11 +1663,7 @@ struct SetKeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
-                             onTime: onTime,
-                             waitTime: waitTime,
-                             x: xDistance,
-                             y: yDistance)
+        flickAuth.setData(input: input, initPass: initPass, initFlag: initFlag, index: initPass.count, onTime: onTime, waitTime: waitTime, x: xDistance, y: yDistance)
         intervalTime = Date()
     }
     fileprivate func flickingKeysWA(_ value: DragGesture.Value) {
@@ -1776,11 +1749,7 @@ struct SetKeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
-                             onTime: onTime,
-                             waitTime: waitTime,
-                             x: xDistance,
-                             y: yDistance)
+        flickAuth.setData(input: input, initPass: initPass, initFlag: initFlag, index: initPass.count, onTime: onTime, waitTime: waitTime, x: xDistance, y: yDistance)
         intervalTime = Date()
     }
     
@@ -1874,11 +1843,7 @@ struct SetKeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
-                             onTime: onTime,
-                             waitTime: waitTime,
-                             x: xDistance,
-                             y: yDistance)
+        flickAuth.setData(input: input, initPass: initPass, initFlag: initFlag, index: initPass.count, onTime: onTime, waitTime: waitTime, x: xDistance, y: yDistance)
         intervalTime = Date()
     }
 }

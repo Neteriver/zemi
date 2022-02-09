@@ -38,7 +38,12 @@ struct FlickAuthView: View {
     @State var num:Int = 0
     @State var trans:Bool = false
     
+    @State var isStandard = false
+    
     @ObservedObject var flickAuth = FlickAuth()
+    let keychain = KeyChain()
+    
+    var flickPass : String { get { return keychain.getPass(key: "FlickPass") ?? "data is nil" } }
     
     
     let width = UIScreen.main.bounds.width
@@ -47,7 +52,7 @@ struct FlickAuthView: View {
     
     var body: some View {
         
-        if(flickAuth.result) {
+        if flickAuth.result && isStandard {
             TopView()
         } else {
             ZStack {
@@ -55,7 +60,7 @@ struct FlickAuthView: View {
                     Spacer()
                     
                     Group {
-                        Text("\(dic)")
+                        Text("\(flickPass)")
                             .font(.title)
                             .padding(10)
                         
@@ -95,12 +100,20 @@ struct FlickAuthView: View {
                     AlertToast(type: .loading, title: "フリック認証中です", subTitle: nil)
                         .alert("フリックが一致しません", isPresented: $flickAuth.isAuthingBad) {
                             Button("了解") {
-                                flickAuth.auth(dic: dic, input: input)
+                                self.isEnter = false
+                                self.input = ""
+                                flickAuth.removeArray()
+                                self.onTime = 0
+                                self.waitTime = 0
+                                self.xDistance = 0
+                                self.yDistance = 0
+                                flickAuth.auth(dic: flickPass, input: input)
                             }
                         } message: {
                             Text("フリックが一致しません")
                         }.onAppear(perform: {
-                            flickAuth.auth(dic: dic, input: input)
+                            flickAuth.auth(dic: flickPass, input: input)
+                            isStandard = flickAuth.authBase(length: input.count)
                         })
                 }
             }

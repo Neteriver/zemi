@@ -669,7 +669,6 @@ struct KeyboardView: View {
                 .zIndex(touchColomn3 ? 1 : 0)
                 
                 VStack {
-                    // TODO このボタン押下したら入力を初めからにする
                     RoundedRectangle(cornerRadius: radius)
                         .foregroundColor(Color(red: 0.671, green: 0.698, blue: 0.741))
                         .padding(EdgeInsets(top: top,
@@ -681,7 +680,12 @@ struct KeyboardView: View {
                                 .font(.title2)
                                 .fontWeight(.regular)
                                 .onTapGesture(perform: {
-                                    input = String(input.dropLast())
+                                    input = ""
+                                    flickAuth.removeArray()
+                                    self.waitTime = 0
+                                    self.onTime = 0
+                                    self.yDistance = 0
+                                    self.xDistance = 0
                                     intervalTime = Date()
                                 })
                         )

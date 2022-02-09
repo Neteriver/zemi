@@ -11,7 +11,15 @@ import KeychainAccess
 class KeyChain {
     let keychain = Keychain(service: "AuthPass")
     
+    // 保存
     func savePass(value: String, key: String) {
-        keychain.set(value, key: key)
+        try! keychain.set(value, key: key)
+    }
+    
+    // 取得
+    func getPass(key: String) -> String? {
+        let data = try! keychain.get(key)
+        print("data:\(data ?? "data is nil")")
+        return data
     }
 }

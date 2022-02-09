@@ -14,7 +14,7 @@ public struct SetPassword: View {
     
     @ObservedObject var passwordAuth = PasswordAuth()
     
-    @Binding var passcord:String
+    //@Binding var passcord:String
     
     var maxDigits: Int = 4
     @State var label = "パスコードを入力してください"

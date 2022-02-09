@@ -8,6 +8,10 @@
 import Foundation
 import SwiftUI
 class FlickAuth:ObservableObject {
+    let authStandard = 1.0
+    let averageKey = "AverageData"
+    let sdKey = "StandardDeviationData"
+    
     // auth
     var authList:[[Double]] = []
     
@@ -32,7 +36,9 @@ class FlickAuth:ObservableObject {
     var sdList:[[Double]] = []
     
     var initial = ""
-
+    
+    var userDefaults = UserDefaults()
+    
     
     @Published var isAuthingBad = false
     @Published var result = false
@@ -46,15 +52,13 @@ class FlickAuth:ObservableObject {
             print("dic:\(dic)")
             print("input:\(input)")
         } else {
-            isAuthingBad = false
-            print("dic:\(dic)")
-            print("input:\(input)")
+            self.isAuthingBad = true
         }
         
         //　認証処理を書く。。以下はダミーメソッド
-        dummy(completion: {
-            self.result = true
-        })
+        //        dummy(completion: {
+        //            self.result = true
+        //        })
     }
     
     func dummy(completion: @escaping () -> Void) {
@@ -144,12 +148,18 @@ class FlickAuth:ObservableObject {
     func StoreArray(index: Int, onTime: Double, waitTime: Double, x: Double, y: Double){
         
         var hogeList:[Double] = []
-        hogeList.append(onTime)
-        hogeList.append(waitTime)
         hogeList.append(x)
         hogeList.append(y)
+        hogeList.append(onTime)
+        hogeList.append(waitTime)
         
         authList.append(hogeList)
+    }
+    
+    func removeArray() {
+        print(authList)
+        authList.removeAll()
+        print(authList)
     }
     
     func setData(input: String, initPass: String, initFlag: Bool, index: Int, onTime: Double, waitTime: Double, x: Double, y: Double) {
@@ -171,7 +181,7 @@ class FlickAuth:ObservableObject {
             setAverage(initPassLength: index)
             setSd(initPassLength: index)
         }
-
+        
     }
     
     func setAverage(initPassLength: Int) {
@@ -268,6 +278,32 @@ class FlickAuth:ObservableObject {
     
     func rangeOfLength(input: String, min: Int, max: Int) -> Bool {
         if ((input.count < min) || (input.count > max)) { return false }
+        return true
+    }
+    
+    func saveAuthData(){
+        userDefaults.set(averageList, forKey: averageKey)
+        userDefaults.set(sdList, forKey: sdKey)
+    }
+    
+    func authBase(length: Int) -> Bool {
+        var left:Double
+        var right:Double
+        let ave = userDefaults.value(forKey: averageKey) as! [[Double]]
+        let sd = userDefaults.value(forKey: sdKey) as! [[Double]]
+        print(ave)
+        print(sd)
+        for i in 0..<length {
+            for j in 0..<4 {
+                left = ave[i][j] - sd[i][j] * authStandard
+                right = ave[i][j] + sd[i][j] * authStandard
+                print("left:\(left)")
+                print("right:\(right)")
+                if authList[i][j] < left || authList[i][j] > right {
+                    return false
+                }
+            }
+        }
         return true
     }
 }
