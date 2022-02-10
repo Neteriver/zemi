@@ -18,6 +18,7 @@ struct SetKeyboardView: View {
     // 設定したパスワードの文字数
     @State var length:Int
     
+    
     // ドラッグ開始時間
     @State var onTapFlg = false
     @State var tapStartTime = Date()

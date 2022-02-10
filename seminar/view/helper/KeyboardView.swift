@@ -14,6 +14,8 @@ struct KeyboardView: View {
     // 設定したパスワードの文字数
     @State var length:Int
     
+    @Binding var authList:[[Double]]
+    
     // ドラッグ開始時間
     @State var onTapFlg = false
     @State var tapStartTime = Date()
@@ -681,7 +683,7 @@ struct KeyboardView: View {
                                 .fontWeight(.regular)
                                 .onTapGesture(perform: {
                                     input = ""
-                                    flickAuth.removeArray()
+                                    self.authList = flickAuth.removeArray()
                                     self.waitTime = 0
                                     self.onTime = 0
                                     self.yDistance = 0
@@ -832,7 +834,7 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+        self.authList = flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
                              onTime: onTime,
                              waitTime: waitTime,
                              x: xDistance,
@@ -935,7 +937,7 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+        self.authList = flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
                              onTime: onTime,
                              waitTime: waitTime,
                              x: xDistance,
@@ -1040,7 +1042,7 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+        self.authList = flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
                              onTime: onTime,
                              waitTime: waitTime,
                              x: xDistance,
@@ -1145,7 +1147,7 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+        self.authList = flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
                              onTime: onTime,
                              waitTime: waitTime,
                              x: xDistance,
@@ -1248,7 +1250,7 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+        self.authList = flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
                              onTime: onTime,
                              waitTime: waitTime,
                              x: xDistance,
@@ -1351,7 +1353,7 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+        self.authList = flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
                              onTime: onTime,
                              waitTime: waitTime,
                              x: xDistance,
@@ -1454,7 +1456,7 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+        self.authList = flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
                              onTime: onTime,
                              waitTime: waitTime,
                              x: xDistance,
@@ -1551,7 +1553,7 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+        self.authList = flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
                              onTime: onTime,
                              waitTime: waitTime,
                              x: xDistance,
@@ -1655,7 +1657,7 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+        self.authList = flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
                              onTime: onTime,
                              waitTime: waitTime,
                              x: xDistance,
@@ -1745,7 +1747,7 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+        self.authList = flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
                              onTime: onTime,
                              waitTime: waitTime,
                              x: xDistance,
@@ -1843,7 +1845,7 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
-        flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
+        self.authList = flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
                              onTime: onTime,
                              waitTime: waitTime,
                              x: xDistance,

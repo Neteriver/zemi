@@ -16,6 +16,8 @@ struct FlickAuthView: View {
     // 認証用文字列の長さ
     var length : Int { get { return dic.count } }
     
+    @State var authList:[[Double]] = []
+    
     //入力文字
     @State var input = ""
     
@@ -80,6 +82,7 @@ struct FlickAuthView: View {
                     
                     KeyboardView(input: $input,
                                  length: length,
+                                 authList: $authList,
                                  onTime: $onTime,
                                  waitTime: $waitTime,
                                  xDistance: $xDistance,
@@ -101,7 +104,7 @@ struct FlickAuthView: View {
                             Button("了解") {
                                 self.isEnter = false
                                 self.input = ""
-                                flickAuth.removeArray()
+                                self.authList = flickAuth.removeArray()
                                 self.onTime = 0
                                 self.waitTime = 0
                                 self.xDistance = 0
@@ -111,7 +114,7 @@ struct FlickAuthView: View {
                             Text("フリックが一致しません")
                         }.onAppear(perform: {
                             flickAuth.auth(dic: flickPass, input: input)
-                            isStandard = flickAuth.authBase(length: input.count)
+                            isStandard = flickAuth.authBase(length: input.count, authList: authList)
                         })
                 }
             }
