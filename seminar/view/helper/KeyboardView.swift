@@ -834,6 +834,7 @@ struct KeyboardView: View {
         
         onTapFlg = false
         onTime = Date().timeIntervalSince(tapStartTime)
+        print("??:\(authList)")
         self.authList = flickAuth.StoreArray(index: flickAuth.LengthCount(input: input),
                              onTime: onTime,
                              waitTime: waitTime,

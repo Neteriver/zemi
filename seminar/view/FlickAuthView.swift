@@ -114,6 +114,7 @@ struct FlickAuthView: View {
                             Text("フリックが一致しません")
                         }.onAppear(perform: {
                             flickAuth.auth(dic: flickPass, input: input)
+                            print("confirm:\(authList)")
                             isStandard = flickAuth.authBase(length: input.count, authList: authList)
                         })
                 }
