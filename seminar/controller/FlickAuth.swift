@@ -204,10 +204,11 @@ class FlickAuth:ObservableObject {
         print("xlistの要素数:\(xlist.count)")
         // データの数が10個になった時、標準偏差と平均を求める
         if(xlist.count == 10) {
-            setAverage(initPassLength: index)
-            setSd(initPassLength: index)
+            // FIXME 座標が取得できない文字を考慮していない(「あかさたなはまやらわ」など)ため、暫定対応
+            let length = xlist[0].count
+            setAverage(initPassLength: length)
+            setSd(initPassLength: length)
         }
-        
     }
     
     func setAverage(initPassLength: Int) {
