@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 class FlickAuth:ObservableObject {
-    let authStandard = 1.0
+    let authStandard = 1.3
     
     let xAverageKey = "xAverageData"
     let yAverageKey = "yAverageData"
@@ -66,22 +66,20 @@ class FlickAuth:ObservableObject {
     func auth(dic: String, input: String) {
         // 引数として入力文字(input)、設定したパスワード(dic)、入力した文字のデータ(authList)？
         // ここでは入力文字が設定したパスワードと一致しているか判別
-        if (dic == input) {
-            self.result = true
-            print("success")
-            print("dic:\(dic)")
-            print("input:\(input)")
+        if compareToInput(input: input, temp: dic) {
+            if authBase(length: input.count) {
+                self.result = true
+                print("success")
+                print("dic:\(dic)")
+                print("input:\(input)")
+            } else {
+                self.isAuthingBad = true
+                print("flickauth error")
+            }
         } else {
             self.isAuthingBad = true
-            print("error")
-            print("dic:\(dic)")
-            print("input:\(input)")
+            print("input error")
         }
-        
-        //　認証処理を書く。。以下はダミーメソッド
-        //        dummy(completion: {
-        //            self.result = true
-        //        })
     }
     
     func dummy(completion: @escaping () -> Void) {
@@ -168,7 +166,9 @@ class FlickAuth:ObservableObject {
     }
     
     // 認証用データを格納する
-    func StoreArray(index: Int, onTime: Double, waitTime: Double, x: Double, y: Double) -> [[Double]]{
+    func StoreArray(index: Int, onTime: Double, waitTime: Double, x: Double, y: Double){
+        print("authDataBefore:\(authList)")
+        
         
         var hogeList:[Double] = []
         hogeList.append(x)
@@ -176,16 +176,16 @@ class FlickAuth:ObservableObject {
         hogeList.append(onTime)
         hogeList.append(waitTime)
         
-        authList.append(hogeList)
-        print("authData:\(authList)")
-        return authList
+        print("hogelist:\(hogeList)")
+        
+        self.authList.append(hogeList)
+        print("authDataAfter:\(authList)")
     }
     
-    func removeArray() -> [[Double]]{
+    func removeArray(){
         print(authList)
         authList.removeAll()
         print(authList)
-        return authList
     }
     
     func setData(input: String, initPass: String, initFlag: Bool, index: Int, onTime: Double, waitTime: Double, x: Double, y: Double) {
@@ -313,7 +313,6 @@ class FlickAuth:ObservableObject {
         userDefaults.set(ySdList, forKey: ySdKey)
         userDefaults.set(onSdList, forKey: onSdKey)
         userDefaults.set(waitSdList, forKey: waitSdKey)
-        //getData()
     }
     
     func getData(key:String){
@@ -328,29 +327,31 @@ class FlickAuth:ObservableObject {
         return userDefaults.string(forKey: passKey)
     }
     
-    func authBase(length: Int, authList: [[Double]]) -> Bool {
+    func authBase(length: Int) -> Bool {
         var left:Double
         var right:Double
-        print("aveList:\(userDefaults.array(forKey: xAverageKey) ?? [])")
-        print("sdList:\(userDefaults.array(forKey: xSdKey) ?? [])")
+        var count = 0
+        let authCount = Int(floor(Double(authList.count) * 0.8))
+        print("認証受入数:\(authCount)")
         // 一旦x移動値のみでやる
         for i in 0..<length {
             let xDisAve = userDefaults.array(forKey: xAverageKey) as! [Double]
             let xDisSd = userDefaults.array(forKey: xSdKey) as! [Double]
-            print("ave:\(xDisAve)")
-            print("sd:\(xDisSd)")
             print("認証基準:\(authStandard)")
             left = xDisAve[i] - xDisSd[i] * authStandard
             right = xDisAve[i] + xDisSd[i] * authStandard
             print("left:\(left)")
             print("right:\(right)")
-            print("authList:\(authList)")
-            if  left > authList[i][0] || right < authList[i][0] {
-                print("rejection")
-                return false
+            print("authList:\(authList[i][0])")
+            print("length:\(authList.count)")
+            if  left < authList[i][0] && right >= authList[i][0] {
+                print("accept")
+                count += 1
+                print("count\(count)")
+            } else {
+                print("reject")
             }
         }
-        print("accept")
-        return true
+        return count >= authCount
     }
 }

@@ -733,8 +733,6 @@ struct SetKeyboardView: View {
                                     self.initFlag = true
                                     self.initPass = self.input
                                     flickAuth.savePass(pass: initPass)
-                                    //keychain.savePass(value: initPass, key: "FlickPass")
-                                    //keychain.getPass(key: "FlickPass")
                                 }
                                 if(flickAuth.compareToInput(input: input, temp: initPass)) {
                                     if((num < 10) && (num > -1)) {
@@ -745,8 +743,6 @@ struct SetKeyboardView: View {
                                     if(num == 0) {
                                         // 画面遷移用のフラグを切り替える
                                         self.trans = true
-                                        //keychain.savePass(value: <#T##String#>, key: <#T##String#>)
-                                        
                                     }
                                     self.num = num - 1
                                 } else {

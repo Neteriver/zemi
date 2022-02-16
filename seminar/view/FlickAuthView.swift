@@ -53,7 +53,7 @@ struct FlickAuthView: View {
     
     var body: some View {
         
-        if flickAuth.result && isStandard {
+        if flickAuth.result {
             TopView()
         } else {
             ZStack {
@@ -82,7 +82,6 @@ struct FlickAuthView: View {
                     
                     KeyboardView(input: $input,
                                  length: length,
-                                 authList: $authList,
                                  onTime: $onTime,
                                  waitTime: $waitTime,
                                  xDistance: $xDistance,
@@ -104,7 +103,7 @@ struct FlickAuthView: View {
                             Button("了解") {
                                 self.isEnter = false
                                 self.input = ""
-                                self.authList = flickAuth.removeArray()
+                                flickAuth.removeArray()
                                 self.onTime = 0
                                 self.waitTime = 0
                                 self.xDistance = 0
@@ -114,8 +113,6 @@ struct FlickAuthView: View {
                             Text("フリックが一致しません")
                         }.onAppear(perform: {
                             flickAuth.auth(dic: flickPass, input: input)
-                            print("confirm:\(authList)")
-                            isStandard = flickAuth.authBase(length: input.count, authList: authList)
                         })
                 }
             }
@@ -123,9 +120,9 @@ struct FlickAuthView: View {
     }
 }
 
-struct FlickAuthView_Previews: PreviewProvider {
-    static var previews: some View {
-        FlickAuthView()
-            .previewInterfaceOrientation(.portraitUpsideDown)
-    }
-}
+//struct FlickAuthView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FlickAuthView()
+//            .previewInterfaceOrientation(.portraitUpsideDown)
+//    }
+//}

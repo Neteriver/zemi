@@ -73,8 +73,8 @@ struct KeyboardButton: View {
     }
 }
 
-struct KeyboardButton_Previews: PreviewProvider {
-    static var previews: some View {
-        KeyboardButton(char: "う", vector: KeyboardButton.Vector.top)
-    }
-}
+//struct KeyboardButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        KeyboardButton(char: "う", vector: KeyboardButton.Vector.top)
+//    }
+//}

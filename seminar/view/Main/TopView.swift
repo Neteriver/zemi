@@ -32,7 +32,7 @@ struct TopView: View {
                     }
                 }.navigationBarTitle("アプリ名")
                     .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-                        showLock = true
+                        showLock = false
                     }
                 
             }
@@ -40,8 +40,8 @@ struct TopView: View {
     }
 }
 
-struct TopView_Previews: PreviewProvider {
-    static var previews: some View {
-        TopView()
-    }
-}
+//struct TopView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TopView()
+//    }
+//}
