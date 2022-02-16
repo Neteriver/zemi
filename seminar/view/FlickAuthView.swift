@@ -112,10 +112,7 @@ struct FlickAuthView: View {
                         } message: {
                             Text("フリックが一致しません")
                         }.onAppear(perform: {
-                            if !flickAuth.result {
-                                flickAuth.auth(dic: flickPass, input: input)
-                            }
-                            
+                            flickAuth.auth(dic: flickPass, input: input)
                         })
                 }
             }

@@ -30,6 +30,8 @@ struct KeyboardView: View {
     // 確定ボタン
     @Binding var isEnter:Bool
     
+    
+    
     let flickAuth:FlickAuth
     
     
@@ -724,7 +726,7 @@ struct KeyboardView: View {
                                     trailing: rowRight))
             }
             
-        }.frame(width: .infinity, height: 240.0, alignment: .center)
+        }.frame(width: UIScreen.main.bounds.width, height: 240.0, alignment: .center)
             .onAppear(perform: {
                 // 時間計測を開始
                 intervalTime = Date()
