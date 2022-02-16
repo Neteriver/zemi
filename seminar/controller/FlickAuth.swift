@@ -8,7 +8,10 @@
 import Foundation
 import SwiftUI
 class FlickAuth:ObservableObject {
-    let authStandard = 1.3
+    let authStandard = 1.0
+    
+    let leftStandard = 0.76
+    let rightStandard = 1.13
     
     let xAverageKey = "xAverageData"
     let yAverageKey = "yAverageData"
@@ -39,8 +42,6 @@ class FlickAuth:ObservableObject {
     var waitTemp:[Double] = []
     
     
-    var averageList:[[Double]] = []
-    var sdList:[[Double]] = []
     
     var xAverageList:[Double] = []
     var yAverageList:[Double] = []
@@ -69,9 +70,8 @@ class FlickAuth:ObservableObject {
         if compareToInput(input: input, temp: dic) {
             if authBase(length: input.count) {
                 self.result = true
-                print("success")
-                print("dic:\(dic)")
-                print("input:\(input)")
+                updateData()
+                print("auth success")
             } else {
                 self.isAuthingBad = true
                 print("flickauth error")
@@ -206,25 +206,43 @@ class FlickAuth:ObservableObject {
         if(xlist.count == 10) {
             // FIXME 座標が取得できない文字を考慮していない(「あかさたなはまやらわ」など)ため、暫定対応
             let length = xlist[0].count
+            print("xlist[0].count\(length)")
+            userDefaults.set(xlist, forKey: "xListKey")
+            userDefaults.set(ylist, forKey: "yListKey")
+            userDefaults.set(onList, forKey: "onListKey")
+            userDefaults.set(waitList, forKey: "waitListKey")
             setAverage(initPassLength: length)
             setSd(initPassLength: length)
         }
     }
     
     func setAverage(initPassLength: Int) {
+        let xList = userDefaults.array(forKey: "xListKey") as! [[Double]]
+        let yList = userDefaults.array(forKey: "yListKey") as! [[Double]]
+        let onlist = userDefaults.array(forKey: "onListKey") as! [[Double]]
+        let waitlist = userDefaults.array(forKey: "waitListKey") as! [[Double]]
+        
         for leng in 0..<initPassLength {
             var xAverage:[Double] = []
             var yAverage:[Double] = []
             var onAverage:[Double] = []
             var waitAverage:[Double] = []
             for i in 0..<10 {
-                xAverage.append(xlist[i][leng])
-                yAverage.append(ylist[i][leng])
-                onAverage.append(onList[i][leng])
+                xAverage.append(xList[i][leng])
+                yAverage.append(yList[i][leng])
+                onAverage.append(onlist[i][leng])
                 if(i != 0) {
-                    waitAverage.append(waitList[i][leng])
+                    waitAverage.append(waitlist[i][leng])
                 }
             }
+            print("x:\(xAverage)")
+            print("y:\(yAverage)")
+            print("on:\(onAverage)")
+            print("wait:\(waitAverage)")
+            print("x:\(average(array: xAverage))")
+            print("y:\(average(array: yAverage))")
+            print("on:\(average(array: onAverage))")
+            print("wait:\(average(array: waitAverage))")
             xAverageList.append(average(array: xAverage))
             yAverageList.append(average(array: yAverage))
             onAverageList.append(average(array: onAverage))
@@ -235,10 +253,17 @@ class FlickAuth:ObservableObject {
         userDefaults.set(onAverageList, forKey: onAverageKey)
         userDefaults.set(waitAverageList, forKey: waitAverageKey)
         getData(key: xAverageKey)
+        getData(key: yAverageKey)
+        getData(key: onAverageKey)
+        getData(key: waitAverageKey)
         print("平均:\(xAverageList)")
     }
     
     func setSd(initPassLength: Int) {
+        let xList = userDefaults.array(forKey: "xListKey") as! [[Double]]
+        let yList = userDefaults.array(forKey: "yListKey") as! [[Double]]
+        let onlist = userDefaults.array(forKey: "onListKey") as! [[Double]]
+        let waitlist = userDefaults.array(forKey: "waitListKey") as! [[Double]]
         
         for leng in 0..<initPassLength {
             var xSd:[Double] = []
@@ -246,11 +271,11 @@ class FlickAuth:ObservableObject {
             var onSd:[Double] = []
             var waitSd:[Double] = []
             for i in 0..<10 {
-                xSd.append(xlist[i][leng])
-                ySd.append(ylist[i][leng])
-                onSd.append(onList[i][leng])
+                xSd.append(xList[i][leng])
+                ySd.append(yList[i][leng])
+                onSd.append(onlist[i][leng])
                 if(i != 0) {
-                    waitSd.append(waitList[i][leng])
+                    waitSd.append(waitlist[i][leng])
                 }
             }
             
@@ -265,6 +290,9 @@ class FlickAuth:ObservableObject {
         userDefaults.set(waitSdList, forKey: waitSdKey)
         print("標準偏差:\(xSdList)")
         getData(key: xSdKey)
+        getData(key: ySdKey)
+        getData(key: onSdKey)
+        getData(key: waitSdKey)
     }
     
     func initArray() {
@@ -304,17 +332,6 @@ class FlickAuth:ObservableObject {
         return true
     }
     
-    func saveAuthData(){
-        userDefaults.set(xAverageList, forKey: xAverageKey)
-        userDefaults.set(yAverageList, forKey: yAverageKey)
-        userDefaults.set(onAverageList, forKey: onAverageKey)
-        userDefaults.set(waitAverageList, forKey: waitAverageKey)
-        userDefaults.set(xSdList, forKey: xSdKey)
-        userDefaults.set(ySdList, forKey: ySdKey)
-        userDefaults.set(onSdList, forKey: onSdKey)
-        userDefaults.set(waitSdList, forKey: waitSdKey)
-    }
-    
     func getData(key:String){
         print("getData:\(String(describing: userDefaults.array(forKey: key)))")
     }
@@ -328,21 +345,78 @@ class FlickAuth:ObservableObject {
     }
     
     func authBase(length: Int) -> Bool {
+        let authCount = Int(floor(Double(self.authList.count) * 0.7))
+        let result = false
+        print("認証受入数:\(authCount)")
+        if !xAuth(length: authList.count, authCount: authCount, result: result) {
+            print("x error")
+            return false
+        }
+        if !yAuth(length: authList.count, authCount: authCount, result: result) {
+            print("y error")
+            return false
+        }
+        if !onAuth(length: authList.count, authCount: authCount, result: result) {
+            print("on error")
+            return false
+        }
+        if !waitAuth(length: authList.count, authCount: authCount, result: result) {
+            print("wait error")
+            return false
+        }
+        return true
+    }
+    
+    
+    // 認証成功時、最新の認証データに更新する
+    // 一番古いデータを削除して、認証成功時のデータを新たに追加する
+    func updateData() {
+        var xList = userDefaults.array(forKey: "xListKey") as! [[Double]]
+        var yList = userDefaults.array(forKey: "yListKey") as! [[Double]]
+        var onlist = userDefaults.array(forKey: "onListKey") as! [[Double]]
+        var waitlist = userDefaults.array(forKey: "waitListKey") as! [[Double]]
+        var x:[Double] = []
+        var y:[Double] = []
+        var on:[Double] = []
+        var wait:[Double] = []
+        print("xList:\(xList)")
+        xList.remove(at: 0)
+        yList.remove(at: 0)
+        onlist.remove(at: 0)
+        waitlist.remove(at: 0)
+        for i in 0..<authList.count {
+            x.append(authList[i][0])
+            y.append(authList[i][0])
+            on.append(authList[i][0])
+            wait.append(authList[i][0])
+        }
+        xList.append(x)
+        yList.append(y)
+        onlist.append(on)
+        waitlist.append(wait)
+        userDefaults.set(xList, forKey: "xListKey")
+        userDefaults.set(yList, forKey: "yListKey")
+        userDefaults.set(onlist, forKey: "onListKey")
+        userDefaults.set(waitlist, forKey: "waitListKey")
+        setAverage(initPassLength: authList.count)
+        setSd(initPassLength: authList.count)
+    }
+    
+    func xAuth(length: Int, authCount: Int, result: Bool) -> Bool {
+        print("x認証")
         var left:Double
         var right:Double
         var count = 0
-        let authCount = Int(floor(Double(self.authList.count) * 0.8))
-        print("認証受入数:\(authCount)")
-        // 一旦x移動値のみでやる
+        //let authCount = Int(floor(Double(self.authList.count) * 0.8))
         for i in 0..<length {
             let xDisAve = userDefaults.array(forKey: xAverageKey) as! [Double]
             let xDisSd = userDefaults.array(forKey: xSdKey) as! [Double]
             print("認証基準:\(authStandard)")
-            left = xDisAve[i] - xDisSd[i] * authStandard
-            right = xDisAve[i] + xDisSd[i] * authStandard
-            print("左辺:\(left)")
-            print("右辺:\(right)")
-            print("認証用リスト:\(self.authList[i][0])")
+            print("xave:\(xDisAve)")
+            print("xsd:\(xDisSd)")
+            left = xDisAve[i] - xDisSd[i] * leftStandard
+            right = xDisAve[i] + xDisSd[i] * rightStandard
+            print("基準:\(left) < \(authList[i][0]) <= \(right)")
             print("認証用リストの要素数:\(self.authList.count)")
             if  left < self.authList[i][0] && right >= self.authList[i][0] {
                 print("accept")
@@ -352,6 +426,91 @@ class FlickAuth:ObservableObject {
                 print("reject")
             }
         }
+        
+        return count >= authCount
+    }
+    
+    func yAuth(length: Int, authCount: Int, result: Bool) -> Bool {
+        print("y認証")
+        var left:Double
+        var right:Double
+        var count = 0
+        //let authCount = Int(floor(Double(self.authList.count) * 0.8))
+        
+        for i in 0..<length {
+            let yDisAve = userDefaults.array(forKey: yAverageKey) as! [Double]
+            let yDisSd = userDefaults.array(forKey: ySdKey) as! [Double]
+            print("認証基準:\(authStandard)")
+            print("yave:\(yDisAve)")
+            print("ysd:\(yDisSd)")
+            left = yDisAve[i] - yDisSd[i] * leftStandard
+            right = yDisAve[i] + yDisSd[i] * rightStandard
+            print("基準:\(left) < \(authList[i][1]) <= \(right)")
+            if  left < self.authList[i][1] && right >= self.authList[i][1] {
+                print("accept")
+                count += 1
+                print("認証成功数:\(count)")
+            } else {
+                print("reject")
+            }
+        }
+        
+        return count >= authCount
+    }
+    
+    func onAuth(length: Int, authCount: Int, result: Bool) -> Bool {
+        print("on認証")
+        var left:Double
+        var right:Double
+        var count = 0
+        //let authCount = Int(floor(Double(self.authList.count) * 0.8))
+        
+        for i in 0..<length {
+            let onDisAve = userDefaults.array(forKey: onAverageKey) as! [Double]
+            let onDisSd = userDefaults.array(forKey: onSdKey) as! [Double]
+            print("認証基準:\(authStandard)")
+            print("onave:\(onDisAve)")
+            print("onsd:\(onDisSd)")
+            left = onDisAve[i] - onDisSd[i] * leftStandard
+            right = onDisAve[i] + onDisSd[i] * rightStandard
+            print("基準:\(left) < \(authList[i][2]) <= \(right)")
+            if  left < self.authList[i][2] && right >= self.authList[i][2] {
+                print("accept")
+                count += 1
+                print("認証成功数:\(count)")
+            } else {
+                print("reject")
+            }
+        }
+        
+        return count >= authCount
+    }
+    
+    func waitAuth(length: Int, authCount: Int, result: Bool) -> Bool {
+        print("wait認証")
+        var left:Double
+        var right:Double
+        var count = 0
+        //let authCount = Int(floor(Double(self.authList.count) * 0.8))
+        
+        for i in 0..<length {
+            let waitDisAve = userDefaults.array(forKey: waitAverageKey) as! [Double]
+            let waitDisSd = userDefaults.array(forKey: waitSdKey) as! [Double]
+            print("認証基準:\(authStandard)")
+            print("waitave:\(waitDisAve)")
+            print("waitsd:\(waitDisSd)")
+            left = waitDisAve[i] - waitDisSd[i] * leftStandard
+            right = waitDisAve[i] + waitDisSd[i] * rightStandard
+            print("基準:\(left) < \(authList[i][3]) <= \(right)")
+            if  left < self.authList[i][3] && right >= self.authList[i][3] {
+                print("accept")
+                count += 1
+                print("認証成功数:\(count)")
+            } else {
+                print("reject")
+            }
+        }
+        
         return count >= authCount
     }
 }

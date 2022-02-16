@@ -89,7 +89,8 @@ struct SettingView: View {
                     
                     NavigationLink(destination: SetFlickAuth(),
                                    label: {
-                        TopRow(title: "パスワードの変更", imageName: "11")
+                        Text("フリック文字の変更")
+                        Spacer()
                     })
                 }
             } header :{

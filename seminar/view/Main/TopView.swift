@@ -22,7 +22,7 @@ struct TopView: View {
                             TopRow(title: "ファイル", imageName: "house.circle")
                         })
                         TopRow(title: "お気に入り", imageName: "bookmark.circle")
-                        TopRow(title: "共有", imageName: "square.and.arrow.up.circle")
+                        //TopRow(title: "共有", imageName: "square.and.arrow.up.circle")
                     }
                     Section() {
                         NavigationLink(destination: SettingView(), label: {
@@ -30,7 +30,7 @@ struct TopView: View {
                         })
                         TopRow(title: "このアプリについて", imageName: "questionmark.circle.fill")
                     }
-                }.navigationBarTitle("アプリ名")
+                }.navigationBarTitle("Fivate")
                     .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
                         showLock = false
                     }
