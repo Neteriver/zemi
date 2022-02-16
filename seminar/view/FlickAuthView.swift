@@ -42,7 +42,7 @@ struct FlickAuthView: View {
     
     @State var isStandard = false
     
-    @ObservedObject var flickAuth = FlickAuth()
+    @EnvironmentObject var flickAuth:FlickAuth
     
     var flickPass : String { get { return flickAuth.getPass() ?? "" } }
     

@@ -23,6 +23,7 @@ struct seminarApp: App {
                         print("5てすとUniversal Link: \(h)")
                     }
                 }
+                .environmentObject(FlickAuth())
         }
     }
     
