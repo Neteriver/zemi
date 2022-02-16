@@ -71,7 +71,8 @@ struct InitSettingView: View {
                 }.onTapGesture(perform: {
                     present.toggle()
                 }).sheet(isPresented: $present) {
-                    SetFlickAuth()
+                    //SetFlickAuth()
+                    SetPassword()
                 }
                 .padding(.vertical, 2.5)
                 

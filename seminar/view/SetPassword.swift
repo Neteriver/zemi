@@ -12,10 +12,6 @@ import Introspect
 
 public struct SetPassword: View {
     
-    @ObservedObject var passwordAuth = PasswordAuth()
-    
-    //@Binding var passcord:String
-    
     var maxDigits: Int = 4
     @State var label = "パスコードを入力してください"
     
@@ -24,18 +20,42 @@ public struct SetPassword: View {
     @State var isDisabled = false
     @State var initFlag = false
     
-//    var handler: (String, (Bool) -> Void) -> Void
+    let width = UIScreen.main.bounds.width
+    
+    let height = UIScreen.main.bounds.height
     
     public var body: some View {
-        VStack {
-            Text(label).font(.title)
-            ZStack {
-                pinDots
-                backgroundField
-            }
-            showPinStack
-        }
         
+        if(isDisabled) {
+            SetFlickAuth()
+        } else {
+            ZStack {
+                
+                Rectangle()
+                    .foregroundColor(Color(red: 0.7490196078431373, green: 0.615686274509804, blue: 0.3686274509803922))
+                    .ignoresSafeArea()
+                
+                RoundedRectangle(cornerRadius: 25)
+                    .frame(width: width - 20, height: nil, alignment: .center)
+                    .foregroundColor(Color(red: 0.9490196078431372, green: 0.9490196078431372, blue: 0.9490196078431372))
+                    .padding(.top)
+                
+                VStack {
+                    Text("パスコードの登録")
+                        .font(.title3)
+                        .fontWeight(.medium)
+                        .padding(.top)
+                    Spacer()
+                    Text(label).font(.title2)
+                    ZStack {
+                        pinDots
+                        backgroundField
+                    }
+                    showPinStack
+                    Spacer()
+                }
+            }
+        }
     }
     
     private var pinDots: some View {
@@ -94,8 +114,6 @@ public struct SetPassword: View {
         // pinの文字数が最大文字数と一致している時の処理
         if pin.count == maxDigits {
             isDisabled = true
-
-
         }
 
         // 最大文字数を超えたテキストを貼り付けた場合、追加された文字を削除し、再帰的な呼び出しを行う
@@ -115,5 +133,11 @@ public struct SetPassword: View {
         }
         
         return "circle.fill"
+    }
+}
+
+struct SetPassword_Previews: PreviewProvider {
+    static var previews: some View {
+        SetPassword()
     }
 }

@@ -43,55 +43,74 @@ struct SetFlickAuth: View {
     
     let width = UIScreen.main.bounds.width
     
-    let height = UIScreen.main.bounds.height
-    
     var body: some View {
         
         if(transition) {
-            SettingView()
+            MainView()
         } else {
-            ZStack {
-                VStack {
-                    Text("フリック文字の登録")
-                        .font(.body)
-                        .fontWeight(.medium)
+            
+            GeometryReader { geometory in
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(Color(red: 0.7490196078431373, green: 0.615686274509804, blue: 0.3686274509803922))
+                        .ignoresSafeArea()
+                    
+                    RoundedRectangle(cornerRadius: 25)
+                        .frame(width: width - 20, height: nil, alignment: .center)
+                        .foregroundColor(Color(red: 0.9490196078431372, green: 0.9490196078431372, blue: 0.9490196078431372))
                         .padding(.top)
                     
+                    VStack {
+                        Spacer()
+                        Rectangle()
+                            .frame(width: nil, height: 100, alignment: .center)
+                            .foregroundColor(Color(red: 0.9490196078431372, green: 0.9490196078431372, blue: 0.9490196078431372))
+                        
+                    }.ignoresSafeArea()
                     
-                    Spacer()
                     
-                    Group {
-                        Text("\(message)")
+                    VStack {
+                        Text("フリック文字の登録")
                             .font(.title3)
-                            .fontWeight(.regular)
-                        Text("\(input)")
-                            .font(.title)
-                            .padding(10)
+                            .fontWeight(.medium)
+                            .padding(.top, 25.0)
+                        
+                        
+                        Spacer()
+                        
+                        Group {
+                            Text("\(message)")
+                                .font(.title3)
+                                .fontWeight(.regular)
+                            Text("\(input)")
+                                .font(.title)
+                                .padding(10)
+                        }
+                        
+                        Spacer()
+                        
+                        SetKeyboardView(input: $input,
+                                        length: inputLength,
+                                        onTime: $onTime,
+                                        waitTime: $waitTime,
+                                        xDistance: $xDistance,
+                                        yDistance: $yDistance,
+                                        isEnter: $isEnter,
+                                        message: $message,
+                                        num: $count,
+                                        trans: $transition,
+                                        initFlag: $initFlag,
+                                        flickAuth: flickAuth).onAppear(perform: {
+                            if(!initFlag) {
+                                print("配列初期化")
+                                flickAuth.initAll()
+                            }
+                        })
                     }
                     
-                    Spacer()
-                    
-                    SetKeyboardView(input: $input,
-                                    length: inputLength,
-                                    onTime: $onTime,
-                                    waitTime: $waitTime,
-                                    xDistance: $xDistance,
-                                    yDistance: $yDistance,
-                                    isEnter: $isEnter,
-                                    message: $message,
-                                    num: $count,
-                                    trans: $transition,
-                                    initFlag: $initFlag,
-                                    flickAuth: flickAuth).onAppear(perform: {
-                        if(!initFlag) {
-                            print("配列初期化")
-                            flickAuth.initAll()
-                        }
-                    })
-                }
-                
-            }
-            
+                }.frame(width: geometory.size.width,height: geometory.size.height)
+                    .animation(.linear(duration: 0.2))
+            }.transition(.move(edge: .trailing))
             
         }
     }
