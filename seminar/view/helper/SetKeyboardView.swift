@@ -45,7 +45,6 @@ struct SetKeyboardView: View {
     @State var initPass = ""
     
     @ObservedObject var flickAuth = FlickAuth()
-    let keychain = KeyChain()
     
     let radius = 4.0
     

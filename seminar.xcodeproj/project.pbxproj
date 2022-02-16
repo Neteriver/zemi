@@ -39,7 +39,6 @@
 		B643C5B827682A5C003F2D11 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643C5B727682A5C003F2D11 /* PasswordView.swift */; };
 		B643C5BA27685CDD003F2D11 /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643C5B927685CDD003F2D11 /* AuthData.swift */; };
 		B647B2F227AA3E2A00FD264A /* SetKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B647B2F127AA3E2A00FD264A /* SetKeyboardView.swift */; };
-		B647B2F427B0C58200FD264A /* SetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B647B2F327B0C58200FD264A /* SetKey.swift */; };
 		B6680F6F27619EAD00F94D90 /* seminarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6680F6E27619EAD00F94D90 /* seminarApp.swift */; };
 		B6680F7127619EAD00F94D90 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6680F7027619EAD00F94D90 /* ContentView.swift */; };
 		B6680F7327619EAF00F94D90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6680F7227619EAF00F94D90 /* Assets.xcassets */; };
@@ -106,7 +105,6 @@
 		B643C5B727682A5C003F2D11 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		B643C5B927685CDD003F2D11 /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
 		B647B2F127AA3E2A00FD264A /* SetKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetKeyboardView.swift; sourceTree = "<group>"; };
-		B647B2F327B0C58200FD264A /* SetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetKey.swift; sourceTree = "<group>"; };
 		B6680F6B27619EAD00F94D90 /* seminar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = seminar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6680F6E27619EAD00F94D90 /* seminarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seminarApp.swift; sourceTree = "<group>"; };
 		B6680F7027619EAD00F94D90 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 				2470845A278736D9009284C5 /* LocationAuth.swift */,
 				247517E2278D5196004573FD /* FlickAuth.swift */,
 				2467D597278F0CF4004123D9 /* Util.swift */,
-				B647B2F327B0C58200FD264A /* SetKey.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -464,7 +461,6 @@
 				B643C5BA27685CDD003F2D11 /* AuthData.swift in Sources */,
 				B647B2F227AA3E2A00FD264A /* SetKeyboardView.swift in Sources */,
 				B643C5B32761AEFB003F2D11 /* PasswordAuth.swift in Sources */,
-				B647B2F427B0C58200FD264A /* SetKey.swift in Sources */,
 				24723A46278C266C00220FB0 /* MainRow.swift in Sources */,
 				2467D598278F0CF4004123D9 /* Util.swift in Sources */,
 				24723A48278C2E0000220FB0 /* VideoView.swift in Sources */,

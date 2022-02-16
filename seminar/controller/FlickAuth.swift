@@ -331,7 +331,7 @@ class FlickAuth:ObservableObject {
         var left:Double
         var right:Double
         var count = 0
-        let authCount = Int(floor(Double(authList.count) * 0.8))
+        let authCount = Int(floor(Double(self.authList.count) * 0.8))
         print("認証受入数:\(authCount)")
         // 一旦x移動値のみでやる
         for i in 0..<length {
@@ -340,14 +340,14 @@ class FlickAuth:ObservableObject {
             print("認証基準:\(authStandard)")
             left = xDisAve[i] - xDisSd[i] * authStandard
             right = xDisAve[i] + xDisSd[i] * authStandard
-            print("left:\(left)")
-            print("right:\(right)")
-            print("authList:\(authList[i][0])")
-            print("length:\(authList.count)")
-            if  left < authList[i][0] && right >= authList[i][0] {
+            print("左辺:\(left)")
+            print("右辺:\(right)")
+            print("認証用リスト:\(self.authList[i][0])")
+            print("認証用リストの要素数:\(self.authList.count)")
+            if  left < self.authList[i][0] && right >= self.authList[i][0] {
                 print("accept")
                 count += 1
-                print("count\(count)")
+                print("認証成功数:\(count)")
             } else {
                 print("reject")
             }
