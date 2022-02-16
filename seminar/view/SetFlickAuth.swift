@@ -14,28 +14,20 @@ struct SetFlickAuth: View {
     
     // データ登録回数
     @State var count = 10
-    
     //入力文字
     @State var input = ""
-    
     // 認証用文字列の長さ
     var inputLength : Int { get { return input.count } }
-    
     // 入力文字の退避用
     var inputTemp = ""
-    
     //フリック時間(タップ時間)
     @State var onTime = 0.0
-    
     //フリック時間(間隔)
     @State var waitTime = 0.0
-    
     //エンター
     @State var isEnter = false
-    
     // x移動値
     @State var xDistance:Double = 0
-    
     // y移動値
     @State var yDistance:Double = 0
     
@@ -43,15 +35,11 @@ struct SetFlickAuth: View {
     
     @State var initFlag = false
     
-    
-    
-    
-    
     @EnvironmentObject var flickAuth:FlickAuth
     
     @State var message = "新しいパスワードを入力してください"
-    @State var countDown = ""
     
+    @State var countDown = ""
     
     let width = UIScreen.main.bounds.width
     

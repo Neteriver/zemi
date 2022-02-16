@@ -26,7 +26,7 @@ struct ContentView: View {
     var body: some View {
         if(pass == "") {
             // 初回起動時初期設定を行う
-            SetFlickAuth()
+            InitSettingView()
         } else {
             if(show) {
                 GpsView()
