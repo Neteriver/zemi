@@ -10,7 +10,7 @@ import MapKit
 import AlertToast
 
 struct GpsView: View {
-        
+    
     @ObservedObject var locationAuth = LocationAuth()
     
     @State private var userTrackingMode: MapUserTrackingMode = .follow
@@ -19,44 +19,55 @@ struct GpsView: View {
     let height = UIScreen.main.bounds.height
     
     var body: some View {
-        if(locationAuth.result) {
-            FlickAuthView()
-        } else {
-            if(locationAuth.isEnable) {
-                ZStack {
-                    Rectangle().frame(width: width, height: height, alignment: .center)
-                        .foregroundColor(.black)
-                        .opacity(0.6)
-                        .edgesIgnoringSafeArea(.all)
-                    
-                    VStack {
-                        Spacer(minLength: 10.0)
-                        Map(coordinateRegion: $locationAuth.region, interactionModes: .all, showsUserLocation: true, userTrackingMode: $userTrackingMode)
-                            .frame(width: width, height: height*0.30)
-                            .border(Color.gray)
-                        Spacer()
-                        Text("").foregroundColor(.black).opacity(0.6).frame(width: width, height: height/2)
-                    }
-
-                    
-                    AlertToast(type: .loading, title: "GPS認証中です", subTitle: nil)
-                        .alert("GPSが一致しません", isPresented: $locationAuth.isAuthingBad) {
-                            Button("了解") {
-                                locationAuth.auth()
+        GeometryReader { geometory in
+            ZStack{
+                Rectangle()
+                    .foregroundColor(Color(red: 0.7490196078431373, green: 0.615686274509804, blue: 0.3686274509803922))
+                    .ignoresSafeArea()
+                
+                RoundedRectangle(cornerRadius: 25)
+                    .frame(width: width - 20, height: nil, alignment: .center)
+                    .foregroundColor(Color(red: 0.9490196078431372, green: 0.9490196078431372, blue: 0.9490196078431372))
+                    .padding(.top)
+                
+                
+                if(locationAuth.result) {
+                    FlickAuthView()
+                } else {
+                    if(locationAuth.isEnable) {
+                        ZStack {
+                            
+                            VStack {
+                                Spacer(minLength: 20.0)
+                                Map(coordinateRegion: $locationAuth.region, interactionModes: .all, showsUserLocation: true, userTrackingMode: $userTrackingMode)
+                                    .frame(width: width - 20, height: height*0.30)
+                                Spacer()
+                                Text("").foregroundColor(.black).opacity(0.6).frame(width: width, height: height/2)
                             }
-                        } message: {
-                            Text("GPSが一致しません")
-                        }.onAppear(perform: {
-                            // GPS認証
-                            locationAuth.auth()
-                        })
+                            
+                            
+                            AlertToast(type: .loading, title: "GPS認証中です", subTitle: nil)
+                                .alert("GPSが一致しません", isPresented: $locationAuth.isAuthingBad) {
+                                    Button("了解") {
+                                        locationAuth.auth()
+                                    }
+                                } message: {
+                                    Text("GPSが一致しません")
+                                }.onAppear(perform: {
+                                    // GPS認証
+                                    locationAuth.auth()
+                                })
+                        }
+                    } else {
+                        Text("").onAppear() {
+                            locationAuth.request()
+                        }
+                    }
                 }
-            } else {
-                Text("これはダミーテキストです").foregroundColor(.white).onAppear() {
-                    locationAuth.request()
-                }
-            }
-        }
+                
+            }.frame(width: geometory.size.width,height: geometory.size.height)
+                .animation(.linear(duration: 0.2))
+        }.transition(.move(edge: .trailing))
     }
 }
 

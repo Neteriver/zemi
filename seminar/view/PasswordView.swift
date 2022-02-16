@@ -19,14 +19,28 @@ public struct PasswordView: View {
     
     var handler: (String, (Bool) -> Void) -> Void
     
+    let width = UIScreen.main.bounds.width
+    
     public var body: some View {
-        VStack {
-            Text(label).font(.title)
-            ZStack {
-                pinDots
-                backgroundField
+        ZStack {
+            
+            Rectangle()
+                .foregroundColor(Color(red: 0.7490196078431373, green: 0.615686274509804, blue: 0.3686274509803922))
+                .ignoresSafeArea()
+            
+            RoundedRectangle(cornerRadius: 25)
+                .frame(width: width - 20, height: nil, alignment: .center)
+                .foregroundColor(Color(red: 0.9490196078431372, green: 0.9490196078431372, blue: 0.9490196078431372))
+                .padding(.top)
+            
+            VStack {
+                Text(label).font(.title)
+                ZStack {
+                    pinDots
+                    backgroundField
+                }
+                showPinStack
             }
-            showPinStack
         }
         
     }

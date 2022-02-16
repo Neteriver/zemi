@@ -56,11 +56,11 @@ struct MainView: View {
     
     func readFromFile() -> [MainData] {
         guard let dirURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.seminar.kaijiIshi") else {
-            fatalError("")
+            return []
         }
         print(dirURL.path)
         guard let fileNames = try? FileManager.default.contentsOfDirectory(atPath: dirURL.path) else {
-            fatalError("")
+            return []
         }
         
         var mainData:[MainData] = []
