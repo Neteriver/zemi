@@ -30,7 +30,7 @@ struct TopView: View {
                         })
                         TopRow(title: "このアプリについて", imageName: "questionmark.circle.fill")
                     }
-                }.navigationBarTitle("アプリ名")
+                }.navigationBarTitle("Fivate")
                     .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
                         showLock = false
                     }
