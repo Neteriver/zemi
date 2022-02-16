@@ -52,10 +52,18 @@ struct SetFlickAuth: View {
         } else {
             ZStack {
                 VStack {
+                    Text("フリック文字の登録")
+                        .font(.body)
+                        .fontWeight(.medium)
+                        .padding(.top)
+                    
+                    
                     Spacer()
                     
                     Group {
                         Text("\(message)")
+                            .font(.title3)
+                            .fontWeight(.regular)
                         Text("\(input)")
                             .font(.title)
                             .padding(10)
@@ -90,8 +98,8 @@ struct SetFlickAuth: View {
 }
 
 
-//struct SetFlickAuth_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SetFlickAuth()
-//    }
-//}
+struct SetFlickAuth_Previews: PreviewProvider {
+    static var previews: some View {
+        SetFlickAuth().environmentObject(FlickAuth())
+    }
+}
