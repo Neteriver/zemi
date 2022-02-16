@@ -87,10 +87,10 @@ struct SettingView: View {
                 }
                 if(isFlickOn) {
                     
-                    NavigationLink(destination: SetFlickAuth(),
-                                   label: {
-                        TopRow(title: "パスワードの変更", imageName: "11")
-                    })
+//                    NavigationLink(destination: SetFlickAuth(),
+//                                   label: {
+//                        TopRow(title: "パスワードの変更", imageName: "11")
+//                    })
                 }
             } header :{
                 Text("フリック認証")

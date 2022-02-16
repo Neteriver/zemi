@@ -9,6 +9,10 @@ import SwiftUI
 
 struct InitSettingView: View {
     
+    @State var flg = false
+    
+    @State private var showMain = false
+    
     @State private var present = false
     
     let width = UIScreen.main.bounds.width
@@ -70,9 +74,14 @@ struct InitSettingView: View {
                     
                 }.onTapGesture(perform: {
                     present.toggle()
-                }).sheet(isPresented: $present) {
-                    //SetFlickAuth()
-                    SetPassword()
+                }).fullScreenCover(isPresented: $present,onDismiss: {
+                    if(showMain) {
+                        flg = true
+                    }
+                }) {
+                    SetPassword(present: $present, showMain: $showMain)
+                }.fullScreenCover(isPresented: $flg) {
+                    TopView()
                 }
                 .padding(.vertical, 2.5)
                 

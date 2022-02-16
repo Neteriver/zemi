@@ -12,6 +12,10 @@ import AlertToast
 
 struct SetFlickAuth: View {
     
+    @Binding var present:Bool
+    
+    @Binding var showMain:Bool
+    
     // データ登録回数
     @State var count = 10
     //入力文字
@@ -45,80 +49,87 @@ struct SetFlickAuth: View {
     
     var body: some View {
         
-        if(transition) {
-            MainView()
-        } else {
-            
-            GeometryReader { geometory in
-                ZStack {
-                    Rectangle()
-                        .foregroundColor(Color(red: 0.7490196078431373, green: 0.615686274509804, blue: 0.3686274509803922))
-                        .ignoresSafeArea()
-                    
-                    RoundedRectangle(cornerRadius: 25)
-                        .frame(width: width - 20, height: nil, alignment: .center)
-                        .foregroundColor(Color(red: 0.9490196078431372, green: 0.9490196078431372, blue: 0.9490196078431372))
-                        .padding(.top)
-                    
-                    VStack {
-                        Spacer()
-                        Rectangle()
-                            .frame(width: nil, height: 100, alignment: .center)
-                            .foregroundColor(Color(red: 0.9490196078431372, green: 0.9490196078431372, blue: 0.9490196078431372))
-                        
-                    }.ignoresSafeArea()
-                    
-                    
-                    VStack {
-                        Text("フリック文字の登録")
-                            .font(.title3)
-                            .fontWeight(.medium)
-                            .padding(.top, 25.0)
-                        
-                        
-                        Spacer()
-                        
-                        Group {
-                            Text("\(message)")
-                                .font(.title3)
-                                .fontWeight(.regular)
-                            Text("\(input)")
-                                .font(.title)
-                                .padding(10)
-                        }
-                        
-                        Spacer()
-                        
-                        SetKeyboardView(input: $input,
-                                        length: inputLength,
-                                        onTime: $onTime,
-                                        waitTime: $waitTime,
-                                        xDistance: $xDistance,
-                                        yDistance: $yDistance,
-                                        isEnter: $isEnter,
-                                        message: $message,
-                                        num: $count,
-                                        trans: $transition,
-                                        initFlag: $initFlag,
-                                        flickAuth: flickAuth).onAppear(perform: {
-                            if(!initFlag) {
-                                print("配列初期化")
-                                flickAuth.initAll()
-                            }
+        GeometryReader { geometory in
+            ZStack {
+                if(transition) {
+                    Text("")
+                        .onAppear(perform: {
+                            present = false
+                            showMain = true
                         })
+                }
+                
+                Rectangle()
+                    .foregroundColor(Color(red: 0.7490196078431373, green: 0.615686274509804, blue: 0.3686274509803922))
+                    .ignoresSafeArea()
+                
+                RoundedRectangle(cornerRadius: 25)
+                    .frame(width: width - 20, height: nil, alignment: .center)
+                    .foregroundColor(Color(red: 0.9490196078431372, green: 0.9490196078431372, blue: 0.9490196078431372))
+                    .padding(.top)
+                
+                VStack {
+                    Spacer()
+                    Rectangle()
+                        .frame(width: nil, height: 100, alignment: .center)
+                        .foregroundColor(Color(red: 0.9490196078431372, green: 0.9490196078431372, blue: 0.9490196078431372))
+                    
+                }.ignoresSafeArea()
+                
+                
+                VStack {
+                    Text("フリック文字の登録")
+                        .font(.title3)
+                        .fontWeight(.medium)
+                        .padding(.top, 25.0)
+                    
+                    
+                    Spacer()
+                    
+                    Group {
+                        Text("\(message)")
+                            .font(.title3)
+                            .fontWeight(.regular)
+                        Text("\(input)")
+                            .font(.title)
+                            .padding(10)
                     }
                     
-                }.frame(width: geometory.size.width,height: geometory.size.height)
-                    .animation(.linear(duration: 0.2))
-            }.transition(.move(edge: .trailing))
-            
-        }
+                    Spacer()
+                    
+                    SetKeyboardView(input: $input,
+                                    length: inputLength,
+                                    onTime: $onTime,
+                                    waitTime: $waitTime,
+                                    xDistance: $xDistance,
+                                    yDistance: $yDistance,
+                                    isEnter: $isEnter,
+                                    message: $message,
+                                    num: $count,
+                                    trans: $transition,
+                                    initFlag: $initFlag,
+                                    flickAuth: flickAuth).onAppear(perform: {
+                        if(!initFlag) {
+                            print("配列初期化")
+                            flickAuth.initAll()
+                        }
+                        
+                    })
+                }
+                
+            }.frame(width: geometory.size.width,height: geometory.size.height)
+                .animation(.linear(duration: 0.2))
+        }.transition(.move(edge: .trailing))
+        
+        
     }
 }
 
 
 struct SetFlickAuth_Previews: PreviewProvider {
+    @State static var present = true
+    @State static var showMain = false
     static var previews: some View {
-        SetFlickAuth().environmentObject(FlickAuth())
+        SetFlickAuth(present: $present, showMain: $showMain).environmentObject(FlickAuth())
     }
 }

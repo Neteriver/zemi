@@ -12,6 +12,10 @@ import Introspect
 
 public struct SetPassword: View {
     
+    @Binding var present:Bool
+    
+    @Binding var showMain:Bool
+    
     var maxDigits: Int = 4
     @State var label = "パスコードを入力してください"
     
@@ -27,7 +31,7 @@ public struct SetPassword: View {
     public var body: some View {
         
         if(isDisabled) {
-            SetFlickAuth()
+            SetGpsView(present: $present, showMain: $showMain)
         } else {
             ZStack {
                 
@@ -137,7 +141,9 @@ public struct SetPassword: View {
 }
 
 struct SetPassword_Previews: PreviewProvider {
+    @State static var present = true
+    @State static var showMain = false
     static var previews: some View {
-        SetPassword()
+        SetPassword(present: $present, showMain: $showMain)
     }
 }
